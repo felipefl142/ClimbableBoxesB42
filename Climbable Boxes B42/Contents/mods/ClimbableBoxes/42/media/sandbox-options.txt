@@ -1,0 +1,27 @@
+VERSION = 1,
+
+option HereGoesTheSun.EnableGodRays {
+    page = HGTS,
+	translation = HereGoesTheSun_EnableGodRays,
+	tooltip = HereGoesTheSun_EnableGodRays_Tooltip,
+	type = boolean,
+	default = true,
+}
+
+option HereGoesTheSun.EnableStormMood {
+    page = HGTS,
+    translation = HereGoesTheSun_EnableStormMood,
+    tooltip = HereGoesTheSun_EnableStormMood_Tooltip,
+    type = boolean,
+    default = true,
+}
+
+option HereGoesTheSun.StormMoodPreset {
+    page = HGTS,
+    translation = HereGoesTheSun_StormMoodPreset,
+    tooltip = HereGoesTheSun_StormMoodPreset_Tooltip,
+    type = enum,
+	numValues = 3,
+	default = 2,
+    valueTranslation = HereGoesTheSun_StormMoodPreset,
+}

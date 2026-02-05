@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animNode>
+    <m_Name>ClimbBoxEnd</m_Name>
+    <m_AnimName>Bob_ClimbFence_End</m_AnimName>
+    <m_Speed>0.80</m_Speed>
+    <m_Loop>false</m_Loop>
+</animNode>

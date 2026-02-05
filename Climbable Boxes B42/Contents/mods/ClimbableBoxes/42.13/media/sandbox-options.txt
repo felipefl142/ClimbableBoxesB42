@@ -1,27 +1,39 @@
 VERSION = 1,
 
-option HereGoesTheSun.EnableGodRays {
-    page = HGTS,
-	translation = HereGoesTheSun_EnableGodRays,
-	tooltip = HereGoesTheSun_EnableGodRays_Tooltip,
-	type = boolean,
-	default = true,
+option ClimbableBoxes.DifficultyMode {
+    page = ClimbableBoxes,
+    translation = ClimbableBoxes_DifficultyMode,
+    tooltip = ClimbableBoxes_DifficultyMode_Tooltip,
+    type = enum,
+    numValues = 2,
+    default = 1,
+    valueTranslation = ClimbableBoxes_DifficultyMode,
 }
 
-option HereGoesTheSun.EnableStormMood {
-    page = HGTS,
-    translation = HereGoesTheSun_EnableStormMood,
-    tooltip = HereGoesTheSun_EnableStormMood_Tooltip,
+option ClimbableBoxes.BaseSuccessRate {
+    page = ClimbableBoxes,
+    translation = ClimbableBoxes_BaseSuccessRate,
+    tooltip = ClimbableBoxes_BaseSuccessRate_Tooltip,
+    type = integer,
+    min = 10,
+    max = 100,
+    default = 90,
+}
+
+option ClimbableBoxes.EnduranceCostMultiplier {
+    page = ClimbableBoxes,
+    translation = ClimbableBoxes_EnduranceCostMultiplier,
+    tooltip = ClimbableBoxes_EnduranceCostMultiplier_Tooltip,
+    type = double,
+    min = 0.0,
+    max = 5.0,
+    default = 1.0,
+}
+
+option ClimbableBoxes.EnableHealthCheck {
+    page = ClimbableBoxes,
+    translation = ClimbableBoxes_EnableHealthCheck,
+    tooltip = ClimbableBoxes_EnableHealthCheck_Tooltip,
     type = boolean,
     default = true,
-}
-
-option HereGoesTheSun.StormMoodPreset {
-    page = HGTS,
-    translation = HereGoesTheSun_StormMoodPreset,
-    tooltip = HereGoesTheSun_StormMoodPreset_Tooltip,
-    type = enum,
-	numValues = 3,
-	default = 2,
-    valueTranslation = HereGoesTheSun_StormMoodPreset,
 }

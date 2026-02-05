@@ -1,5 +1,6 @@
 name=Climbable Boxes (B42)
 poster=poster.png
 id=ClimbableBoxesB42
-description= Makes boxes climbable.
+description=Makes boxes and crates climbable. Stand on top of them!
 url=
+require=TchernoLib

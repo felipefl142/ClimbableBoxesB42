@@ -1,0 +1,19 @@
+UI_EN = {
+    UI_optionscreen_binding_ClimbBox_Key = "Climb Box Key",
+    ContextMenu_ClimbBox = "Climb onto box",
+    Tooltip_ClimbBox = "Climb onto this box",
+
+    ClimbableBoxes_DifficultyMode = "Difficulty Mode",
+    ClimbableBoxes_DifficultyMode_Tooltip = "Full: Success/struggle/fail based on stats. Simplified: Always succeed.",
+    ClimbableBoxes_DifficultyMode1 = "Full",
+    ClimbableBoxes_DifficultyMode2 = "Simplified",
+
+    ClimbableBoxes_BaseSuccessRate = "Base Success Rate",
+    ClimbableBoxes_BaseSuccessRate_Tooltip = "Starting success percentage before stat modifiers (Full mode only).",
+
+    ClimbableBoxes_EnduranceCostMultiplier = "Endurance Cost Multiplier",
+    ClimbableBoxes_EnduranceCostMultiplier_Tooltip = "Scales endurance consumption. 0 = free, 1 = normal, 5 = very costly.",
+
+    ClimbableBoxes_EnableHealthCheck = "Enable Health Check",
+    ClimbableBoxes_EnableHealthCheck_Tooltip = "If enabled, injuries to arms, torso, and legs prevent climbing.",
+}

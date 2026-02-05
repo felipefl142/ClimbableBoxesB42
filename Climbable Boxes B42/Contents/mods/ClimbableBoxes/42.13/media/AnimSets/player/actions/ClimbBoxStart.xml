@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animNode>
+    <m_Name>ClimbBoxStart</m_Name>
+    <m_AnimName>Bob_ClimbFence_Start</m_AnimName>
+    <m_Speed>0.80</m_Speed>
+    <m_Loop>false</m_Loop>
+    <m_CustomEvents>
+        <name>LuaNet.Event</name>
+        <time>0.30</time>
+        <parameterValue>30</parameterValue>
+    </m_CustomEvents>
+    <m_CustomEvents>
+        <name>LuaNet.Event</name>
+        <time>0.90</time>
+        <parameterValue>90</parameterValue>
+    </m_CustomEvents>
+</animNode>

@@ -44,7 +44,8 @@ These are critical — B42.13 changed many APIs from B42:
 | Moodles | `MoodleType.ENDURANCE` (uppercase enum) |
 | Stats | `stats:remove(CharacterStat.ENDURANCE, amount)` |
 | Square flags | `square:has(IsoFlagType.X)` |
-| Player angle | `character:getAnimSetName()` returns 0, 90, -90, 180 |
+| Player direction | `character:getDir()` returns IsoDirections (N/NE/E/SE/S/SW/W/NW) |
+| Animation events | XML `<name>` must match Lua event handler checks |
 
 ## Critical Bug Fixes & Lessons Learned
 
@@ -88,31 +89,86 @@ end
 - `-90°` = **North** (NOT West!)
 - `180°` = **West** (NOT South!)
 
-### Animation Event System Debugging
+### Direction Detection Fix V2 - API Method Discovery (2026-02-05)
 
-**Added comprehensive logging to ISClimbBox.lua:**
-- Logs every `animEvent(event, parameter)` call
-- Logs state transitions (success/struggle/fail outcomes)
-- Logs teleport and completion events
-- Added handler for 30% event in ClimbBoxStart animation
+**Problem:** "Object tried to call nil in findClimbTarget" - `getAnimSetName()` **doesn't exist in the B42.13 API**, causing crashes.
+
+**Root Cause:**
+- Climb mod documentation references `character:getAnimSetName()` but this method doesn't exist!
+- The documentation was incorrect or refers to a different PZ version
+- We need a different approach to get player facing direction
+
+**Solution:** Use `getDir()` and handle ALL 8 directions including diagonals:
+
+```lua
+-- CORRECT - getDir() returns IsoDirections enum (works in B42.13)
+local dir = isoPlayer:getDir()
+if not dir then return nil, nil end
+
+local deltaX = 0
+local deltaY = 0
+
+-- Handle all 8 directions: N, NE, E, SE, S, SW, W, NW
+if dir == IsoDirections.N then
+    deltaX = 0
+    deltaY = -1
+elseif dir == IsoDirections.NE then
+    -- Convert diagonal to cardinal (favor horizontal)
+    deltaX = 1
+    deltaY = 0
+elseif dir == IsoDirections.E then
+    deltaX = 1
+    deltaY = 0
+-- ... (continue for all 8 directions)
+```
+
+**Diagonal Conversion Strategy:**
+- NE → E (favor horizontal movement)
+- SE → E
+- SW → W
+- NW → W
+
+**Why This Works:**
+- `getDir()` is a real API method that exists and works
+- Handles all possible direction values (no unhandled cases)
+- Simple, deterministic conversion from diagonals to cardinals
+- No trigonometry needed - direct enum mapping
+
+**Critical Lesson:** Always verify API methods exist in the actual game version - documentation can be wrong or outdated!
+
+### Animation Event System Fix (2026-02-05)
+
+**Problem:** Animation stuck looping indefinitely, receiving `ActiveAnimLooped` events instead of progressing through the state machine.
+
+**Root Cause:** Animation XML files used incorrect event names:
+- XML had: `<name>LuaNet.Event</name>`
+- Lua checked for: `event == "ClimbBoxStart"`
+- Events never matched, so state machine never progressed
+
+**Solution:** Changed all animation XML `<m_CustomEvents><name>` tags to match the animation names themselves:
+```xml
+<m_CustomEvents>
+    <name>ClimbBoxStart</name>  <!-- Was: LuaNet.Event -->
+    <time>0.30</time>
+    <parameterValue>30</parameterValue>
+</m_CustomEvents>
+```
+
+**Critical Pattern:** The event name in XML must exactly match what the Lua `animEvent()` handler checks for. For PZ B42.13, use the animation name itself as the event name.
 
 **Animation Event Flow:**
-1. ClimbBoxStart plays → fires events at 30% and 90%
+1. ClimbBoxStart plays → fires events "ClimbBoxStart" at 30% and 90%
 2. At 90%: compute outcome, consume endurance, transition to next anim
-3. Success/Struggle/Fail animations play → fire completion events
-4. Transition to ClimbBoxEnd → fires completion event
+3. Success/Struggle/Fail animations play → fire completion events with their own names
+4. Transition to ClimbBoxEnd → fires completion event "ClimbBoxEnd"
 5. End animation completes → `forceComplete()` action
 
-**Debugging Pattern:**
-```lua
-function ISClimbBox:animEvent(event, parameter)
-    print("[ISClimbBox] animEvent called: event=" .. tostring(event) .. ", parameter=" .. tostring(parameter))
-    -- Check event/parameter combinations
-    if event == self.startAnim and parameter == "90" then
-        -- State machine logic here
-    end
-end
-```
+**All Fixed XMLs:**
+- ClimbBoxStart.xml: events "ClimbBoxStart" at 30% and 90%
+- ClimbBoxSuccess.xml: event "ClimbBoxSuccess" at 95%
+- ClimbBoxStruggle.xml: event "ClimbBoxStruggle" at 95%
+- ClimbBoxFail.xml: event "ClimbBoxFail" at 95%
+- ClimbBoxEnd.xml: event "ClimbBoxEnd" at 95%
 
 ### Box Detection via Context Menu vs Keybind
 

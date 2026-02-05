@@ -9,7 +9,7 @@
         <m_Value>ClimbBoxEnd</m_Value>
     </m_Conditions>
     <m_CustomEvents>
-        <name>LuaNet.Event</name>
+        <name>ClimbBoxEnd</name>
         <time>0.95</time>
         <parameterValue>ClimbBoxEnd</parameterValue>
     </m_CustomEvents>

@@ -99,29 +99,54 @@ function ClimbBox.findClimbTarget(isoPlayer)
     local playerSquare = isoPlayer:getSquare()
     if not playerSquare then return nil, nil end
 
-    -- Get facing direction using getAnimSetName() which returns angle values
-    local angle = isoPlayer:getAnimSetName()
+    -- Get facing direction using getDir() and handle all directions including diagonals
+    -- We'll convert diagonals to the nearest cardinal direction
+    local dir = isoPlayer:getDir()
+    if not dir then
+        if ClimbBox.Verbose then print("[ClimbBox] ERROR: getDir() returned nil") end
+        return nil, nil
+    end
+
     local deltaX = 0
     local deltaY = 0
 
-    -- Convert angle to delta coordinates
-    -- B42.13 API: 0=East, 90=South, -90=North, 180=West
-    if angle == 0 then
-        deltaX = 1
-        deltaY = 0
-    elseif angle == 180 then
-        deltaX = -1
-        deltaY = 0
-    elseif angle == 90 then
-        deltaX = 0
-        deltaY = 1
-    elseif angle == -90 then
+    -- Handle all 8 directions (4 cardinal + 4 diagonal)
+    -- IsoDirections: N, NE, E, SE, S, SW, W, NW
+    if dir == IsoDirections.N then
         deltaX = 0
         deltaY = -1
+    elseif dir == IsoDirections.NE then
+        -- Convert NE to E (favor horizontal for diagonals)
+        deltaX = 1
+        deltaY = 0
+    elseif dir == IsoDirections.E then
+        deltaX = 1
+        deltaY = 0
+    elseif dir == IsoDirections.SE then
+        -- Convert SE to E
+        deltaX = 1
+        deltaY = 0
+    elseif dir == IsoDirections.S then
+        deltaX = 0
+        deltaY = 1
+    elseif dir == IsoDirections.SW then
+        -- Convert SW to W
+        deltaX = -1
+        deltaY = 0
+    elseif dir == IsoDirections.W then
+        deltaX = -1
+        deltaY = 0
+    elseif dir == IsoDirections.NW then
+        -- Convert NW to W
+        deltaX = -1
+        deltaY = 0
+    else
+        if ClimbBox.Verbose then print("[ClimbBox] ERROR: Unknown direction: " .. tostring(dir)) end
+        return nil, nil
     end
 
     if ClimbBox.Verbose then
-        print("[ClimbBox] Player angle: " .. tostring(angle) .. " -> deltaX=" .. deltaX .. ", deltaY=" .. deltaY)
+        print("[ClimbBox] Player direction: " .. tostring(dir) .. " -> deltaX=" .. deltaX .. ", deltaY=" .. deltaY)
     end
 
     -- Target is the adjacent square in the facing direction (same Z)

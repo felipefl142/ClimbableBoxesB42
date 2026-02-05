@@ -43,28 +43,50 @@ function ClimbBox.isClimbableBox(isoObject)
     if ClimbBox.Verbose then print("[ClimbBox] IsMoveAble: " .. tostring(isMoveable)) end
     if not isMoveable then return false end
 
-    -- Must have a container type
+    -- Get object and sprite names for debugging
+    local objName = isoObject:getName()
+    local spriteName = sprite:getName()
+    if ClimbBox.Verbose then
+        print("[ClimbBox] Object name: " .. tostring(objName))
+        print("[ClimbBox] Sprite name: " .. tostring(spriteName))
+    end
+
+    -- Check container type first
     local containerType = props:get("ContainerType")
     if ClimbBox.Verbose then print("[ClimbBox] ContainerType: " .. tostring(containerType)) end
-    if not containerType then return false end
 
-    -- Known box/crate container types
-    local validTypes = {
-        ["crate"] = true,
-        ["smallbox"] = true,
-        ["cardboardbox"] = true,
-    }
+    if containerType then
+        -- Known box/crate container types
+        local validTypes = {
+            ["crate"] = true,
+            ["smallbox"] = true,
+            ["cardboardbox"] = true,
+        }
 
-    if validTypes[string.lower(containerType)] then
-        if ClimbBox.Verbose then print("[ClimbBox] Valid container type matched!") end
-        return true
+        if validTypes[string.lower(containerType)] then
+            if ClimbBox.Verbose then print("[ClimbBox] Valid container type matched!") end
+            return true
+        end
+    end
+
+    -- Fallback: check sprite name for carpentry crates/boxes
+    if spriteName then
+        local lowerSprite = string.lower(spriteName)
+        -- carpentry_01_16 is a wooden crate sprite
+        if string.find(lowerSprite, "carpentry_01_16") or
+           string.find(lowerSprite, "carpentry_01_17") or
+           string.find(lowerSprite, "carpentry_01_18") or
+           string.find(lowerSprite, "carpentry_01_19") then
+            if ClimbBox.Verbose then print("[ClimbBox] Matched carpentry crate sprite!") end
+            return true
+        end
     end
 
     -- Fallback: check object name for box/crate keywords
-    local objName = isoObject:getName()
     if objName then
         local lower = string.lower(objName)
         if string.find(lower, "box") or string.find(lower, "crate") then
+            if ClimbBox.Verbose then print("[ClimbBox] Matched box/crate in object name!") end
             return true
         end
     end
@@ -106,31 +128,56 @@ end
 function ClimbBox.OnPlayerUpdate(isoPlayer)
     -- 1. Cheapest checks first
     local keyPressed = ClimbBox.getKey()
-    if ClimbBox.Verbose and keyPressed then print("[ClimbBox] Key pressed detected") end
+    if ClimbBox.Verbose and keyPressed then
+        print("[ClimbBox] Key pressed detected")
+    end
     if not keyPressed then return end
-    if isoPlayer:hasTimedActions() then return end
+
+    if isoPlayer:hasTimedActions() then
+        if ClimbBox.Verbose then print("[ClimbBox] Player already has timed actions") end
+        return
+    end
 
     -- 2. Square checks
     local square = isoPlayer:getSquare()
-    if not square then return end
-    if square:HasStairs() then return end
+    if not square then
+        if ClimbBox.Verbose then print("[ClimbBox] No player square found") end
+        return
+    end
+    if square:HasStairs() then
+        if ClimbBox.Verbose then print("[ClimbBox] Player is on stairs") end
+        return
+    end
 
     -- 3. Health check (if enabled in sandbox)
     if SandboxVars.ClimbableBoxes.EnableHealthCheck then
-        if ClimbBox.isHealthInhibitingClimb(isoPlayer) then return end
+        if ClimbBox.isHealthInhibitingClimb(isoPlayer) then
+            if ClimbBox.Verbose then print("[ClimbBox] Health check failed") end
+            return
+        end
     end
 
     -- 4. Find target box
+    if ClimbBox.Verbose then print("[ClimbBox] Searching for climbable target...") end
     local targetSquare, targetBox = ClimbBox.findClimbTarget(isoPlayer)
-    if not targetSquare or not targetBox then return end
+    if not targetSquare or not targetBox then
+        if ClimbBox.Verbose then print("[ClimbBox] No climbable box found in facing direction") end
+        return
+    end
 
     -- 5. Verify target square is not already occupied by player
     if square:getX() == targetSquare:getX() and
-       square:getY() == targetSquare:getY() then return end
+       square:getY() == targetSquare:getY() then
+        if ClimbBox.Verbose then print("[ClimbBox] Target square is player's current square") end
+        return
+    end
 
     -- 6. Queue the action
+    if ClimbBox.Verbose then print("[ClimbBox] Queueing climb action!") end
     ISTimedActionQueue.add(ISClimbBox:new(isoPlayer, targetSquare, targetBox))
 end
 
 print("[ClimbBox] Registering OnPlayerUpdate event")
 Events.OnPlayerUpdate.Add(ClimbBox.OnPlayerUpdate)
+print("[ClimbBox] OnPlayerUpdate registered successfully")
+print("[ClimbBox] Verbose mode: " .. tostring(ClimbBox.Verbose))

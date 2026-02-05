@@ -96,7 +96,7 @@ end
 -- Main input detection loop
 function ClimbBox.OnPlayerUpdate(isoPlayer)
     -- 1. Cheapest checks first
-    if not isKeyPressed(ClimbBox.getKey()) then return end
+    if not ClimbBox.getKey() then return end
     if isoPlayer:hasTimedActions() then return end
 
     -- 2. Square checks

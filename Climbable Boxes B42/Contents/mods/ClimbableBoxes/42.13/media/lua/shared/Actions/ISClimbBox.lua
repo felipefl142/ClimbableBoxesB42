@@ -6,7 +6,7 @@ function ISClimbBox:new(character, targetSquare, targetBox)
     local o = ISBaseTimedAction.new(self, character)
     o.stopOnWalk = false
     o.stopOnRun = false
-    o.maxTime = -1  -- Animation-driven
+    o.maxTime = 150  -- Approximate total time for all animations (ticks at 60 FPS)
 
     -- Target info
     o.targetSquare = targetSquare
@@ -19,9 +19,13 @@ function ISClimbBox:new(character, targetSquare, targetBox)
     o.failAnim = "ClimbBoxFail"
     o.endAnim = "ClimbBoxEnd"
 
-    -- State
+    -- State tracking for timer-based progression
     o.isFail = false
     o.isStruggle = false
+    o.currentState = "start"  -- start, outcome, teleport, end, complete
+    o.stateStartTime = 0
+    o.outcomeComputed = false
+    o.teleported = false
 
     return o
 end
@@ -35,12 +39,46 @@ function ISClimbBox:isValid()
 end
 
 function ISClimbBox:update()
+    -- Timer-based state machine (runs every frame at ~60 FPS)
+    local currentTime = self.action:getJobDelta()
+
+    -- Start animation: wait ~45 ticks (0.75 seconds at 60 FPS) before computing outcome
+    if self.currentState == "start" and not self.outcomeComputed then
+        if currentTime >= 45 then
+            print("[ISClimbBox] Timer: Computing outcome at " .. currentTime .. " ticks")
+            self:computeOutcome()
+            self.outcomeComputed = true
+            self.currentState = "outcome"
+            self.stateStartTime = currentTime
+        end
+
+    -- Outcome animation: wait for success/struggle/fail animation to play (~40 ticks)
+    elseif self.currentState == "outcome" and not self.teleported then
+        if currentTime >= self.stateStartTime + 40 then
+            if not self.isFail then
+                print("[ISClimbBox] Timer: Teleporting at " .. currentTime .. " ticks")
+                self:teleportPlayer()
+                self.teleported = true
+            end
+            self.currentState = "end"
+            self.stateStartTime = currentTime
+            self:setActionAnim(self.endAnim)
+        end
+
+    -- End animation: wait ~30 ticks then complete
+    elseif self.currentState == "end" then
+        if currentTime >= self.stateStartTime + 30 then
+            print("[ISClimbBox] Timer: Completing action at " .. currentTime .. " ticks")
+            self:forceComplete()
+        end
+    end
 end
 
 function ISClimbBox:start()
     print("[ISClimbBox] start() called, setting animation: " .. self.startAnim)
     self:setActionAnim(self.startAnim)
-    print("[ISClimbBox] Animation set successfully")
+    self.stateStartTime = 0
+    print("[ISClimbBox] Timer-based state machine initialized")
 end
 
 function ISClimbBox:stop()
@@ -131,6 +169,45 @@ function ISClimbBox:computeSuccessRate()
     self.isFail = (rand > successProba)
 end
 
+-- Compute outcome and transition to appropriate animation
+function ISClimbBox:computeOutcome()
+    local difficultyMode = SandboxVars.ClimbableBoxes.DifficultyMode or 1
+
+    if difficultyMode == 1 then
+        -- Full mode: compute success/struggle/fail
+        self:computeSuccessRate()
+    else
+        -- Simplified mode: always succeed
+        self.isFail = false
+        self.isStruggle = false
+    end
+
+    self:consumeEndurance()
+
+    -- Transition to next animation based on outcome
+    if self.isFail then
+        print("[ISClimbBox] Outcome: FAIL")
+        self:setActionAnim(self.failAnim)
+    elseif self.isStruggle then
+        print("[ISClimbBox] Outcome: STRUGGLE")
+        self:setActionAnim(self.struggleAnim)
+    else
+        print("[ISClimbBox] Outcome: SUCCESS")
+        self:setActionAnim(self.successAnim)
+    end
+end
+
+-- Teleport player to target square
+function ISClimbBox:teleportPlayer()
+    MovePlayer.Teleport(
+        self.character,
+        self.targetSquare:getX() + 0.5,
+        self.targetSquare:getY() + 0.5,
+        self.targetSquare:getZ()
+    )
+    print("[ISClimbBox] Player teleported to box square")
+end
+
 -- Consume endurance, scaled by sandbox multiplier
 function ISClimbBox:consumeEndurance()
     local multiplier = SandboxVars.ClimbableBoxes.EnduranceCostMultiplier or 1.0
@@ -151,69 +228,8 @@ function ISClimbBox:consumeEndurance()
     )
 end
 
--- Animation event handler - drives the state machine
+-- Animation event handler - for logging only (state machine now uses timer in update())
 function ISClimbBox:animEvent(event, parameter)
+    -- Log animation events for debugging (state machine uses timer-based approach)
     print("[ISClimbBox] animEvent called: event=" .. tostring(event) .. ", parameter=" .. tostring(parameter))
-
-    if event == self.startAnim and parameter == "30" then
-        print("[ISClimbBox] Start animation 30% - no action needed")
-        -- Event at 30% - placeholder for future logic if needed
-        return
-    elseif event == self.startAnim and parameter == "90" then
-        print("[ISClimbBox] Start animation 90% - computing outcome")
-        -- At 90% of start animation: determine outcome
-        local difficultyMode = SandboxVars.ClimbableBoxes.DifficultyMode or 1
-
-        if difficultyMode == 1 then
-            -- Full mode: compute success/struggle/fail
-            self:computeSuccessRate()
-        else
-            -- Simplified mode: always succeed
-            self.isFail = false
-            self.isStruggle = false
-        end
-
-        self:consumeEndurance()
-
-        -- Transition to next animation based on outcome
-        if self.isFail then
-            print("[ISClimbBox] Outcome: FAIL - transitioning to fail animation")
-            self:setActionAnim(self.failAnim)
-        elseif self.isStruggle then
-            print("[ISClimbBox] Outcome: STRUGGLE - transitioning to struggle animation")
-            self:setActionAnim(self.struggleAnim)
-        else
-            print("[ISClimbBox] Outcome: SUCCESS - transitioning to success animation")
-            self:setActionAnim(self.successAnim)
-        end
-
-    elseif event == self.successAnim then
-        print("[ISClimbBox] Success animation complete - teleporting player")
-        -- Success animation completed: teleport player to box square
-        MovePlayer.Teleport(
-            self.character,
-            self.targetSquare:getX() + 0.5,
-            self.targetSquare:getY() + 0.5,
-            self.targetSquare:getZ()
-        )
-        print("[ISClimbBox] Teleport complete - transitioning to end animation")
-        self:setActionAnim(self.endAnim)
-
-    elseif event == self.struggleAnim then
-        print("[ISClimbBox] Struggle animation complete - transitioning to success")
-        -- Struggle animation completed: transition to success (retry)
-        self:setActionAnim(self.successAnim)
-
-    elseif event == self.failAnim then
-        print("[ISClimbBox] Fail animation complete - transitioning to end")
-        -- Fail animation completed: go to end
-        self:setActionAnim(self.endAnim)
-
-    elseif event == self.endAnim then
-        print("[ISClimbBox] End animation complete - force completing action")
-        -- End animation completed: finish action
-        self:forceComplete()
-    else
-        print("[ISClimbBox] Unknown event or event/parameter combination")
-    end
 end

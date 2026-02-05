@@ -38,7 +38,9 @@ function ISClimbBox:update()
 end
 
 function ISClimbBox:start()
+    print("[ISClimbBox] start() called, setting animation: " .. self.startAnim)
     self:setActionAnim(self.startAnim)
+    print("[ISClimbBox] Animation set successfully")
 end
 
 function ISClimbBox:stop()
@@ -151,7 +153,14 @@ end
 
 -- Animation event handler - drives the state machine
 function ISClimbBox:animEvent(event, parameter)
-    if event == self.startAnim and parameter == "90" then
+    print("[ISClimbBox] animEvent called: event=" .. tostring(event) .. ", parameter=" .. tostring(parameter))
+
+    if event == self.startAnim and parameter == "30" then
+        print("[ISClimbBox] Start animation 30% - no action needed")
+        -- Event at 30% - placeholder for future logic if needed
+        return
+    elseif event == self.startAnim and parameter == "90" then
+        print("[ISClimbBox] Start animation 90% - computing outcome")
         -- At 90% of start animation: determine outcome
         local difficultyMode = SandboxVars.ClimbableBoxes.DifficultyMode or 1
 
@@ -168,14 +177,18 @@ function ISClimbBox:animEvent(event, parameter)
 
         -- Transition to next animation based on outcome
         if self.isFail then
+            print("[ISClimbBox] Outcome: FAIL - transitioning to fail animation")
             self:setActionAnim(self.failAnim)
         elseif self.isStruggle then
+            print("[ISClimbBox] Outcome: STRUGGLE - transitioning to struggle animation")
             self:setActionAnim(self.struggleAnim)
         else
+            print("[ISClimbBox] Outcome: SUCCESS - transitioning to success animation")
             self:setActionAnim(self.successAnim)
         end
 
     elseif event == self.successAnim then
+        print("[ISClimbBox] Success animation complete - teleporting player")
         -- Success animation completed: teleport player to box square
         MovePlayer.Teleport(
             self.character,
@@ -183,18 +196,24 @@ function ISClimbBox:animEvent(event, parameter)
             self.targetSquare:getY() + 0.5,
             self.targetSquare:getZ()
         )
+        print("[ISClimbBox] Teleport complete - transitioning to end animation")
         self:setActionAnim(self.endAnim)
 
     elseif event == self.struggleAnim then
+        print("[ISClimbBox] Struggle animation complete - transitioning to success")
         -- Struggle animation completed: transition to success (retry)
         self:setActionAnim(self.successAnim)
 
     elseif event == self.failAnim then
+        print("[ISClimbBox] Fail animation complete - transitioning to end")
         -- Fail animation completed: go to end
         self:setActionAnim(self.endAnim)
 
     elseif event == self.endAnim then
+        print("[ISClimbBox] End animation complete - force completing action")
         -- End animation completed: finish action
         self:forceComplete()
+    else
+        print("[ISClimbBox] Unknown event or event/parameter combination")
     end
 end

@@ -99,28 +99,60 @@ function ClimbBox.findClimbTarget(isoPlayer)
     local playerSquare = isoPlayer:getSquare()
     if not playerSquare then return nil, nil end
 
-    -- Get facing direction
+    -- Get facing direction using getAnimSetName() which returns angle values
     local angle = isoPlayer:getAnimSetName()
-    local deltaX = ClimbBox.normalizeByDirection(math.cos(math.rad(angle)))
-    local deltaY = ClimbBox.normalizeByDirection(math.sin(math.rad(angle)))
+    local deltaX = 0
+    local deltaY = 0
+
+    -- Convert angle to delta coordinates
+    -- B42.13 API: 0=East, 90=South, -90=North, 180=West
+    if angle == 0 then
+        deltaX = 1
+        deltaY = 0
+    elseif angle == 180 then
+        deltaX = -1
+        deltaY = 0
+    elseif angle == 90 then
+        deltaX = 0
+        deltaY = 1
+    elseif angle == -90 then
+        deltaX = 0
+        deltaY = -1
+    end
+
+    if ClimbBox.Verbose then
+        print("[ClimbBox] Player angle: " .. tostring(angle) .. " -> deltaX=" .. deltaX .. ", deltaY=" .. deltaY)
+    end
 
     -- Target is the adjacent square in the facing direction (same Z)
-    local targetSquare = getGridSquare(
+    local cell = isoPlayer:getCell()
+    if not cell then return nil, nil end
+
+    local targetSquare = cell:getGridSquare(
         playerSquare:getX() + deltaX,
         playerSquare:getY() + deltaY,
         playerSquare:getZ()
     )
-    if not targetSquare then return nil, nil end
+    if not targetSquare then
+        if ClimbBox.Verbose then print("[ClimbBox] Target square not found") end
+        return nil, nil
+    end
+
+    if ClimbBox.Verbose then
+        print("[ClimbBox] Checking target square: " .. targetSquare:getX() .. "," .. targetSquare:getY() .. "," .. targetSquare:getZ())
+    end
 
     -- Find a climbable box on the target square
     local objects = targetSquare:getObjects()
     for i = 0, objects:size() - 1 do
         local obj = objects:get(i)
         if ClimbBox.isClimbableBox(obj) then
+            if ClimbBox.Verbose then print("[ClimbBox] Found climbable box on target square!") end
             return targetSquare, obj
         end
     end
 
+    if ClimbBox.Verbose then print("[ClimbBox] No climbable box found on target square") end
     return nil, nil
 end
 

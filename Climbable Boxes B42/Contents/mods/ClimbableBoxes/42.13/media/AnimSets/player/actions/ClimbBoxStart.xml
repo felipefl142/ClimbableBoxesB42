@@ -4,6 +4,10 @@
     <m_AnimName>Bob_ClimbFence_Start</m_AnimName>
     <m_Speed>0.80</m_Speed>
     <m_Loop>false</m_Loop>
+    <m_Conditions>
+        <m_Name>PerformingAction</m_Name>
+        <m_Value>ClimbBoxStart</m_Value>
+    </m_Conditions>
     <m_CustomEvents>
         <name>LuaNet.Event</name>
         <time>0.30</time>

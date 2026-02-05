@@ -1,0 +1,6 @@
+version=0.1
+id=3660180662
+description=Makes boxes and crates climbable. Stand on top of them!
+title=Climbable Boxes [B42.13+]
+tags=Build 42;Balance;Misc;
+visibility=unlisted

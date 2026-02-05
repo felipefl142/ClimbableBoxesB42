@@ -1,19 +1,29 @@
+require "ClimbBox"
 require "ClimbBoxConfig"
 require "ClimbBoxHealth"
-
-ClimbBox = ClimbBox or {}
 
 local function onClimbBox(player, targetSquare, targetBox)
     ISTimedActionQueue.add(ISClimbBox:new(player, targetSquare, targetBox))
 end
 
 local function onFillWorldObjectContextMenu(playerNum, context, worldobjects, test)
+    print("[ClimbBox] Context menu called, objects: " .. #worldobjects)
     local player = getSpecificPlayer(playerNum)
     if not player then return end
     if player:hasTimedActions() then return end
 
-    for _, obj in ipairs(worldobjects) do
+    for _, v in ipairs(worldobjects) do
+        local obj = v
+        -- Handle wrapped objects
+        if type(v) == "table" and v.object then
+            obj = v.object
+        end
+        print("[ClimbBox] Checking object: " .. tostring(obj))
+        if obj and obj.getSprite then
+            print("[ClimbBox] Object has sprite: " .. tostring(obj:getSprite()))
+        end
         if ClimbBox.isClimbableBox(obj) then
+            print("[ClimbBox] Found climbable box!")
             local square = obj:getSquare()
             if square then
                 local pSquare = player:getSquare()

@@ -1,9 +1,11 @@
 require "ClimbBoxConfig"
 require "ClimbBoxHealth"
-require "ISBaseTimedAction"
+require "Actions/ISClimbBox"
 
 ClimbBox = ClimbBox or {}
-ClimbBox.Verbose = false
+ClimbBox.Verbose = true  -- Enable debug output
+
+print("[ClimbBox] Module loaded successfully")
 
 -- Normalize floating point direction to cardinal (-1, 0, or 1)
 function ClimbBox.normalizeByDirection(value)
@@ -25,6 +27,7 @@ end
 
 -- Detect if an object is a climbable box/crate by properties
 function ClimbBox.isClimbableBox(isoObject)
+    if ClimbBox.Verbose then print("[ClimbBox] isClimbableBox called") end
     if not isoObject then return false end
 
     -- Skip non-physical objects
@@ -36,10 +39,13 @@ function ClimbBox.isClimbableBox(isoObject)
     if not props then return false end
 
     -- Must be a moveable object
-    if not props:Is(IsoFlagType.IsMoveAble) then return false end
+    local isMoveable = props:has("IsMoveAble")
+    if ClimbBox.Verbose then print("[ClimbBox] IsMoveAble: " .. tostring(isMoveable)) end
+    if not isMoveable then return false end
 
     -- Must have a container type
-    local containerType = props:Val("ContainerType")
+    local containerType = props:get("ContainerType")
+    if ClimbBox.Verbose then print("[ClimbBox] ContainerType: " .. tostring(containerType)) end
     if not containerType then return false end
 
     -- Known box/crate container types
@@ -49,7 +55,10 @@ function ClimbBox.isClimbableBox(isoObject)
         ["cardboardbox"] = true,
     }
 
-    if validTypes[string.lower(containerType)] then return true end
+    if validTypes[string.lower(containerType)] then
+        if ClimbBox.Verbose then print("[ClimbBox] Valid container type matched!") end
+        return true
+    end
 
     -- Fallback: check object name for box/crate keywords
     local objName = isoObject:getName()
@@ -96,7 +105,9 @@ end
 -- Main input detection loop
 function ClimbBox.OnPlayerUpdate(isoPlayer)
     -- 1. Cheapest checks first
-    if not ClimbBox.getKey() then return end
+    local keyPressed = ClimbBox.getKey()
+    if ClimbBox.Verbose and keyPressed then print("[ClimbBox] Key pressed detected") end
+    if not keyPressed then return end
     if isoPlayer:hasTimedActions() then return end
 
     -- 2. Square checks
@@ -121,4 +132,5 @@ function ClimbBox.OnPlayerUpdate(isoPlayer)
     ISTimedActionQueue.add(ISClimbBox:new(isoPlayer, targetSquare, targetBox))
 end
 
+print("[ClimbBox] Registering OnPlayerUpdate event")
 Events.OnPlayerUpdate.Add(ClimbBox.OnPlayerUpdate)

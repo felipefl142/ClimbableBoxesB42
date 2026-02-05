@@ -3,4 +3,4 @@ poster=poster.png
 id=ClimbableBoxesB42
 description=Makes boxes and crates climbable. Stand on top of them!
 url=
-require=TchernoLib
+require=\TchernoLib

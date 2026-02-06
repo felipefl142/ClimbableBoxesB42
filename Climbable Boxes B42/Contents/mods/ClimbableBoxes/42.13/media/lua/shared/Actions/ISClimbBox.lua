@@ -6,7 +6,7 @@ function ISClimbBox:new(character, targetSquare, targetBox)
     local o = ISBaseTimedAction.new(self, character)
     o.stopOnWalk = false
     o.stopOnRun = false
-    o.maxTime = 150  -- Approximate total time for all animations (ticks at 60 FPS)
+    o.maxTime = -1  -- Infinite duration, we control completion via forceComplete()
 
     -- Target info
     o.targetSquare = targetSquare
@@ -22,8 +22,9 @@ function ISClimbBox:new(character, targetSquare, targetBox)
     -- State tracking for timer-based progression
     o.isFail = false
     o.isStruggle = false
-    o.currentState = "start"  -- start, outcome, teleport, end, complete
-    o.stateStartTime = 0
+    o.currentState = "start"  -- start -> outcome -> ending -> complete
+    o.tickCount = 0
+    o.stateStartTick = 0
     o.outcomeComputed = false
     o.teleported = false
 
@@ -39,36 +40,41 @@ function ISClimbBox:isValid()
 end
 
 function ISClimbBox:update()
-    -- Timer-based state machine (runs every frame at ~60 FPS)
-    local currentTime = self.action:getJobDelta()
+    self.tickCount = self.tickCount + 1
 
-    -- Start animation: wait ~45 ticks (0.75 seconds at 60 FPS) before computing outcome
+    -- Log once at start to confirm update() is running
+    if self.tickCount == 1 then
+        print("[ISClimbBox] update() running, state=" .. self.currentState)
+    end
+
+    -- STATE: start -> wait ~45 ticks (~0.75s) then compute outcome
     if self.currentState == "start" and not self.outcomeComputed then
-        if currentTime >= 45 then
-            print("[ISClimbBox] Timer: Computing outcome at " .. currentTime .. " ticks")
+        if self.tickCount >= 45 then
+            print("[ISClimbBox] Timer: Computing outcome at tick " .. self.tickCount)
             self:computeOutcome()
             self.outcomeComputed = true
             self.currentState = "outcome"
-            self.stateStartTime = currentTime
+            self.stateStartTick = self.tickCount
         end
 
-    -- Outcome animation: wait for success/struggle/fail animation to play (~40 ticks)
-    elseif self.currentState == "outcome" and not self.teleported then
-        if currentTime >= self.stateStartTime + 40 then
-            if not self.isFail then
-                print("[ISClimbBox] Timer: Teleporting at " .. currentTime .. " ticks")
+    -- STATE: outcome -> wait ~40 ticks (~0.67s) for outcome anim, then teleport + transition to end
+    elseif self.currentState == "outcome" then
+        if self.tickCount >= self.stateStartTick + 40 then
+            if not self.isFail and not self.teleported then
+                print("[ISClimbBox] Timer: Teleporting at tick " .. self.tickCount)
                 self:teleportPlayer()
                 self.teleported = true
             end
-            self.currentState = "end"
-            self.stateStartTime = currentTime
+            self.currentState = "ending"
+            self.stateStartTick = self.tickCount
+            print("[ISClimbBox] Timer: Playing end animation at tick " .. self.tickCount)
             self:setActionAnim(self.endAnim)
         end
 
-    -- End animation: wait ~30 ticks then complete
-    elseif self.currentState == "end" then
-        if currentTime >= self.stateStartTime + 30 then
-            print("[ISClimbBox] Timer: Completing action at " .. currentTime .. " ticks")
+    -- STATE: ending -> wait ~30 ticks (~0.5s) for end anim, then complete
+    elseif self.currentState == "ending" then
+        if self.tickCount >= self.stateStartTick + 30 then
+            print("[ISClimbBox] Timer: Completing action at tick " .. self.tickCount)
             self:forceComplete()
         end
     end
@@ -77,16 +83,19 @@ end
 function ISClimbBox:start()
     print("[ISClimbBox] start() called, setting animation: " .. self.startAnim)
     self:setActionAnim(self.startAnim)
-    self.stateStartTime = 0
-    print("[ISClimbBox] Timer-based state machine initialized")
+    self.tickCount = 0
+    self.stateStartTick = 0
+    print("[ISClimbBox] Timer-based state machine initialized (tick counter)")
 end
 
 function ISClimbBox:stop()
+    print("[ISClimbBox] stop() called at tick " .. tostring(self.tickCount) .. ", state=" .. tostring(self.currentState))
     Events.OnClientCommand.Remove(ISClimbBox.OnClientCommandCallback)
     ISBaseTimedAction.stop(self)
 end
 
 function ISClimbBox:perform()
+    print("[ISClimbBox] perform() called - action complete")
     Events.OnClientCommand.Remove(ISClimbBox.OnClientCommandCallback)
     ISBaseTimedAction.perform(self)
 end
@@ -228,8 +237,31 @@ function ISClimbBox:consumeEndurance()
     )
 end
 
--- Animation event handler - for logging only (state machine now uses timer in update())
+-- Animation event handler - dual approach: handle events if they fire (backup to timer)
 function ISClimbBox:animEvent(event, parameter)
-    -- Log animation events for debugging (state machine uses timer-based approach)
-    print("[ISClimbBox] animEvent called: event=" .. tostring(event) .. ", parameter=" .. tostring(parameter))
+    print("[ISClimbBox] animEvent: event=" .. tostring(event) .. ", parameter=" .. tostring(parameter) .. ", state=" .. tostring(self.currentState))
+
+    -- If we receive a custom animation event, let it drive the state machine
+    -- (This provides faster, animation-synced transitions if events work)
+    if event == self.startAnim and parameter == "90" and self.currentState == "start" then
+        print("[ISClimbBox] Animation event driving outcome (overriding timer)")
+        self:computeOutcome()
+        self.outcomeComputed = true
+        self.currentState = "outcome"
+        self.stateStartTick = self.tickCount
+
+    elseif (event == self.successAnim or event == self.struggleAnim or event == self.failAnim) and self.currentState == "outcome" then
+        print("[ISClimbBox] Animation event driving teleport (overriding timer)")
+        if not self.isFail and not self.teleported then
+            self:teleportPlayer()
+            self.teleported = true
+        end
+        self.currentState = "ending"
+        self.stateStartTick = self.tickCount
+        self:setActionAnim(self.endAnim)
+
+    elseif event == self.endAnim and self.currentState == "ending" then
+        print("[ISClimbBox] Animation event driving completion (overriding timer)")
+        self:forceComplete()
+    end
 end

@@ -4,3 +4,4 @@ id=3660180662
 description=Makes boxes and crates climbable. Stand on top of them!
 url=
 require=\TchernoLib
+version=0.4

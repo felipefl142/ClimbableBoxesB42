@@ -51,8 +51,8 @@ function ISClimbBox:update()
     if self.currentState == "start" and not self.outcomeComputed then
         if self.tickCount >= 45 then
             print("[ISClimbBox] Timer: Computing outcome at tick " .. self.tickCount)
+            self.outcomeComputed = true  -- Set BEFORE call to prevent error loops
             self:computeOutcome()
-            self.outcomeComputed = true
             self.currentState = "outcome"
             self.stateStartTick = self.tickCount
         end
@@ -151,11 +151,13 @@ function ISClimbBox:computeSuccessRate()
     end
 
     -- Combat modifiers
-    if character:getAttackedBy() then
+    if character.getAttackedBy and character:getAttackedBy() then
         successProba = successProba - 25
     end
-    local nearbyZombies = character:getTargetSeenCount()
-    successProba = successProba - (nearbyZombies * 7)
+    if character.getCell then
+        local nearbyZombies = character:getCell():getZombieList():size()
+        successProba = successProba - (nearbyZombies * 7)
+    end
 
     -- Clamp
     if successProba < 0 then successProba = 0 end

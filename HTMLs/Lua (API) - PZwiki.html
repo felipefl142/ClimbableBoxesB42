@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://pzwiki.net/wiki/Lua_(API) -->
+<html class="client-js skin-theme-clientpref-os citizen-feature-autohide-navigation-clientpref-1 citizen-feature-pure-black-clientpref-0 citizen-feature-custom-font-size-clientpref-standard citizen-feature-custom-width-clientpref-standard ve-available citizen-animations-ready" lang="en" dir="ltr" style="--height-sticky-header: 0px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Lua (API) - PZwiki</title>
+<script type="text/javascript" defer="" async="" src="./Lua (API) - PZwiki_files/piwik.js"></script><script>document.documentElement.className="client-js skin-theme-clientpref-os citizen-feature-autohide-navigation-clientpref-1 citizen-feature-pure-black-clientpref-0 citizen-feature-custom-font-size-clientpref-standard citizen-feature-custom-width-clientpref-standard";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"c51d4708439b19b180656dc8","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Lua_(API)","wgTitle":"Lua (API)","wgCurRevisionId":1310373,"wgRevisionId":1310373,"wgArticleId":131863,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["En","Version 42.11.0","Modding guides","Modding"],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Lua_(API)","wgRelevantArticleId":131863,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCiteReferencePreviewsActive":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgCheckUserClientHintsHeadersJsApi":["architecture","bitness","brands","fullVersionList","mobile","model","platform","platformVersion"],"wgEditSubmitButtonLabelPublish":false};
+RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","skins.citizen.styles":"ready","skins.citizen.codex.styles":"ready","skins.citizen.icons":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready"};RLPAGEMODULES=["ext.pygments.view","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.citizen.scripts","ext.checkUser.clientHints","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="./Lua (API) - PZwiki_files/load.php">
+<script async="" src="./Lua (API) - PZwiki_files/load(1).php"></script>
+<style>
+.mw-editfont-monospace{font-family:monospace,monospace}.mw-editfont-sans-serif{font-family:sans-serif}.mw-editfont-serif{font-family:serif} .mw-editfont-monospace,.mw-editfont-sans-serif,.mw-editfont-serif{  font-size:13px; -moz-tab-size:4;tab-size:4; }.mw-editfont-monospace.oo-ui-textInputWidget,.mw-editfont-sans-serif.oo-ui-textInputWidget,.mw-editfont-serif.oo-ui-textInputWidget{font-size:inherit}.mw-editfont-monospace.oo-ui-textInputWidget > .oo-ui-inputWidget-input,.mw-editfont-sans-serif.oo-ui-textInputWidget > .oo-ui-inputWidget-input,.mw-editfont-serif.oo-ui-textInputWidget > .oo-ui-inputWidget-input{  font-size:13px}.mw-editfont-monospace.oo-ui-textInputWidget > input.oo-ui-inputWidget-input,.mw-editfont-sans-serif.oo-ui-textInputWidget > input.oo-ui-inputWidget-input,.mw-editfont-serif.oo-ui-textInputWidget > input.oo-ui-inputWidget-input{min-height:32px} .mw-editfont-monospace{font-family:var(--font-family-monospace)}.mw-editfont-sans-serif{font-family:var(--font-family-base)}.mw-editfont-serif{font-family:var(--font-family-serif)}
+.ve-init-mw-progressBarWidget{height:1em;overflow:hidden;margin:0 25%}.ve-init-mw-progressBarWidget-bar{height:1em;width:0} .ve-init-mw-progressBarWidget{background-color:#fff;box-sizing:border-box;height:0.875em;border:1px solid #36c;border-radius:0.875em;box-shadow:0 1px 1px rgba(0,0,0,0.15)}.ve-init-mw-progressBarWidget-bar{background-color:#36c;height:0.875em} .ve-init-mw-progressBarWidget{background-color:var(--color-surface-1);border-color:var(--color-progressive);box-shadow:none}.ve-init-mw-progressBarWidget-bar{background-color:var(--color-progressive)}
+.mw-collapsible-toggle{float:right;-webkit-user-select:none;-moz-user-select:none;user-select:none}.mw-collapsible-toggle-default{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:none;margin:0;padding:0;border:0;font:inherit}.mw-collapsible-toggle-default .mw-collapsible-text{color:var(--color-progressive,#36c);border-radius:2px;text-decoration:none}.mw-collapsible-toggle-default .mw-collapsible-text:visited{color:var(--color-visited,#6a60b0)}.mw-collapsible-toggle-default .mw-collapsible-text:visited:hover{color:var(--color-visited,#6a60b0)}.mw-collapsible-toggle-default .mw-collapsible-text:hover{color:var(--color-progressive--hover,#4b77d6);text-decoration:underline}.mw-collapsible-toggle-default .mw-collapsible-text:active{color:var(--color-progressive--active,#233566);text-decoration:underline}.mw-collapsible-toggle-default .mw-collapsible-text:focus-visible{outline:solid 2px var(--outline-color-progressive--focus,#36c)}@supports not selector(:focus-visible){.mw-collapsible-toggle-default .mw-collapsible-text:focus{outline:solid 2px var(--outline-color-progressive--focus,#36c)}}.mw-collapsible-toggle-default .mw-collapsible-text .cdx-icon:not(.cdx-thumbnail__placeholder__icon--vue):last-child{min-width:12px;min-height:12px;width:1rem;height:1rem;padding-left:4px;vertical-align:middle}.mw-underline-always .mw-collapsible-toggle-default .mw-collapsible-text{text-decoration:underline}.mw-underline-never .mw-collapsible-toggle-default .mw-collapsible-text{text-decoration:none}.mw-collapsible-toggle-default::before{content:'['}.mw-collapsible-toggle-default::after{content:']'}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none}
+@media screen {
+	.toctoggle{-webkit-user-select:none;-moz-user-select:none;user-select:none;font-size:94%}}
+.mw-highlight-copy--bound button{position:absolute;top:-1em;right:-0.9em;box-sizing:border-box;padding:5px 7px;border-radius:2px;background:var(--background-color-base,#fff);color:var(--color-progressive,#36c);border:1px solid var(--border-color-muted,#dadde3)}.mw-highlight-copy--bound button:hover{cursor:pointer;color:var(--color-progressive--hover,#4b77d6);background:var(--background-color-interactive-subtle,#f8f9fa);border-color:var(--border-color-progressive--hover,#4b77d6)}.mw-highlight-copy--bound button:active{color:var(--color-progressive--active,#233566);background:var(--background-color-interactive,#eaecf0);border-color:var(--border-color-progressive--active,#233566)}
+#mw-teleport-target{position:absolute;z-index:450}                         #mw-teleport-target{font-size:var(--font-size-medium);line-height:var(--line-height-medium)}</style><style>
+.ve-init-mw-tempWikitextEditorWidget{border:0;padding:0;color:inherit;line-height:1.5em;width:100%;-moz-tab-size:4;tab-size:4;  }.ve-init-mw-tempWikitextEditorWidget:focus{outline:0;padding:0}.ve-init-mw-tempWikitextEditorWidget::selection{background:rgba(109,169,247,0.5); }</style><style>
+.ve-active .ve-init-mw-desktopArticleTarget-targetContainer #siteNotice,.ve-active .mw-indicators,.ve-active #t-print,.ve-active #t-permalink,.ve-active #p-coll-print_export,.ve-active #t-cite,.ve-active .ve-init-mw-desktopArticleTarget-editableContent,.ve-active .ve-init-mw-tempWikitextEditorWidget{display:none}.ve-deactivating .ve-ui-surface{display:none}.ve-activating{ }.ve-activating .ve-ui-surface{height:0;padding:0 !important; overflow:hidden} .ve-loading .ve-init-mw-desktopArticleTarget-targetContainer > :not(.ve-init-mw-desktopArticleTarget-toolbarPlaceholder):not(.ve-init-mw-desktopArticleTarget),.ve-loading .ve-init-mw-desktopArticleTarget-originalContent,.ve-activated:not(.ve-loading) .ve-init-mw-desktopArticleTarget-uneditableContent{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:0.5}.ve-activated .ve-init-mw-desktopArticleTarget-targetContainer #firstHeading{ -webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;pointer-events:auto;cursor:text}.ve-activated .ve-init-mw-desktopArticleTarget-targetContainer #firstHeading a{ pointer-events:none}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks{cursor:pointer}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks:hover{ background:#e9f2fd}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks a{opacity:1} .ve-init-mw-desktopArticleTarget-loading-overlay{z-index:2;position:absolute;width:100%;top:1em}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{overflow:hidden;transition:height 250ms ease;height:0;padding-bottom:2px; }.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{transform:translateY(-100%);transition:transform 250ms ease}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-open .ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{transform:translateY(0)}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-floating{transition:none}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-floating .ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{position:fixed;top:0;z-index:1;background:var(--background-color-base,#fff)} .oo-ui-element-hidden{display:none !important; } .mw-editsection::before{content:'\200B'}.mw-editsection a{white-space:nowrap} .ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{height:42px;border-bottom:1px solid #c8ccd1;box-shadow:0 1px 1px 0 rgba(0,0,0,0.1)}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-floating,.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-open{height:42px}                       .ve-activated{ }.ve-activated #citizen-page-header-sticky-sentinel{display:none}.ve-activated #ca-ve-edit,.ve-activated #ca-edit,.ve-activated .citizen-toc__buttonCheckbox{display:none}.ve-init-mw-desktopArticleTarget .citizen-page-header{z-index:2}.ve-init-mw-desktopArticleTarget .citizen-page-footer.ve-init-mw-desktopArticleTarget-uneditableContent{opacity:1}.ve-init-mw-desktopArticleTarget .citizen-page-footer.ve-init-mw-desktopArticleTarget-uneditableContent .catlinks{pointer-events:auto}.ve-init-mw-desktopArticleTarget .citizen-page-footer.ve-init-mw-desktopArticleTarget-uneditableContent .page-info{opacity:0.5}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{border-bottom-color:var(--border-color-base);box-shadow:none}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks:hover{background-color:var(--background-color-button-quiet--hover)}</style><style>
+#citizen-preferences__card form{display:grid;grid-template-columns:repeat(var(--pref-columns,2),1fr);gap:var(--space-xxs);padding-inline:var(--space-md)}.citizen-preferences-content{display:flex;flex-direction:column;gap:var(--space-xs);padding-block:var(--space-xs)}.citizen-client-prefs-radio__input{display:none}.citizen-client-prefs-radio__input:checked ~ .citizen-client-prefs-radio__label{border-color:var(--color-progressive)}.citizen-client-prefs-radio__label{display:flex;align-items:center;justify-content:center;height:100%;padding:var(--space-xs) var(--space-md);font-weight:var(--font-weight-medium);cursor:pointer;border:var(--border-width-thick) solid var(--border-color-base);border-radius:var(--border-radius-medium)}.citizen-client-prefs-radio__label:hover{border-color:var(--color-progressive--hover)}.citizen-client-prefs-radio__label:active{border-color:var(--color-progressive--active)}#citizen-client-prefs .citizen-menu__content{padding:0 var(--space-md)}#skin-client-prefs-skin-theme{--pref-columns:3}#skin-client-prefs-skin-theme .citizen-client-prefs-radio__label{background:var(--color-surface-0)}#skin-client-prefs-skin-theme .citizen-client-prefs-radio__label[for='skin-client-pref-skin-theme-value-day']{color:hsl(var(--color-progressive-hsl__h),30%,20%);background:hsl(var(--color-progressive-hsl__h),30%,96%)}#skin-client-prefs-skin-theme .citizen-client-prefs-radio__label[for='skin-client-pref-skin-theme-value-night']{color:hsl(var(--color-progressive-hsl__h),25%,80%);background:hsl(var(--color-progressive-hsl__h),20%,10%)}#skin-client-prefs-citizen-feature-custom-font-size{--pref-columns:2}#skin-client-prefs-citizen-feature-custom-width{--pref-columns:3}#skin-client-prefs-citizen-feature-pure-black{display:none}.skin-theme-clientpref-night #skin-client-prefs-citizen-feature-pure-black{display:block}@media (prefers-color-scheme:dark){.skin-theme-clientpref-os #skin-client-prefs-citizen-feature-pure-black{display:block}}#skin-client-prefs-citizen-feature-pure-black .citizen-client-prefs-radio__label[for='skin-client-pref-citizen-feature-pure-black-value-1']{background-color:#000}#skin-client-prefs-citizen-feature-autohide-navigation{display:none}@media (max-width:calc(1120px - 1px)){#skin-client-prefs-citizen-feature-autohide-navigation{display:block}}#skin-client-prefs-citizen-feature-autohide-navigation form{grid-template-columns:repeat(2,1fr)}
+.cdx-button{display:inline-flex;align-items:center;justify-content:center;gap:4px;box-sizing:border-box;min-height:32px;max-width:28rem;margin:0;border-width:1px;border-style:solid;border-radius:2px;padding-right:11px;padding-left:11px;font-family:inherit;font-size:inherit;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:none;transition-property:background-color,color,border-color,box-shadow;transition-duration:.1s}.cdx-button--size-large{min-height:44px;padding-right:15px;padding-left:15px}.cdx-button--icon-only{min-width:32px;padding-right:5px;padding-left:5px}.cdx-button--icon-only.cdx-button--size-large{min-width:44px;padding-right:11px;padding-left:11px}.cdx-button::-moz-focus-inner{border:0;padding:0}.cdx-button .cdx-button__icon,.cdx-button .cdx-icon{vertical-align:middle}.cdx-button .cdx-icon{color:inherit}.cdx-button--fake-button,.cdx-button--fake-button:hover,.cdx-button--fake-button:focus{text-decoration:none}.cdx-button:enabled,.cdx-button.cdx-button--fake-button--enabled{background-color:var(--background-color-interactive-subtle,#f8f9fa);color:var(--color-base,#202122);border-color:var(--border-color-base,#a2a9b1)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled .cdx-button__icon{background-color:var(--color-base,#202122)}}.cdx-button:enabled:hover,.cdx-button.cdx-button--fake-button--enabled:hover{background-color:var(--background-color-base,#fff);color:var(--color-base--hover,#404244);cursor:pointer}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled:hover .cdx-button__icon{background-color:var(--color-base--hover,#404244)}}.cdx-button:enabled:active,.cdx-button.cdx-button--fake-button--enabled:active,.cdx-button:enabled.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--is-active{background-color:var(--background-color-interactive,#eaecf0);color:var(--color-emphasized,#101418);border-color:var(--border-color-interactive,#72777d)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled:active .cdx-button__icon,.cdx-button:enabled.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--is-active .cdx-button__icon{background-color:var(--color-emphasized,#101418)}}.cdx-button:enabled:focus,.cdx-button.cdx-button--fake-button--enabled:focus{outline:1px solid transparent}.cdx-button:enabled:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-progressive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-progressive--focus,#36c)}.cdx-button:enabled.cdx-button--action-progressive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive{color:var(--color-progressive,#36c)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-progressive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive .cdx-button__icon{background-color:var(--color-progressive,#36c)}}.cdx-button:enabled.cdx-button--action-progressive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:hover{color:var(--color-progressive--hover,#4b77d6);border-color:var(--border-color-progressive--hover,#4b77d6)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-progressive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:hover .cdx-button__icon{background-color:var(--color-progressive--hover,#4b77d6)}}.cdx-button:enabled.cdx-button--action-progressive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:active,.cdx-button:enabled.cdx-button--action-progressive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive.cdx-button--is-active{background-color:var(--background-color-progressive-subtle,#f1f4fd);color:var(--color-progressive--active,#233566);border-color:var(--border-color-progressive--active,#233566)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-progressive--active,#233566)}}.cdx-button:enabled.cdx-button--action-destructive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive{color:var(--color-destructive,#d73333)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-destructive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive .cdx-button__icon{background-color:var(--color-destructive,#d73333)}}.cdx-button:enabled.cdx-button--action-destructive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:hover{color:var(--color-destructive--hover,#fc493b);border-color:var(--border-color-destructive--hover,#fc493b)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-destructive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:hover .cdx-button__icon{background-color:var(--color-destructive--hover,#fc493b)}}.cdx-button:enabled.cdx-button--action-destructive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:active,.cdx-button:enabled.cdx-button--action-destructive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive.cdx-button--is-active{background-color:var(--background-color-destructive-subtle,#ffe9e5);color:var(--color-destructive--active,#9f3526);border-color:var(--border-color-destructive--active,#9f3526)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-destructive--active,#9f3526)}}.cdx-button:enabled.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-destructive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-destructive--focus,#36c)}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive{background-color:var(--background-color-progressive,#36c);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-progressive,#36c)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover{background-color:var(--background-color-progressive--hover,#4b77d6);border-color:var(--border-color-progressive--hover,#4b77d6)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:active,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active{background-color:var(--background-color-progressive--active,#233566);border-color:var(--border-color-progressive--active,#233566)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-progressive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-progressive--focus,#36c),inset 0 0 0 2px var(--box-shadow-color-inverted,#fff)}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive{background-color:var(--background-color-destructive,#d73333);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-destructive,#d73333)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover{background-color:var(--background-color-destructive--hover,#fc493b);border-color:var(--border-color-destructive--hover,#fc493b)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:active,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active{background-color:var(--background-color-destructive--active,#9f3526);border-color:var(--border-color-destructive--active,#9f3526)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-destructive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-destructive--focus,#36c),inset 0 0 0 2px var(--box-shadow-color-inverted,#fff)}.cdx-button:enabled.cdx-button--weight-quiet,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet{background-color:var(--background-color-transparent,transparent);border-color:var(--border-color-transparent,transparent)}.cdx-button:enabled.cdx-button--weight-quiet:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:hover{background-color:var(--background-color-button-quiet--hover,rgba(0,24,73,.027))}.cdx-button:enabled.cdx-button--weight-quiet:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:active,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--is-active{background-color:var(--background-color-button-quiet--active,rgba(0,24,73,.082));color:var(--color-emphasized,#101418);border-color:var(--border-color-interactive,#72777d)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--is-active .cdx-button__icon{background-color:var(--color-emphasized,#101418)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive{color:var(--color-progressive,#36c)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive .cdx-button__icon{background-color:var(--color-progressive,#36c)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover{background-color:var(--background-color-progressive-subtle,#f1f4fd);color:var(--color-progressive--hover,#4b77d6)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover .cdx-button__icon{background-color:var(--color-progressive--hover,#4b77d6)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active{background-color:var(--background-color-progressive--active,#233566);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-progressive--active,#233566)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted,#fff)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive{color:var(--color-destructive,#d73333)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive .cdx-button__icon{background-color:var(--color-destructive,#d73333)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover{background-color:var(--background-color-destructive-subtle,#ffe9e5);color:var(--color-destructive--hover,#fc493b)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover .cdx-button__icon{background-color:var(--color-destructive--hover,#fc493b)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active{background-color:var(--background-color-destructive--active,#9f3526);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-destructive--active,#9f3526)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted,#fff)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-destructive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-destructive--focus,#36c)}.cdx-button:disabled,.cdx-button.cdx-button--fake-button--disabled{background-color:var(--background-color-disabled,#c8ccd1);color:var(--color-inverted,#fff);border-color:var(--border-color-transparent,transparent)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:disabled .cdx-button__icon,.cdx-button.cdx-button--fake-button--disabled .cdx-button__icon{background-color:var(--color-inverted,#fff)}}.cdx-button:disabled.cdx-button--weight-quiet,.cdx-button.cdx-button--fake-button--disabled.cdx-button--weight-quiet{background-color:var(--background-color-transparent,transparent);color:var(--color-disabled,#72777d)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:disabled.cdx-button--weight-quiet .cdx-button__icon,.cdx-button.cdx-button--fake-button--disabled.cdx-button--weight-quiet .cdx-button__icon{background-color:var(--color-disabled,#72777d)}}.cdx-icon{color:var(--color-base,#202122);display:inline-flex;align-items:center;justify-content:center;vertical-align:text-bottom}.cdx-icon svg{fill:currentcolor;width:100%;height:100%}.cdx-icon--x-small{min-width:12px;min-height:12px;width:.75rem;height:.75rem}.cdx-icon--small{min-width:16px;min-height:16px;width:1rem;height:1rem}.cdx-icon--medium{min-width:20px;min-height:20px;width:1.25rem;height:1.25rem}.cdx-icon--flipped svg{transform:scaleX(-1)}.cdx-search-result-title{display:inline-block;max-width:100%;font-weight:700}.cdx-search-result-title__match{font-weight:400}.cdx-text-input{position:relative;box-sizing:border-box;min-width:256px;border-radius:2px;overflow:hidden}.cdx-text-input .cdx-text-input__start-icon{position:absolute;top:50%;min-width:20px;min-height:20px;width:1.25rem;height:1.25rem;transition-property:color;transition-duration:.1s;left:9px;transform:translateY(-50%)}.cdx-text-input__icon.cdx-text-input__end-icon{min-width:16px;min-height:16px;width:1rem;height:1rem}@supports not (((-webkit-mask-image:none) or (mask-image:none))){.cdx-text-input__icon.cdx-text-input__end-icon{background-position:center;background-repeat:no-repeat;background-size:max(1rem,16px)}}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-text-input__icon.cdx-text-input__end-icon{-webkit-mask-size:max(1rem,16px);mask-size:max(1rem,16px);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}}.cdx-text-input__clear-icon.cdx-icon,.cdx-text-input .cdx-text-input__end-icon{position:absolute;top:50%;min-width:16px;min-height:16px;width:1rem;height:1rem;transition-property:color;transition-duration:.1s;right:9px;transform:translateY(-50%)}.cdx-text-input__clear-icon.cdx-icon:hover{cursor:pointer}.cdx-text-input__end-icon.cdx-icon+.cdx-text-input__clear-icon.cdx-icon{right:calc(17px + 1rem)}.cdx-text-input__input{display:block;box-sizing:border-box;min-height:32px;width:100%;margin:0;border-width:1px;border-style:solid;border-radius:0;padding:4px 8px;font-family:inherit;font-size:inherit;line-height:1.375}.cdx-text-input__input:enabled{background-color:var(--background-color-base,#fff);color:var(--color-base,#202122);border-color:var(--border-color-base,#a2a9b1);box-shadow:inset 0 0 0 1px var(--box-shadow-color-transparent,transparent);transition-property:background-color,color,border-color,box-shadow;transition-duration:.25s}.cdx-text-input__input:enabled~.cdx-text-input__icon-vue{color:var(--color-placeholder,#72777d)}.cdx-text-input__input:enabled~.cdx-text-input__icon{opacity:var(--opacity-icon-placeholder,.51)}.cdx-text-input__input:enabled:hover{border-color:var(--border-color-interactive,#72777d)}.cdx-text-input__input:enabled:focus~.cdx-text-input__icon-vue,.cdx-text-input__input:enabled.cdx-text-input__input--has-value~.cdx-text-input__icon-vue{color:var(--color-base,#202122)}.cdx-text-input__input:enabled:focus~.cdx-text-input__icon,.cdx-text-input__input:enabled.cdx-text-input__input--has-value~.cdx-text-input__icon{opacity:1}.cdx-text-input__input:enabled:focus{border-color:var(--border-color-progressive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-progressive--focus,#36c);outline:1px solid transparent}.cdx-text-input__input:enabled:read-only{background-color:var(--background-color-interactive-subtle,#f8f9fa)}.cdx-text-input__input:disabled{background-color:var(--background-color-disabled-subtle,#eaecf0);color:var(--color-disabled,#72777d);-webkit-text-fill-color:var(--color-disabled,#72777d);border-color:var(--border-color-disabled,#c8ccd1)}.cdx-text-input__input:disabled~.cdx-text-input__icon-vue{color:var(--color-disabled,#72777d);pointer-events:none}.cdx-text-input__input:disabled~.cdx-text-input__icon{opacity:var(--opacity-icon-base--disabled,.51)}.cdx-text-input__input::placeholder{color:var(--color-placeholder,#72777d);opacity:1}.cdx-text-input__input::-ms-clear{display:none}.cdx-text-input__input[type=search]{-webkit-appearance:none;-moz-appearance:textfield}.cdx-text-input__input[type=search]::-webkit-search-decoration,.cdx-text-input__input[type=search]::-webkit-search-cancel-button{display:none}.cdx-text-input--has-start-icon .cdx-text-input__input{padding-left:calc(16px + 1.25rem)}.cdx-text-input--has-end-icon .cdx-text-input__input,.cdx-text-input--clearable .cdx-text-input__input{padding-right:calc(16px + 1rem)}.cdx-text-input--has-end-icon.cdx-text-input--clearable .cdx-text-input__input{padding-right:calc(24px + 2rem)}.cdx-text-input--status-error .cdx-text-input__input:enabled{border-color:var(--border-color-error,#9f3526)}.cdx-text-input--status-error .cdx-text-input__input:enabled:hover{border-color:var(--border-color-error--hover,#fc493b)}.cdx-text-input--status-error .cdx-text-input__input:enabled:focus{border-color:var(--border-color-progressive--focus,#36c)}.cdx-thumbnail{display:inline-flex}.cdx-thumbnail__placeholder,.cdx-thumbnail__image{background-position:center;background-repeat:no-repeat;background-size:cover;flex-shrink:0;box-sizing:border-box;min-width:40px;min-height:40px;width:2.5rem;height:2.5rem;border:1px solid var(--border-color-subtle,#c8ccd1);border-radius:2px}.cdx-thumbnail__image{background-color:var(--background-color-base-fixed,#fff);display:inline-block}.cdx-thumbnail__image-enter-active{transition-property:opacity;transition-duration:.1s}.cdx-thumbnail__image-enter-from{opacity:0}.cdx-thumbnail__placeholder{background-color:var(--background-color-interactive-subtle,#f8f9fa);display:inline-flex;align-items:center;justify-content:center}.cdx-thumbnail__placeholder__icon{min-width:20px;min-height:20px;width:1.25rem;height:1.25rem;display:inline-block;vertical-align:text-bottom}@supports not (((-webkit-mask-image:none) or (mask-image:none))){.cdx-thumbnail__placeholder__icon{background-position:center;background-repeat:no-repeat;background-size:max(1.25rem,20px)}}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-thumbnail__placeholder__icon{-webkit-mask-size:max(1.25rem,20px);mask-size:max(1.25rem,20px);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}}@supports not (((-webkit-mask-image:none) or (mask-image:none))){.cdx-thumbnail__placeholder__icon{background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"/><path d="M19 5H1V3h18zm0 12H1v-2h18z"/></svg>');filter:invert(var(--filter-invert-icon,0));opacity:var(--opacity-icon-base,.87)}.cdx-button:not(.cdx-button--weight-quiet):disabled .cdx-thumbnail__placeholder__icon,.cdx-button--weight-primary.cdx-button--action-progressive .cdx-thumbnail__placeholder__icon,.cdx-button--weight-primary.cdx-button--action-destructive .cdx-thumbnail__placeholder__icon{filter:invert(var(--filter-invert-primary-button-icon,1))}}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-thumbnail__placeholder__icon{-webkit-mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"/><path d="M19 5H1V3h18zm0 12H1v-2h18z"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"/><path d="M19 5H1V3h18zm0 12H1v-2h18z"/></svg>');background-color:var(--color-placeholder,#72777d)}}.cdx-thumbnail__placeholder__icon--vue.cdx-icon{color:var(--color-placeholder,#72777d)}</style><style>
+.citizen-command-palette{--citizen-command-palette-side-padding:var(--space-md);position:fixed;top:var(--space-xs);right:var(--space-xs);left:var(--space-xs);max-width:56rem;margin-inline:auto;overflow:hidden;border:var(--border-base);border-radius:var(--border-radius-medium);box-shadow:var(--box-shadow-drop-xx-large);background:oklch(var(--color-surface-1-oklch__l) var(--color-surface-1-oklch__c) var(--color-progressive-oklch__h) / var(--backdrop-opacity));font-size:var(--font-size-small);line-height:var(--line-height-small)}@supports not (color:oklch(100% 0 0)){.citizen-command-palette{background:hsl(var(--color-surface-1-hsl__h),var(--color-surface-1-hsl__s),var(--color-surface-1-hsl__l) / var(--backdrop-opacity))}}@supports (backdrop-filter:blur(16px)) or (-webkit-backdrop-filter:blur(16px)){.citizen-command-palette{-webkit-backdrop-filter:var(--backdrop-filter-frosted-glass);backdrop-filter:var(--backdrop-filter-frosted-glass)}}@media (min-width:calc(1120px - 1px)){.citizen-command-palette{top:3rem}}.citizen-command-palette-overlay{position:absolute;top:0;left:0}.citizen-command-palette-backdrop{position:fixed;inset:0;background-color:var(--background-color-backdrop-light)}.citizen-command-palette__results{max-height:calc(100vh - 16rem);overflow-y:auto;border-top:var(--border-subtle)}.citizen-command-palette__no-results{padding:var(--space-md) var(--citizen-command-palette-side-padding);text-align:center}    .citizen-command-palette-empty-state{display:flex;flex-direction:column;gap:var(--space-xs);align-items:center;justify-content:center;padding:var(--space-xxl) var(--citizen-command-palette-side-padding);text-align:center}.citizen-command-palette-empty-state__icon{width:5rem;height:5rem}.citizen-command-palette-empty-state__icon .cdx-icon{width:100%;height:100%}.citizen-command-palette-empty-state__content{display:flex;flex-direction:column}.citizen-command-palette-empty-state__title{font-weight:var(--font-weight-semi-bold);color:var(--color-emphasized)}.citizen-command-palette-empty-state__description{color:var(--color-subtle)}    .citizen-command-palette__footer{display:flex;gap:var(--space-sm);align-items:center;justify-content:space-between;padding:var(--space-sm) var(--citizen-command-palette-side-padding);color:var(--color-subtle);border-top:var(--border-subtle)}.citizen-command-palette__footer-note{color:var(--color-subtle)}                        .citizen-command-palette__search{position:relative; padding:var(--space-sm) calc(var(--citizen-command-palette-side-padding) - 8px);font-size:var(--font-size-medium);line-height:var(--line-height-medium)}.citizen-command-palette__input .cdx-text-input__input{padding-block:0;padding-left:calc(8px + 1.25rem + var(--space-sm));outline:0 !important;background-color:transparent !important;border:0 !important; box-shadow:none !important}.citizen-command-palette__progress-indicator{position:absolute;right:0;bottom:0;left:0}    .citizen-command-palette__footer-hints{display:flex;flex-wrap:wrap;gap:var(--space-sm)}                        .citizen-command-palette-list{padding-block:var(--space-xs)}.citizen-command-palette-list__heading{padding-block:var(--space-xs) var(--space-xxs);padding-inline:var(--citizen-command-palette-side-padding);color:var(--color-subtle);font-family:var(--font-family-overline);font-size:var(--font-size-overline);font-weight:var(--font-weight-overline);line-height:var(--line-height-overline);text-transform:var(--text-transform-overline);letter-spacing:var(--letter-spacing-overline)}.citizen-command-palette-list__listbox{padding:0;margin:0;list-style:none}.citizen-command-palette-list-item{position:relative;outline:0;list-style:none}.citizen-command-palette-list-item--highlighted{cursor:pointer;background-color:var(--background-color-interactive-subtle--hover);--actions-fade-color:var(--background-color-interactive-subtle--hover)}.citizen-command-palette-list-item--active{background-color:var(--background-color-interactive-subtle--active);--actions-fade-color:var(--background-color-interactive-subtle--active)}.citizen-command-palette-list-item__actions{position:absolute;inset-inline-end:var(--citizen-command-palette-side-padding);top:0;display:flex;gap:var(--space-xxs);align-items:center;height:100%;padding-left:var(--space-xl);pointer-events:none;background-image:linear-gradient(to right,transparent 0%,transparent 30%,var(--actions-fade-color,inherit) 70%);opacity:0;transform:translateX(16px);transition-timing-function:var(--transition-timing-function-ease-in);transition-duration:var(--transition-duration-base);transition-property:opacity,transform}.citizen-command-palette-list-item__actions--visible{pointer-events:auto;opacity:1;transform:none;transition-timing-function:var(--transition-timing-function-ease-out)}.citizen-command-palette-list-item__action{border-radius:var(--border-radius-base)}a.citizen-command-palette-list-item__action.cdx-button .cdx-icon{padding:0}                        .citizen-command-palette-list-item__content{display:flex;column-gap:var(--space-sm);align-items:center;padding:var(--space-sm) var(--citizen-command-palette-side-padding);text-decoration:none}button.citizen-command-palette-list-item__content{width:100%;font:inherit;color:inherit;text-align:inherit;cursor:pointer;background:none;border:0}.citizen-command-palette-list-item__content:hover{text-decoration:none}.citizen-command-palette-list-item__text{flex:1;min-width:0;overflow:hidden;line-height:1.125rem}.citizen-command-palette-list-item__text__label{font-weight:var(--font-weight-semi-bold);color:var(--color-emphasized);font-size:var(--font-size-medium);line-height:var(--line-height-medium)}.citizen-command-palette-list-item__text__label .cdx-search-result-title{ display:inline}.citizen-command-palette-list-item__text__description{color:var(--color-subtle)}.citizen-command-palette-list-item__text .cdx-search-result-title{font-weight:var(--font-weight-semi-bold);color:var(--color-emphasized)}.citizen-command-palette-list-item__text .cdx-search-result-title__match{color:var(--color-subtle)}.citizen-command-palette-list-item__text__label,.citizen-command-palette-list-item__text__description{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.citizen-command-palette-list-item__metadata{display:flex;gap:var(--space-xxs);color:var(--color-subtle)}.citizen-command-palette-list-item__metadata__item{display:flex;column-gap:var(--space-xxs);align-items:center;padding:2px var(--space-xs);line-height:var(--line-height-small);background:var(--color-surface-3);border:var(--border-subtle);border-radius:var(--border-radius-base)}.citizen-command-palette-list-item__metadata__item .cdx-icon{color:var(--color-subtle)}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Lua (API) - PZwiki_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.43.6">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0d0e12">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="https://pzwiki.net/w/api.php?action=webapp-manifest">
+<link rel="search" type="application/opensearchdescription+xml" href="https://pzwiki.net/w/rest.php/v1/search" title="PZwiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://pzwiki.net/w/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="PZwiki Atom feed" href="https://pzwiki.net/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<script>window.clientPrefs=()=>{let className=document.documentElement.className;const storage=localStorage.getItem('mwclientpreferences');if(storage){storage.split(',').forEach((pref)=>{className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});document.documentElement.className=className;}};(()=>{window.clientPrefs();})();</script>
+</head>
+<body class="citizen-toc-enabled citizen-sections-enabled mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Lua_API rootpage-Lua_API skin-citizen action-view skin--responsive citizen-scroll--up">
+<header class="mw-header citizen-header">
+	<div class="citizen-header__logo">
+		<a href="https://pzwiki.net/wiki/Special:MyLanguage/Project_Zomboid_Wiki" class="mw-logo citizen-header__button" title="Visit the main page">
+			<img class="mw-logo-icon" src="./Lua (API) - PZwiki_files/pzwlogo.png" alt="" aria-hidden="true" height="32" width="32">
+			<span class="citizen-ui-icon mw-ui-icon-home mw-ui-icon-wikimedia-home"></span>
+		</a>
+	</div>
+	
+<div class="citizen-search citizen-header__item citizen-dropdown">
+	<details id="citizen-search-details" class="citizen-dropdown-details">
+		<summary class="citizen-dropdown-summary" title="Toggle search [/]" aria-details="citizen-search__card">
+			<span class="citizen-ui-icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+			<span>Toggle search</span>
+		</summary>
+		
+	</details>
+	
+</div>
+
+	<div class="citizen-drawer citizen-header__item citizen-dropdown">
+		<details class="citizen-dropdown-details">
+			<summary class="citizen-dropdown-summary" title="Toggle menu" aria-details="citizen-drawer__card">
+			<span class="citizen-ui-icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+			<span>Toggle menu</span>
+		</summary>	</details>
+		<div id="citizen-drawer__card" class="citizen-drawer__card citizen-menu__card">
+			<div class="citizen-menu__card-backdrop"></div>
+			<div class="citizen-menu__card-content">
+				<header class="citizen-drawer__header">
+					<a href="https://pzwiki.net/wiki/Special:MyLanguage/Project_Zomboid_Wiki" class="mw-logo citizen-drawer__logo" title="Visit the main page">
+					<img class="mw-logo-icon" src="./Lua (API) - PZwiki_files/pzwlogo.png" alt="" aria-hidden="true" height="80" width="80" loading="lazy">
+				</a>
+				<div class="citizen-drawer__siteinfo">
+						<div class="citizen-siteStats">
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--articles" title="articles">
+		<span class="citizen-ui-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span>
+		<span>11.7K</span>
+	</div>
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--images" title="files">
+		<span class="citizen-ui-icon mw-ui-icon-image mw-ui-icon-wikimedia-image"></span>
+		<span>17.5K</span>
+	</div>
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--users" title="users">
+		<span class="citizen-ui-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span>
+		<span>6.3K</span>
+	</div>
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--edits" title="edits">
+		<span class="citizen-ui-icon mw-ui-icon-edit mw-ui-icon-wikimedia-edit"></span>
+		<span>714.5K</span>
+	</div>
+</div>
+						<div class="mw-logo-wordmark">PZwiki</div>
+									</div>
+				</header>
+					<section id="citizen-main-menu" class="citizen-main-menu citizen-drawer__menu">
+					<nav id="p-project-zomboid-wiki" class="citizen-menu mw-portlet mw-portlet-project-zomboid-wiki">
+	<div class="citizen-menu__heading">
+		Project Zomboid Wiki
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="n-mainpage-description" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project_Zomboid_Wiki" title="Visit the main page [alt-shift-z]" accesskey="z"><span class="citizen-ui-icon mw-ui-icon-home mw-ui-icon-wikimedia-home"></span> <span>Main page</span><kbd class="citizen-keyboard-hint-key">alt ⇧ z</kbd></a></li><li id="n-portal" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Community_portal" title="About the PZwiki, what you can do, where to find things"><span>Community portal</span></a></li><li id="n-tasks" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Tasks" title="View, edit, and help with the current tasks being worked on the wiki"><span>Wiki tasks</span></a></li><li id="n-rules" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Rules" title="Rules to follow when editing the wiki"><span>Wiki rules</span></a></li><li id="n-editing-help" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Help:Contents" title="Help with creating and editing pages on the wiki"><span>Editing help</span></a></li><li id="n-style-guide" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Help:Style_guide" title="Guidelines to keeping the wiki consistent"><span>Style guide</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r"><span class="citizen-ui-icon mw-ui-icon-recentChanges mw-ui-icon-wikimedia-recentChanges"></span> <span>Recent changes</span><kbd class="citizen-keyboard-hint-key">alt ⇧ r</kbd></a></li><li id="n-randompage" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RandomInCategory/en" title="Load a random page [alt-shift-x]" accesskey="x"><span class="citizen-ui-icon mw-ui-icon-die mw-ui-icon-wikimedia-die"></span> <span>Random page</span><kbd class="citizen-keyboard-hint-key">alt ⇧ x</kbd></a></li><li id="n-affiliates" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Affiliates" title="Check PZwiki affiliates here"><span>Affiliates</span></a></li><li id="n-vector-opt-out" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Special:Preferences&amp;useskin=vector#mw-prefsection-rendering" rel="nofollow" title="Change your settings to go back to the old look of the skin (legacy Vector)"><span>Switch to old look</span></a></li>
+		</ul>
+		
+	</div></nav>
+
+					<nav id="p-project-zomboid" class="citizen-menu mw-portlet mw-portlet-project-zomboid">
+	<div class="citizen-menu__heading">
+		Project Zomboid
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="n-website" class="mw-list-item"><a href="https://projectzomboid.com/" rel="nofollow" title="The Project Zomboid website"><span>Website</span></a></li><li id="n-forums" class="mw-list-item"><a href="https://theindiestone.com/forums/" rel="nofollow" title="The official community forums"><span>Forums</span></a></li><li id="n-bug-reports" class="mw-list-item"><a href="https://theindiestone.com/forums/index.php?/forum/85-bug-reports/" rel="nofollow" title="Report any bugs you encounter here"><span>Bug reports</span></a></li><li id="n-build-history" class="mw-list-item"><a href="https://projectzomboid.com/blog/news/2017/02/buildstatus/" rel="nofollow" title="View official Status and Build History page"><span>Build history</span></a></li><li id="n-map" class="mw-list-item"><a href="https://map.projectzomboid.com/" rel="nofollow" title="Official Project Zomboid map"><span>Map</span></a></li><li id="n-discord" class="mw-list-item"><a href="https://discord.gg/theindiestone" rel="nofollow" title="Join us on the #pzwiki_editing on the official Discord server"><span>Discord</span></a></li>
+		</ul>
+		
+	</div></nav>
+<nav id="p-Languages" class="citizen-menu mw-portlet mw-portlet-Languages emptyPortlet">
+	<div class="citizen-menu__heading">
+		Languages
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+<nav id="p-navigation" class="citizen-menu mw-portlet mw-portlet-navigation">
+	<div class="citizen-menu__heading">
+		Navigation
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="t-specialpages" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q"><span class="citizen-ui-icon mw-ui-icon-specialPages mw-ui-icon-wikimedia-specialPages"></span> <span>Special pages</span><kbd class="citizen-keyboard-hint-key">alt ⇧ q</kbd></a></li><li id="t-upload" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:Upload" title="Upload files [alt-shift-u]" accesskey="u"><span class="citizen-ui-icon mw-ui-icon-upload mw-ui-icon-wikimedia-upload"></span> <span>Upload file</span><kbd class="citizen-keyboard-hint-key">alt ⇧ u</kbd></a></li>
+		</ul>
+		
+	</div></nav>
+
+				</section>		</div>
+		</div>
+	</div>	<div class="citizen-header__inner">
+		<div class="citizen-header__start"></div>
+		<div class="citizen-header__end">
+			<div class="citizen-preferences citizen-header__item citizen-dropdown">
+				<details id="citizen-preferences-details" class="citizen-dropdown-details">
+					<summary class="citizen-dropdown-summary" title="Toggle preferences menu" aria-details="citizen-preferences__card">
+						<span class="citizen-ui-icon mw-ui-icon-wikimedia-settings"></span>
+						<span>Toggle preferences menu</span>
+					</summary>
+				</details>
+				<div id="citizen-preferences__card" class="citizen-menu__card">
+					<div class="citizen-menu__card-backdrop"></div>
+					<div class="citizen-menu__card-content">
+						<div id="citizen-preferences-content" class="citizen-preferences-content"></div>
+					</div>
+				</div>
+			</div>			<nav id="p-notifications" class="citizen-menu mw-portlet mw-portlet-notifications emptyPortlet">
+	<div class="citizen-menu__heading">
+		notifications
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+			<div class="citizen-userMenu citizen-header__item citizen-dropdown">
+				<details class="citizen-dropdown-details">
+					<summary class="citizen-dropdown-summary" title="Toggle personal menu" aria-details="citizen-userMenu__card">
+						<span class="citizen-ui-icon mw-ui-icon-wikimedia-userAvatar"></span>
+						<span>Toggle personal menu</span>
+					</summary>
+				</details>
+				<div id="citizen-userMenu__card" class="citizen-menu__card">
+					<div class="citizen-menu__card-backdrop"></div>
+					<div class="citizen-menu__card-content">
+						<div class="citizen-userInfo">
+	<div class="citizen-userInfo-title">
+		<div>Not logged in</div>
+		
+	</div>
+	<div class="citizen-userInfo-text">
+		<div>Please log in or create an account to make contributions.</div>
+	</div>
+</div>
+						<nav id="p-user-interface-preferences" class="citizen-menu mw-portlet mw-portlet-user-interface-preferences emptyPortlet">
+	<div class="citizen-menu__heading">
+		user-interface-preferences
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+						<nav id="p-personal" class="citizen-menu mw-portlet mw-portlet-personal" title="User menu">
+	<div class="citizen-menu__heading">
+		Personal tools
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="pt-createaccount" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Special:CreateAccount&amp;returnto=Lua+%28API%29" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="citizen-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Special:UserLogin&amp;returnto=Lua+%28API%29" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o"><span class="citizen-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span><kbd class="citizen-keyboard-hint-key">alt ⇧ o</kbd></a></li>
+		</ul>
+		
+	</div></nav>
+
+					</div>
+				</div>
+			</div>		</div>
+	</div>
+</header>
+<div class="citizen-page-container">
+	<div class="citizen-sitenotice-container"><div id="siteNotice"><div id="localNotice" data-nosnippet=""><div class="sitenotice" lang="en" dir="ltr"><div class="sitenotice-card">
+<div class="image-container-left">
+<p><span typeof="mw:File"><a href="https://pzwiki.net/wiki/File:Be_crafty.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/64px-Be_crafty.png" decoding="async" width="64" height="69" class="mw-file-element" srcset="/w/images/thumb/b/b3/Be_crafty.png/96px-Be_crafty.png 1.5x, /w/images/thumb/b/b3/Be_crafty.png/128px-Be_crafty.png 2x"></a></span>
+</p>
+</div>
+<div>
+<p><b><a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42</a> unstable <a href="https://pzwiki.net/wiki/Multiplayer" title="Multiplayer">multiplayer</a> is <a href="https://projectzomboid.com/blog/news/2025/12/unstable-42-mp-released/" class="extiw" title="zomboidweb:blog/news/2025/12/unstable-42-mp-released/">out now</a>!</b>
+</p><p>PZwiki pages are getting updated to <a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42</a>. We appreciate your patience during the updates.<br>
+Help us by contributing to the <a href="https://pzwiki.net/wiki/PZwiki:Project_Build_42_Update" title="PZwiki:Project Build 42 Update">Project Build 42 Update</a>.<br>
+The official <a href="https://pzwiki.net/wiki/Project_Zomboid_Map_Project" title="Project Zomboid Map Project">Project Zomboid Map Project</a> has not yet been updated. In the meantime, use <a href="https://pzwiki.net/wiki/B42_Map" title="B42 Map">B42 Map</a>.
+</p>
+</div>
+<div class="image-container-right">
+<p><span typeof="mw:File"><a href="https://pzwiki.net/wiki/File:404SpiffoMascotMap.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/64px-404SpiffoMascotMap.png" decoding="async" width="64" height="80" class="mw-file-element" srcset="/w/images/thumb/b/bc/404SpiffoMascotMap.png/96px-404SpiffoMascotMap.png 1.5x, /w/images/thumb/b/bc/404SpiffoMascotMap.png/128px-404SpiffoMascotMap.png 2x"></a></span>
+</p>
+</div>
+</div></div></div></div></div>
+	<main class="mw-body ve-init-mw-desktopArticleTarget-targetContainer" id="content">
+		<header class="mw-body-header citizen-page-header" id="citizen-page-header">
+			<div class="citizen-page-header-inner">
+				
+<div class="citizen-page-heading">
+	<div class="firstHeading-container">
+		<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Lua <span class="mw-page-title-parenthesis">(API)</span></span></h1>
+		
+		<div class="mw-indicators">
+		</div>	</div>
+	<div id="siteSub">From PZwiki</div>
+</div>
+				
+<div class="page-actions">
+	<button id="citizen-share" class="citizen-share citizen-button citizen-dropdown-summary" title="Share this page">
+	<span class="citizen-ui-icon mw-ui-icon-wikimedia-share"></span>
+	<span>Share this page</span>
+</button>
+	
+		<nav id="p-views" class="citizen-menu mw-portlet mw-portlet-views">
+	<div class="citizen-menu__heading">
+		Views
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="ca-view" class="selected mw-list-item"><a href="https://pzwiki.net/wiki/Lua_(API)"><span class="citizen-ui-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span> <span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e"><span class="citizen-ui-icon mw-ui-icon-editLock mw-ui-icon-wikimedia-editLock"></span> <span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h"><span class="citizen-ui-icon mw-ui-icon-history mw-ui-icon-wikimedia-history"></span> <span>View history</span></a></li>
+		</ul>
+		
+	</div></nav>
+
+		<nav id="p-associated-pages" class="citizen-menu mw-portlet mw-portlet-associated-pages">
+	<div class="citizen-menu__heading">
+		associated-pages
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="ca-nstab-main" class="selected mw-list-item"><a href="https://pzwiki.net/wiki/Lua_(API)" title="View the content page [alt-shift-c]" accesskey="c"><span class="citizen-ui-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span> <span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Talk:Lua_(API)&amp;action=edit&amp;redlink=1" rel="discussion" class="new" title="Discussion about the content page (page does not exist) [alt-shift-t]" accesskey="t"><span class="citizen-ui-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles"></span> <span>Discussion</span></a></li>
+		</ul>
+		
+	</div></nav>
+
+	<div id="citizen-page-more-dropdown" class="page-actions-more page-actions__item citizen-dropdown">
+	<details class="citizen-dropdown-details">
+		<summary class="citizen-dropdown-summary" title="More actions" aria-details="page-actions-more__card">
+			<span class="citizen-ui-icon mw-ui-icon-wikimedia-ellipsis"></span>
+			<span>More actions</span>
+		</summary>
+	</details>
+	<aside id="page-actions-more__card" class="citizen-menu__card">
+		<div class="citizen-menu__card-backdrop"></div>
+		<div class="citizen-menu__card-content">
+					<nav id="p-cactions" class="citizen-menu mw-portlet mw-portlet-cactions emptyPortlet" title="More options">
+	<div class="citizen-menu__heading">
+		More
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+			<nav id="p-tb" class="citizen-menu mw-portlet mw-portlet-tb">
+	<div class="citizen-menu__heading">
+		Tools
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="t-whatlinkshere" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:WhatLinksHere/Lua_(API)" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j"><span class="citizen-ui-icon mw-ui-icon-articleRedirect mw-ui-icon-wikimedia-articleRedirect"></span> <span>What links here</span><kbd class="citizen-keyboard-hint-key">alt ⇧ j</kbd></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RecentChangesLinked/Lua_(API)" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k"><span class="citizen-ui-icon mw-ui-icon-recentChanges mw-ui-icon-wikimedia-recentChanges"></span> <span>Related changes</span><kbd class="citizen-keyboard-hint-key">alt ⇧ k</kbd></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p"><span class="citizen-ui-icon mw-ui-icon-printer mw-ui-icon-wikimedia-printer"></span> <span>Printable version</span><kbd class="citizen-keyboard-hint-key">alt ⇧ p</kbd></a></li><li id="t-permalink" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;oldid=1310373" title="Permanent link to this revision of this page"><span class="citizen-ui-icon mw-ui-icon-link mw-ui-icon-wikimedia-link"></span> <span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;action=info" title="More information about this page"><span class="citizen-ui-icon mw-ui-icon-infoFilled mw-ui-icon-wikimedia-infoFilled"></span> <span>Page information</span></a></li>
+		<li class="mw-list-item mw-list-item-js" id="t-collapsible-toggle-all"><a href="https://pzwiki.net/wiki/Lua_(API)#" title="Expand all collapsible elements on the current page" role="button" aria-expanded="false"><span>Expand all</span></a></li></ul>
+		
+	</div></nav>
+
+		</div>
+	</aside>
+</div>
+</div>
+			</div>
+		</header>
+		<div id="citizen-page-header-sticky-sentinel"></div>
+		<div class="citizen-body-container">
+			<div id="bodyContent" class="citizen-body" aria-labelledby="firstHeading">
+				<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+				
+				
+				<div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><section class="citizen-section" id="citizen-section-0"><div class="langswitch">
+<p><a class="mw-selflink selflink"><span title="Lua (API) (English)">English</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/cs&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/cs (page does not exist)"><span title="Lua (API)/cs (čeština)">čeština</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/de&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/de (page does not exist)"><span title="Lua (API)/de (Deutsch)">Deutsch</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/es&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/es (page does not exist)"><span title="Lua (API)/es (español)">español</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/fr&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/fr (page does not exist)"><span title="Lua (API)/fr (français)">français</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/it&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/it (page does not exist)"><span title="Lua (API)/it (italiano)">italiano</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/ja&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/ja (page does not exist)"><span title="Lua (API)/ja (日本語)">日本語</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/ko&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/ko (page does not exist)"><span title="Lua (API)/ko (한국어)">한국어</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/pl&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/pl (page does not exist)"><span title="Lua (API)/pl (polski)">polski</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/pt&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/pt (page does not exist)"><span title="Lua (API)/pt (português)">português</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/pt-br&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/pt-br (page does not exist)"><span title="Lua (API)/pt-br (português do Brasil)">português do Brasil</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/ru&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/ru (page does not exist)"><span title="Lua (API)/ru (русский)">русский</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/th&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/th (page does not exist)"><span title="Lua (API)/th (ไทย)">ไทย</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/tr&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/tr (page does not exist)"><span title="Lua (API)/tr (Türkçe)">Türkçe</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/uk&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/uk (page does not exist)"><span title="Lua (API)/uk (українська)">українська</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/vi&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/vi (page does not exist)"><span title="Lua (API)/vi (Tiếng Việt)">Tiếng Việt</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/zh-hans&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/zh-hans (page does not exist)"><span title="Lua (API)/zh-hans (中文（简体）)">中文（简体）</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Lua_(API)/zh-hant&amp;action=edit&amp;redlink=1" class="new" title="Lua (API)/zh-hant (page does not exist)"><span title="Lua (API)/zh-hant (中文（繁體）)">中文（繁體）</span></a>
+</p>
+</div>
+<div class="navbar2">
+<div><a href="https://pzwiki.net/wiki/Modding" title="Modding">Modding</a></div>
+<div>
+<hr>
+<p><a href="https://pzwiki.net/wiki/Game_files" title="Game files">Game files</a> • <a href="https://pzwiki.net/wiki/File_formats" title="File formats">File formats</a> • <a href="https://pzwiki.net/wiki/Mod_structure" title="Mod structure">Mod structure</a> • <a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">Decompiling game code</a> • <a href="https://pzwiki.net/wiki/Startup_parameters" title="Startup parameters">Startup parameters</a> • <a href="https://pzwiki.net/wiki/Mod_optimization" title="Mod optimization">Mod optimization</a> • <a href="https://pzwiki.net/wiki/Procedural_distributions" title="Procedural distributions">Procedural distributions</a> • <a href="https://pzwiki.net/wiki/Scripts" title="Scripts">Scripts</a> • <a class="mw-selflink selflink">Lua (API)</a> • <a href="https://pzwiki.net/wiki/Java" title="Java">Java</a> • <a href="https://pzwiki.net/wiki/Modeling" title="Modeling">Modeling</a> • <a href="https://pzwiki.net/wiki/Rendering" title="Rendering">Rendering</a> • <a href="https://pzwiki.net/wiki/Animation" title="Animation">Animation</a> • <a href="https://pzwiki.net/wiki/Mapping" title="Mapping">Mapping</a> • <a href="https://pzwiki.net/wiki/Translations" title="Translations">Translations</a>
+</p>
+</div>
+</div>
+<div class="mbox" style="background-color: var(--background-message-warn);border: 1px solid #ff8010;">
+  <div style="background-color: #ff8010;"></div>
+  <div><span class="mw-default-size notpageimage" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Page_version" title="Template:Page version"><img src="./Lua (API) - PZwiki_files/Profession_engineer.png" decoding="async" width="64" height="64" class="mw-file-element"></a></span></div>
+  <div>
+    <div style="font-weight: bold; padding-right: 1em;">This page has been updated to an <i>unstable</i> beta version (<a href="https://pzwiki.net/wiki/Build_42.11.0" title="Build 42.11.0">42.11.0</a>).</div>
+    <div class="mw-collapsible mw-collapsed mw-made-collapsible" id="mw-customcollapsible-mbox-version" style="display: none;">There may be additional features that are not in the stable version (<a href="https://pzwiki.net/wiki/Build_41.78.16" title="Build 41.78.16">41.78.16</a>).</div>
+  <div class="toggle mw-customtoggle-mbox-version mw-customtoggle" title="Show/Hide" aria-expanded="true" tabindex="0"></div><div class="mw-collapsible mw-collapsed mw-made-collapsible" id="mw-customcollapsible-mbox-version" style="font-size: 80%; font-style: italic; display: none;">Help get this page updated to the current unstable version (<a href="https://pzwiki.net/wiki/Build_42.13.2" title="Build 42.13.2">42.13.2</a>). <span class="plainlinks"><a rel="nofollow" class="external text" href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;veaction=edit">Edit</a> (<a rel="nofollow" class="external text" href="https://pzwiki.net/w/index.php?title=Special:CreateAccount&amp;returnto=Lua_(API)">Create account</a>)</span></div>
+  </div>
+</div>
+<dl><dd><span class="notpageimage" typeof="mw:File"><span><img src="./Lua (API) - PZwiki_files/PlushSpiffo.png" decoding="async" width="32" height="32" class="mw-file-element"></span></span><i>This article is about the Lua API.&nbsp;For a guide to learn how to code with Lua, see <a href="https://pzwiki.net/wiki/Lua_(language)" title="Lua (language)">Lua (language)</a>.</i></dd></dl>
+<p>Project Zomboid allows modders to program functionalities via a <a href="https://pzwiki.net/wiki/Java" title="Java">Java</a> implementation of <b><a href="https://pzwiki.net/wiki/Lua_(language)" title="Lua (language)">Lua</a></b> called Kahlua, which enables Lua scripts to run within Java programs. It bases itself on <a rel="nofollow" class="external text" href="https://www.lua.org/manual/5.1/">Lua 5.1</a> with a few differences and basically allows the use of exposed Java class and methods from Lua scripts.
+</p><p>It is highly suggested to take note of the <a href="https://pzwiki.net/wiki/JavaDocs" title="JavaDocs">JavaDocs</a> and possibly <a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">decompiling the game code</a> to make your life easier when it comes to finding functions and understanding their inner working to more easily manipulate the game's Lua. Alternatively, an unofficial project called <a href="https://pzwiki.net/wiki/LuaDocs" title="LuaDocs">LuaDocs</a> acts like a JavaDocs but for the Lua API.
+</p><p><a href="https://pzwiki.net/wiki/Java" title="Java">Java</a> modding also exists and is a more powerful way to mod the game, by reducing the limitations to the minimum. However, it is more complex and has its own major drawbacks.
+</p>
+<meta property="mw:PageProp/toc">
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="How_do_Java_classes_work_in_the_Lua_API">How do Java classes work in the Lua API</span></h2><section class="citizen-section" id="citizen-section-1">
+<p>Lua acts as a bridge to the Java, thanks to Project Zomboid's API. Every time you try to run functions on a Java object from Lua, there are more operations happening than simply running a Lua function on a Lua object, which is also the source of performance impacts (see <a href="https://pzwiki.net/wiki/Mod_optimization" title="Mod optimization">Mod optimization</a>).
+</p><p>There are many ways to access the various class objects in the game, sometimes easy and sometimes not so easy. The usual way is to utilize <a href="https://pzwiki.net/wiki/Lua_event" title="Lua event">Lua events</a> which will output the various class objects they refer to. Take for example <a href="https://pzwiki.net/wiki/OnZombieUpdate" title="OnZombieUpdate">OnZombieUpdate</a> which runs for every single zombies and every zombie update tick:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnZombieUpdate</span><span class="p">(</span><span class="nv">zombie</span><span class="p">)</span>
+<span class="w">	</span><span class="c1">-- Your code here</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnZombieUpdate</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnZombieUpdate</span><span class="p">)</span>
+</pre></div>
+<p>In this case, the variable <code style="" class="mw-highlight mw-highlight-lang-text mw-content-ltr" dir="ltr">zombie</code> is an <a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/characters/IsoZombie.html">IsoZombie</a> with various methods that can be used on it. Sometimes it involves creating one yourself with a <a href="https://pzwiki.net/wiki/Lua_(API)#Constructor">#Constructor</a> or directly retrieving the list of objects. Most classes can have multiple instances, like in the case of IsoZombie.
+</p>
+<h3><span class="mw-headline" id="Parent_and_subclasses">Parent and subclasses</span></h3>
+<p>All Java classes are a subclass to another class, and might also be the parent to subclasses. For example, if we continue on the example of IsoZombie, its parent classes are:
+</p>
+<div class="mw-highlight mw-highlight-lang-text mw-content-ltr" dir="ltr"><pre><span></span>java.lang.Object
+└── zombie.entity.GameEntity
+    └── zombie.iso.IsoObject
+        └── zombie.iso.IsoMovingObject
+            └── zombie.characters.IsoGameCharacter
+                └── zombie.characters.IsoZombie
+</pre></div>
+<p>As such, IsoZombie will inherit all of the fields and methods from its parent classes.
+</p>
+<h3><span class="mw-headline" id="Nested_classes">Nested classes</span></h3>
+<p>A subclass inherits another class, while a <b>nested class</b> is defined directly in a class and as such has access to even private methods and fields from its original class. In the <a href="https://pzwiki.net/wiki/JavaDocs" title="JavaDocs">JavaDocs</a>, nested classes are listed in the “Nested Class Summary” section of the class page. Nested classes are written as <code>ClassName.NestedClassName</code>.
+</p>
+<div class="mbox" style="background-color: var(--background-message-info);">
+  <div style="background-color: #0030df;"></div>
+  <div><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Note" title="Template:Note"><img src="./Lua (API) - PZwiki_files/LightBulbBlue.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span></div>
+  <div>
+    <div>This principle is not too important to understand to work with the Lua API and mostly a technical detail, however there are some notable nested classes which are often used, such as the <a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/characters/skills/PerkFactory.Perks.html">PerkFactory.Perks</a> for example.</div>
+  </div>
+</div>
+<h3><span class="mw-headline" id="Instance_and_static">Instance and static</span></h3>
+<p>Java classes can have two types of methods and fields: instance methods and static methods. To run, instance methods require an instance of the class, while static methods can be run without an instance.
+</p>
+<h3><span class="mw-headline" id="Access_Modifiers">Access Modifiers</span></h3>
+<p>Java class members have an access modifier (public, protected, package, private) which determines where they are accessible. Only public members are exposed to Lua.
+</p>
+<h3><span class="mw-headline" id="Methods_and_fields">Methods and fields</span></h3>
+<p>Java classes can have methods and fields which are respectively functions and variables associated to the class if private or unique to an instance of the class.
+</p>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="Exposed_elements">Exposed elements</span></h2><section class="citizen-section" id="citizen-section-2">
+<p>Not all the Java classes and methods are exposed to the Lua API. In the <a href="https://pzwiki.net/wiki/JavaDocs" title="JavaDocs">JavaDocs</a>, there is no indication of which classes are exposed but for the classes that are exposed, it shows only the methods that are exposed. To call a static method, you need to use the syntax <code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nv">ClassName</span><span class="p">.</span><span class="nf">methodName</span><span class="p">(</span><span class="nv">args</span><span class="o">..</span><span class="p">.)</span></code>, while for instance methods, you need to use the syntax <code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nv">instance</span><span class="p">:</span><span class="nf">methodName</span><span class="p">(</span><span class="nv">args</span><span class="o">..</span><span class="p">.)</span></code>. This directly refers to the Lua syntax for calling <a href="https://pzwiki.net/wiki/Lua_objects" class="mw-redirect" title="Lua objects">Lua object</a> methods with the colon <code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="p">:</span></code> operator passing <code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nv">self</span></code> (the instance here) as the first argument, while the dot <code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="p">.</span></code> operator is used for static methods.
+</p><p>For example <a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html#getLocalPlayerByOnlineID(short)"><code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nf">getLocalPlayerByOnlineID</span><span class="p">(</span><span class="nv">ID</span><span class="p">)</span></code></a> can be ran without an instance of IsoPlayer (<code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nv">IsoPlayer</span><span class="p">.</span><span class="nf">getLocalPlayerByOnlineID</span><span class="p">(</span><span class="nv">ID</span><span class="p">)</span></code>), while <a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/characters/IsoPlayer.html#getForname()"><code style="" class="mw-highlight mw-highlight-lang-text mw-content-ltr" dir="ltr">getForname()</code></a> needs an instance of IsoPlayer to be ran (<code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nv">player</span><span class="p">:</span><span class="nf">getForname</span><span class="p">()</span></code>).
+</p><p><a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/Lua/LuaManager.GlobalObject.html">LuaManager.GlobalObject</a> defines global methods which are exposed in peculiar way, not following the usual way to use them described above. Static methods listed in the JavaDocs page for LuaManager.GlobalObject are called simply by like global Lua functions, such as <a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/Lua/LuaManager.GlobalObject.html#getCell()"><code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nf">getPlayer</span><span class="p">()</span></code></a> or <a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/Lua/LuaManager.GlobalObject.html#getPlayer()"><code style="" class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><span class="nf">getCell</span><span class="p">()</span></code></a>.
+</p>
+<div class="mbox" style="background-color: var(--background-message-info);">
+  <div style="background-color: #0030df;"></div>
+  <div><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Note" title="Template:Note"><img src="./Lua (API) - PZwiki_files/LightBulbBlue.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span></div>
+  <div>
+    <div>Class objects from the Java are not the same as <a href="https://pzwiki.net/wiki/Lua_objects" class="mw-redirect" title="Lua objects">Lua object</a>! They are not tables, but rather direct links to the Java classes. As such, they cannot be used as Lua objects and do not have the same properties as Lua objects.</div>
+  </div>
+</div>
+<h3><span class="mw-headline" id="Accessing_fields">Accessing fields</span></h3>
+<p>Public static fields of exposed classes are exposed to Lua in a global table of the same name as the class.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">DEATH_MUSIC_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">IsoPlayer</span><span class="p">.</span><span class="py">DEATH_MUSIC_NAME</span>
+</pre></div>
+<p>Fields are different as they are not directly exposed but can be accessed by using reflection. It involves a fairly complex set of operations:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">getJavaField</span><span class="p">(</span><span class="nv">object</span><span class="p">,</span><span class="w"> </span><span class="nv">field</span><span class="p">)</span><span class="w">  </span><span class="c1">-- (IsoZombie instance, "strength")</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.len</span><span class="p">(</span><span class="nv">field</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nf">getNumClassFields</span><span class="p">(</span><span class="nv">object</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getClassField</span><span class="p">(</span><span class="nv">object</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">string.sub</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="nv">m</span><span class="p">),</span><span class="w"> </span><span class="o">-</span><span class="nv">offset</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">field</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="nf">getClassFieldVal</span><span class="p">(</span><span class="nv">object</span><span class="p">,</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="c1">-- no field found</span>
+<span class="kr">end</span>
+</pre></div>
+<p>This can access any field declared by the class, regardless of whether it is private or public.
+</p><p>Alternatively, <a href="https://pzwiki.net/wiki/Starlit_Library_(Modding_project)" class="mw-redirect" title="Starlit Library (Modding project)">Starlit Library</a> is a library which simplifies the access of fields on <a href="https://pzwiki.net/wiki/Java_objects" class="mw-redirect" title="Java objects">Java object</a>. Thanks to this library, accessing fields can simply be done in the following way:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- with &lt;object&gt; an instance of a Java class</span>
+<span class="c1">-- and &lt;field&gt; the field you want to access</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">fieldValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">object</span><span class="o">&gt;</span><span class="p">.</span><span class="o">&lt;</span><span class="nv">field</span><span class="o">&gt;</span>
+</pre></div>
+<p>Accessing fields this way is also much less expensive than the above method due to the library's heavy usage of caching.
+</p>
+<div class="mbox" style="background-color: var(--background-message-error);">
+  <div style="background-color: #cc3333;"></div>
+  <div><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Note" title="Template:Note"><img src="./Lua (API) - PZwiki_files/LightBulbRed.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span></div>
+  <div>
+    <div>Accessing the inherited fields of a class from one of its subclass is not possible currently.</div>
+  </div>
+</div>
+<h3><span class="mw-headline" id="Constructor">Constructor</span></h3>
+<p>Constructors are used to instantiate a Java class. This is done with the following way:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="nv">ClassName</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="nv">args</span><span class="o">..</span><span class="p">.)</span>
+</pre></div>
+<p>The <code>ClassName</code> of course needs to be the name of the Java class, so for example IsoZombie, while the arguments <code>args</code> are specific to the Java class.
+</p><p>If you want to instantiate an IsoZombie, you can use its associated <a rel="nofollow" class="external text" href="https://projectzomboid.com/modding/zombie/characters/IsoZombie.html#">&lt;init&gt;(zombie.iso.IsoCell) constructor</a>.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- create the IsoZombie instance</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">isoZombie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">IsoZombie</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="nf">getCell</span><span class="p">())</span>
+</pre></div>
+<p>Something very important to take note of is that this will not create an actual zombie, but simply an instance of IsoZombie which can be used for different operations which require an IsoZombie instance. This is the usual usage of the constructor, and creating entities is mostly done with different kinds of methods.
+</p><p>This IsoZombie instance can be used to create a corpse, for example with the following method for <a href="https://pzwiki.net/wiki/Build_41" title="Build 41">Build 41</a>:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- square is an IsoGridSquare</span>
+<span class="nv">square</span><span class="p">:</span><span class="nf">addCorpse</span><span class="p">(</span><span class="nv">IsoDeadBody</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="nv">zombie</span><span class="p">),</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="c1">-- note the use of IsoDeadBody constructor here</span>
+</pre></div>
+<h3><span class="mw-headline" id="Example">Example</span></h3>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">--- INSTANCE METHOD EXAMPLE ---</span>
+<span class="c1">-- retrieve the client IsoPlayer instance</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getPlayer</span><span class="p">()</span><span class="w"> </span><span class="c1">-- a LuaManager.GlobalObject method</span>
+
+<span class="c1">-- retrieve the IsoPlayer instance move speed</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">moveSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">getMoveSpeed</span><span class="p">()</span><span class="w"> </span><span class="c1">-- instance method, notice the ":"</span>
+
+<span class="c1">--- STATIC METHOD EXAMPLE ---</span>
+<span class="c1">-- retrieve the list of IsoPlayers</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">players</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">IsoPlayer</span><span class="p">.</span><span class="nf">getPlayers</span><span class="p">()</span><span class="w"> </span><span class="c1">-- static method, notice the "."</span>
+</pre></div>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="Lua_objects">Lua objects</span></h2><section class="citizen-section" id="citizen-section-3">
+<p>Lua objects are widely used in the Lua API and natively defined in it. They utilize the <a href="https://pzwiki.net/wiki/ISBaseObject" title="ISBaseObject">ISBaseObject</a> class and derive from it to define new classes which can themselves be derived from. They are usually global and can be accessed from anywhere but in some cases where they are locked behind a local scope to a file, you can utilize the <a href="https://pzwiki.net/wiki/DOME" title="DOME">DOME</a> library to access them.
+</p><p><a href="https://pzwiki.net/wiki/Timed_Actions" title="Timed Actions">Timed Actions</a> use Lua objects to easily instantiate them and derive directly from <a href="https://pzwiki.net/wiki/ISBaseTimedAction" title="ISBaseTimedAction">ISBaseTimedAction</a>. UI elements also use Lua objects.
+</p>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="Where_to_start">Where to start</span></h2><section class="citizen-section" id="citizen-section-4">
+<p>To setup a programming environment, see the <a href="https://pzwiki.net/wiki/Getting_started#Programming_environment" class="mw-redirect" title="Getting started">getting started</a> page.
+</p><p>Programming with the Lua (API) can be done in many ways, but in most cases it will involve using a <a href="https://pzwiki.net/wiki/Lua_event" title="Lua event">Lua event</a> to run your code at specific moments of the game. As such, it's suggested to check out the <a href="https://pzwiki.net/wiki/Category:Lua_events" title="Category:Lua events">events</a> which are available to see where you can get started.
+</p><p>When this didn't do much for you, another thing you might be interested to is to either check the vanilla code or for a mod which does something similar and see how they achieve it. With experience, you can learn to understand the game code and create your own functionalities more easily without needing to use examples.
+</p><p>Alternatively, various guides available on the Wiki will explain how to do certain actions.
+</p>
+<h3><span class="mw-headline" id="Community_libraries">Community libraries</span></h3>
+<p>There are various community libraries which can help you with your Lua modding. For a full list, see the <a href="https://pzwiki.net/wiki/Modding_projects" title="Modding projects">Modding projects</a> in the <a href="https://pzwiki.net/wiki/Category:Libraries" title="Category:Libraries">libraries category</a>.
+</p>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="Folder_structure">Folder structure</span></h2><section class="citizen-section" id="citizen-section-5">
+<dl><dd><i>Main article: <a href="https://pzwiki.net/wiki/Mod_structure" title="Mod structure">Mod structure</a></i></dd></dl>
+<p><b>Lua</b> scripts, with the file extension <code>.lua</code> need to be inside three subfolders inside the <code>media/lua</code> folder, and are used to determine the loading of files in singleplayer and multiplayer:
+</p>
+<div class="mw-highlight mw-highlight-lang-text mw-content-ltr" dir="ltr"><pre><span></span>media/
+└── lua/
+    ├── client/
+    │   ├── yourFile.lua
+    │   └── ...
+    ├── server/
+    │   ├── yourOtherFile.lua
+    │   └── ...
+    └── shared/
+        ├── thisIsALuaScript.lua
+        └── ...
+</pre></div>
+<p>The only time one of these folder is not loaded is for multiplayer server side:
+</p>
+<div class="citizen-overflow-wrapper"><div class="citizen-overflow-nav"><button class="citizen-overflow-navButton citizen-overflow-navButton-left citizen-ui-icon mw-ui-icon-wikimedia-collapse" aria-hidden="true" tabindex="-1"></button><button class="citizen-overflow-navButton citizen-overflow-navButton-right citizen-ui-icon mw-ui-icon-wikimedia-collapse" aria-hidden="true" tabindex="-1"></button></div><div class="citizen-overflow-content"><table class="wikitable theme-blue">
+<caption style="white-space:nowrap">Which folders are loaded in which game mode
+</caption>
+<tbody><tr>
+<th>Folder</th>
+<th>Singleplayer</th>
+<th>Multiplayer: <br>client side</th>
+<th>Multiplayer: <br>server side
+</th></tr>
+<tr>
+<td style="min-width: 100px;text-align: center;"><code>client</code>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Cross.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Cross.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td></tr>
+<tr>
+<td style="min-width: 100px;text-align: center;"><code>server</code>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td></tr>
+<tr>
+<td style="min-width: 100px;text-align: center;"><code>shared</code>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td>
+<td style="min-width: 100px;text-align: center;"><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:UI_Tick.png" class="mw-file-description"><img src="./Lua (API) - PZwiki_files/UI_Tick.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span>
+</td></tr></tbody></table></div></div>
+<p>Organization inside the client, server and shared folders is free and subfolders can be created with files named in any way. Files with the same relative path to the <code>lua</code> as vanilla files will overwrite them, so make sure to use unique names and relative paths. This applies to other mod files too and is impacted by the load order between mods.
+</p>
+<h3><span class="mw-headline" id="Load_order">Load order</span></h3>
+<p>Lua files are loaded when launching the game, and when exiting a save, or when manually triggered in <a href="https://pzwiki.net/wiki/Debug_mode" title="Debug mode">debug mode</a> in the main menu, in the following order:
+</p>
+<ol><li>Shared - vanilla files</li>
+<li>Shared - mod files</li>
+<li>Client - vanilla files</li>
+<li>Client - mod files</li></ol>
+<p>The server subfolder is actually loaded only when launching a save, so anytime Lua is loaded or reloaded the server files are unloaded until a save is loaded. The order for the server subfolder files is:
+</p>
+<ol start="5">
+<li> Server - vanilla files </li>
+<li> Server - mod files </li>
+</ol>
+<div class="mbox" style="background-color: var(--background-message-info);">
+  <div style="background-color: #0030df;"></div>
+  <div><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Note" title="Template:Note"><img src="./Lua (API) - PZwiki_files/LightBulbBlue.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span></div>
+  <div>
+    <div>Translation files are also put inside the <code>lua</code> folder but are not Lua files. See the <a href="https://pzwiki.net/wiki/Translations" title="Translations">Translations</a> page for more detail.</div>
+  </div>
+</div>
+<div class="mbox" style="background-color: var(--background-message-warn);">
+  <div style="background-color: #ffcc33;"></div>
+  <div><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Note" title="Template:Note"><img src="./Lua (API) - PZwiki_files/LightBulbYellow.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span></div>
+  <div>
+    <div>It is not recommended to overwrite existing files if not needed for compatibility reasons. Instead, overwrite specific functions or <a href="https://pzwiki.net/wiki/Lua_(language)#Decoration" title="Lua (language)">hook</a> to them when possible.</div>
+  </div>
+</div>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="See_also">See also</span></h2><section class="citizen-section" id="citizen-section-6">
+<ul><li><a href="https://pzwiki.net/wiki/Java" title="Java">Java</a> - explains things related to</li>
+<li><a href="https://pzwiki.net/wiki/Lua_(language)" title="Lua (language)">Lua (language)</a> - the programming language used in Project Zomboid.</li>
+<li><a href="https://pzwiki.net/wiki/Lua_objects" class="mw-redirect" title="Lua objects">Lua object</a> - classes defined in the Lua.</li>
+<li><a href="https://pzwiki.net/wiki/Lua_event" title="Lua event">Lua event</a> - events which can be used to run Lua code at specific moments of the game.</li>
+<li><a href="https://pzwiki.net/wiki/LuaDocs" title="LuaDocs">LuaDocs</a> - an unofficial project which acts like a JavaDocs but for the Lua API.</li>
+<li><a href="https://pzwiki.net/wiki/ModOptions" title="ModOptions">ModOptions</a> - the native mod options API introduced in <a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42</a>.</li></ul>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="Navigation">Navigation</span></h2><section class="citizen-section" id="citizen-section-7">
+<div class="navbox theme-blue" style="clear: both;">
+  <div class="mw-customtoggle-navbox-modding mw-customtoggle" title="Show / Hide" aria-expanded="true" tabindex="0"><a href="https://pzwiki.net/wiki/Category:Modding" title="Category:Modding">Modding</a></div>
+  <div class="mw-collapsible mw-collapsed mw-made-collapsible" id="mw-customcollapsible-navbox-modding" style="display: none;">
+    <div class="navbox-section">
+      <div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding#Communities" title="Modding">Modding</a> community
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Discord" title="Discord">The Indie Stone Discord</a> • <a href="https://pzwiki.net/wiki/Modding_projects" title="Modding projects">Modding projects</a> • <a href="https://pzwiki.net/wiki/Unofficial_Mapping_Discord" class="mw-redirect" title="Unofficial Mapping Discord">Unofficial PZ Mapping Discord</a> • <a href="https://pzwiki.net/wiki/Unofficial_Modding_Discord" class="mw-redirect" title="Unofficial Modding Discord">PZ Modding Community</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding#Modding_guides" title="Modding">Modding</a> guides
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Common_modding_issues" title="Common modding issues">Common modding issues</a> • <a href="https://pzwiki.net/wiki/Creating_a_clothing_mod" title="Creating a clothing mod">Creating a clothing mod</a> • <a href="https://pzwiki.net/wiki/Creating_a_flier_mod" title="Creating a flier mod">Creating a flier mod</a> • <a href="https://pzwiki.net/wiki/Creating_a_hair_mod" title="Creating a hair mod">Creating a hair mod</a> • <a href="https://pzwiki.net/wiki/Creating_a_trait_mod" title="Creating a trait mod">Creating a trait mod</a> • <a href="https://pzwiki.net/wiki/Creating_custom_animations" title="Creating custom animations">Creating custom animations</a> • <a href="https://pzwiki.net/wiki/Creating_custom_voices" title="Creating custom voices">Creating custom voices</a> • <a href="https://pzwiki.net/wiki/Creating_dynamic_radio_channels" title="Creating dynamic radio channels">Creating dynamic radio channels</a> • <a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">Decompiling game code</a> • <a href="https://pzwiki.net/wiki/File_formats" title="File formats">File formats</a> • <a href="https://pzwiki.net/wiki/Game_files" title="Game files">Game files</a> • <a href="https://pzwiki.net/wiki/Getting_started_with_modding" title="Getting started with modding">Getting started with modding</a> • <a href="https://pzwiki.net/wiki/Java" title="Java">Java</a> • <a href="https://pzwiki.net/wiki/Lua_(language)" title="Lua (language)">Lua</a> • <a href="https://pzwiki.net/wiki/Mod_optimization" title="Mod optimization">Mod optimization</a> • <a href="https://pzwiki.net/wiki/Mod_structure" title="Mod structure">Mod structure</a> • <a href="https://pzwiki.net/wiki/Modeling" title="Modeling">Modeling</a> • <a href="https://pzwiki.net/wiki/Mods" title="Mods">Mods</a> • <a href="https://pzwiki.net/wiki/Rendering" title="Rendering">Rendering</a> • <a href="https://pzwiki.net/wiki/Resolving_problems_with_mods" title="Resolving problems with mods">Resolving problems with mods</a> • <a href="https://pzwiki.net/wiki/Testing_mods_in_multiplayer" title="Testing mods in multiplayer">Testing mods in multiplayer</a> • <a href="https://pzwiki.net/wiki/Uploading_mods" title="Uploading mods">Uploading mods</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding" title="Modding">Modding</a> resources
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/App_ID" title="App ID">App ID</a> • <a href="https://pzwiki.net/wiki/Animation" title="Animation">Animation</a> • <a href="https://pzwiki.net/wiki/BBCode" title="BBCode">BBCode</a> • <a href="https://pzwiki.net/wiki/Food_types" title="Food types">Food types</a> • <a href="https://pzwiki.net/wiki/Item_tag" title="Item tag">Item tag</a> • <a href="https://pzwiki.net/wiki/Mod.info" title="Mod.info">mod.info</a> • <a href="https://pzwiki.net/wiki/Networking" title="Networking">Networking</a> • <a href="https://pzwiki.net/wiki/Startup_parameters" title="Startup parameters">Startup parameters</a> • <a href="https://pzwiki.net/wiki/Translations" title="Translations">Translations</a> • <a href="https://pzwiki.net/wiki/Workshop.txt" title="Workshop.txt">workshop.txt</a> • <a href="https://pzwiki.net/wiki/Workshop_ID" title="Workshop ID">Workshop ID</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Scripts" title="Scripts">Scripts</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/CraftRecipe" title="CraftRecipe">craftRecipe</a> • <a href="https://pzwiki.net/wiki/Evolvedrecipe_(scripts)" title="Evolvedrecipe (scripts)">Evolvedrecipe</a> • <a href="https://pzwiki.net/wiki/Fixing_(scripts)" title="Fixing (scripts)">Fixing</a> • <a href="https://pzwiki.net/wiki/Fluid_(scripts)" title="Fluid (scripts)">Fluid</a> • <a href="https://pzwiki.net/wiki/Item_(scripts)" title="Item (scripts)">Item</a> • <a href="https://pzwiki.net/wiki/Model_(scripts)" title="Model (scripts)">Model</a> • <a href="https://pzwiki.net/wiki/Multistagebuild_(scripts)" title="Multistagebuild (scripts)">Multistagebuild</a> • <a href="https://pzwiki.net/wiki/Recipe_(scripts)" title="Recipe (scripts)">Recipe</a> • <a href="https://pzwiki.net/wiki/Sandbox_options" title="Sandbox options">Sandbox options</a> • <a href="https://pzwiki.net/wiki/Sound_(scripts)" title="Sound (scripts)">Sound</a> • <a href="https://pzwiki.net/wiki/TimedAction_(scripts)" title="TimedAction (scripts)">TimedAction</a> • <a href="https://pzwiki.net/wiki/Vehicle_(scripts)" title="Vehicle (scripts)">Vehicle</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a class="mw-selflink selflink">Lua (API)</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">Decompiling game code</a> • <a href="https://pzwiki.net/wiki/Game_time" title="Game time">Game time</a> • <a href="https://pzwiki.net/wiki/Java_object" title="Java object">Java object</a> • <a href="https://pzwiki.net/wiki/JavaDocs" title="JavaDocs">JavaDocs</a> • <a href="https://pzwiki.net/wiki/Keyboard" title="Keyboard">Keyboard</a> • <a href="https://pzwiki.net/wiki/LuaDocs" title="LuaDocs">LuaDocs</a> • <a href="https://pzwiki.net/wiki/Lua_event" title="Lua event">Lua event</a> • <a href="https://pzwiki.net/wiki/Lua_object" title="Lua object">Lua object</a> • <a href="https://pzwiki.net/wiki/Mod_data" title="Mod data">Mod data</a> • <a href="https://pzwiki.net/wiki/PersistentOutfitID" title="PersistentOutfitID">PersistentOutfitID</a> • <a href="https://pzwiki.net/wiki/Procedural_distributions" title="Procedural distributions">Procedural distributions</a> • <a href="https://pzwiki.net/wiki/Remote_debugging" title="Remote debugging">Remote debugging</a> • <a href="https://pzwiki.net/wiki/Umbrella_(modding)" title="Umbrella (modding)">Umbrella</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Mapping" title="Mapping">Mapping</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Adding_new_tiles" title="Adding new tiles">Adding new tiles</a> • <a href="https://pzwiki.net/wiki/BuildingEd" title="BuildingEd">BuildingEd</a> • <a href="https://pzwiki.net/wiki/Map.info" title="Map.info">map.info</a> • <a href="https://pzwiki.net/wiki/Room_definitions_and_item_spawns" title="Room definitions and item spawns">Room definitions and item spawns</a> • <a href="https://pzwiki.net/wiki/Tile_properties" title="Tile properties">Tile properties</a> • <a href="https://pzwiki.net/wiki/Tiledefs_used_by_mods" title="Tiledefs used by mods">Tiledefs used by mods</a> • <a href="https://pzwiki.net/wiki/TileZed" title="TileZed">TileZed</a> • <a href="https://pzwiki.net/wiki/Vehicle_zones" title="Vehicle zones">Vehicle zones</a> • <a href="https://pzwiki.net/wiki/WorldEd" title="WorldEd">WorldEd</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Animation" title="Animation">Animation</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/AnimNodes" class="mw-redirect" title="AnimNodes">AnimNode</a> • <a href="https://pzwiki.net/wiki/Dislaik_rig" title="Dislaik rig">Dislaik rig</a> • <a href="https://pzwiki.net/wiki/Mystery_rig" title="Mystery rig">Mystery rig</a> • <a href="https://pzwiki.net/wiki/Paddlefruit_rig" title="Paddlefruit rig">Paddlefruit rig</a> • <a href="https://pzwiki.net/wiki/Throttlekitty_rig" title="Throttlekitty rig">Throttlekitty rig</a> • <a href="https://pzwiki.net/wiki/PerformingAction" title="PerformingAction">PerformingAction</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding" title="Modding">Modding</a> tools
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Animation_Viewer" title="Animation Viewer">Animation Viewer</a> • <a href="https://pzwiki.net/wiki/Attachment_Editor" title="Attachment Editor">Attachment Editor</a> • <a href="https://pzwiki.net/wiki/BuildingEd" title="BuildingEd">BuildingEd</a> • <a href="https://pzwiki.net/wiki/CartoZed" title="CartoZed">CartoZed</a> • <a href="https://pzwiki.net/wiki/Imgui" title="Imgui">Imgui</a> • <a href="https://pzwiki.net/wiki/IntelliJ_IDEA" title="IntelliJ IDEA">IntelliJ IDEA</a> • <a href="https://pzwiki.net/wiki/ItemZed" title="ItemZed">ItemZed</a><sup style="font-weight: bold; color: red">Outdated</sup> • <a href="https://pzwiki.net/wiki/LootZed" title="LootZed">LootZed</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Modding_Tools" title="Project Zomboid Modding Tools">Project Zomboid Modding Tools</a> • <a href="https://pzwiki.net/wiki/Remote_debugging" title="Remote debugging">Remote debugging</a> • <a href="https://pzwiki.net/wiki/TileZed" title="TileZed">TileZed</a> • <a href="https://pzwiki.net/wiki/TranslationZed" title="TranslationZed">TranslationZed</a><sup style="font-weight: bold; color: red">Outdated</sup> • <a href="https://pzwiki.net/wiki/Visual_Studio_Code" title="Visual Studio Code">Visual Studio Code</a> • <a href="https://pzwiki.net/wiki/WordZed" title="WordZed">WordZed</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding_projects" title="Modding projects">Modding projects</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Azakaela%27s_Modding_Tools" title="Azakaela&#39;s Modding Tools">Azakaela's Modding Tools</a> • <a href="https://pzwiki.net/wiki/B42_Map" title="B42 Map">B42 Map</a> • <a href="https://pzwiki.net/wiki/Background_Framework" title="Background Framework">Background Framework</a> • <a href="https://pzwiki.net/wiki/Beautiful_Java" title="Beautiful Java">Beautiful Java</a> • <a href="https://pzwiki.net/wiki/BeeArr_tools" title="BeeArr tools">BeeArr tools</a> • <a href="https://pzwiki.net/wiki/Community_Modding_Projects" title="Community Modding Projects">Community Modding Projects</a> • <a href="https://pzwiki.net/wiki/DebugMenu" title="DebugMenu">DebugMenu</a> • <a href="https://pzwiki.net/wiki/Dislaik_rig" title="Dislaik rig">Dislaik rig</a> • <a href="https://pzwiki.net/wiki/Doggy%27s_Library" title="Doggy&#39;s Library">Doggy's Library</a> • <a href="https://pzwiki.net/wiki/DOME" title="DOME">DOME</a> • <a href="https://pzwiki.net/wiki/Easy_Distributions_API" title="Easy Distributions API">Easy Distributions API</a> • <a href="https://pzwiki.net/wiki/Elyon_Lib" title="Elyon Lib">Elyon Lib</a> • <a href="https://pzwiki.net/wiki/Events_Plus_API" title="Events Plus API">Events Plus API</a> • <a href="https://pzwiki.net/wiki/FrameworkZ" title="FrameworkZ">FrameworkZ</a> • <a href="https://pzwiki.net/wiki/JB_ASSUtils" title="JB ASSUtils">JB ASSUtils</a> • <a href="https://pzwiki.net/wiki/JB_Max_Capacity_Override" title="JB Max Capacity Override">JB Max Capacity Override</a> • <a href="https://pzwiki.net/wiki/KATTAJ1_Clothes_Core" title="KATTAJ1 Clothes Core">KATTAJ1 Clothes Core</a> • <a href="https://pzwiki.net/wiki/Leaf" title="Leaf">Leaf</a> • <a href="https://pzwiki.net/wiki/Location_Identifier_Framework" title="Location Identifier Framework">Location Identifier Framework</a> • <a href="https://pzwiki.net/wiki/LuaDocs" title="LuaDocs">LuaDocs</a> • <a href="https://pzwiki.net/wiki/Magazine_API" title="Magazine API">Magazine API</a> • <a href="https://pzwiki.net/wiki/Map_Mover" title="Map Mover">Map Mover</a> • <a href="https://pzwiki.net/wiki/Mod_Update_and_Alert_System" title="Mod Update and Alert System">Mod Update and Alert System</a> • <a href="https://pzwiki.net/wiki/Modix" title="Modix">Modix</a> • <a href="https://pzwiki.net/wiki/Moodle_Framework" title="Moodle Framework">Moodle Framework</a> • <a href="https://pzwiki.net/wiki/Moodles_in_lua" title="Moodles in lua">Moodles in lua</a> • <a href="https://pzwiki.net/wiki/Mystery_rig" title="Mystery rig">Mystery rig</a> • <a href="https://pzwiki.net/wiki/Paddlefruit_rig" title="Paddlefruit rig">Paddlefruit rig</a> • <a href="https://pzwiki.net/wiki/Pq_tools" title="Pq tools">pq tools</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Community_Modding_template" title="Project Zomboid Community Modding template">Project Zomboid Community Modding template</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Loot_Analyzer" title="Project Zomboid Loot Analyzer">Project Zomboid Loot Analyzer</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Script_Support" title="Project Zomboid Script Support">Project Zomboid Script Support</a> • <a href="https://pzwiki.net/wiki/Pythoid" title="Pythoid">Pythoid</a> • <a href="https://pzwiki.net/wiki/PZ_AI_agent" title="PZ AI agent">PZ AI agent</a> • <a href="https://pzwiki.net/wiki/PZEventDoc" title="PZEventDoc">PZEventDoc</a> • <a href="https://pzwiki.net/wiki/PZEventStubs" title="PZEventStubs">PZEventStubs</a> • <a href="https://pzwiki.net/wiki/Pzmap2dzi" title="Pzmap2dzi">pzmap2dzi</a> • <a href="https://pzwiki.net/wiki/PZTools" title="PZTools">PZTools</a> • <a href="https://pzwiki.net/wiki/Real_Life_Map" title="Real Life Map">Real Life Map</a> • <a href="https://pzwiki.net/wiki/Starlit_Library" title="Starlit Library">Starlit Library</a> • <a href="https://pzwiki.net/wiki/Steam_Uploader" title="Steam Uploader">Steam Uploader</a> • <a href="https://pzwiki.net/wiki/TchernoLib" title="TchernoLib">TchernoLib</a> • <a href="https://pzwiki.net/wiki/Throttlekitty_rig" title="Throttlekitty rig">Throttlekitty rig</a> • <a href="https://pzwiki.net/wiki/Umbrella_(modding)" title="Umbrella (modding)">Umbrella</a> • <a href="https://pzwiki.net/wiki/Unofficial_JavaDocs_(Build_41)" title="Unofficial JavaDocs (Build 41)">Unofficial JavaDocs (Build 41)</a> • <a href="https://pzwiki.net/wiki/Unofficial_JavaDocs_(Build_42)" title="Unofficial JavaDocs (Build 42)">Unofficial JavaDocs (Build 42)</a> • <a href="https://pzwiki.net/wiki/Unofficial_Mapping_Tools" title="Unofficial Mapping Tools">Unofficial Mapping Tools</a> • <a href="https://pzwiki.net/wiki/Vanilla_Map_Export" title="Vanilla Map Export">Vanilla Map Export</a> • <a href="https://pzwiki.net/wiki/Wiki_That!" title="Wiki That!">Wiki That!</a> • <a href="https://pzwiki.net/wiki/Wiki_Tools" title="Wiki Tools">Wiki Tools</a> • <a href="https://pzwiki.net/wiki/Zed_Script" title="Zed Script">Zed Script</a> • <a href="https://pzwiki.net/wiki/Zombie_Layer_Replacer" title="Zombie Layer Replacer">Zombie Layer Replacer</a> • <a href="https://pzwiki.net/wiki/Zomboid_Decompiler" title="Zomboid Decompiler">Zomboid Decompiler</a> • <a href="https://pzwiki.net/wiki/ZomboidAssetConverter" title="ZomboidAssetConverter">ZomboidAssetConverter</a> • <a href="https://pzwiki.net/wiki/Zomdroid" title="Zomdroid">Zomdroid</a> • <a href="https://pzwiki.net/wiki/ZBundler" title="ZBundler">ZBundler</a>
+</p>
+  </div>
+</div></div>
+    </div>
+  </div>
+  <div class="toggle mw-customtoggle-navbox-modding mw-customtoggle" title="Show / Hide" aria-expanded="true" tabindex="0"></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20260205115235
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.139 seconds
+Real time usage: 0.194 seconds
+Preprocessor visited node count: 4538/1000000
+Post‐expand include size: 46216/2097152 bytes
+Template argument size: 23247/2097152 bytes
+Highest expansion depth: 23/100
+Expensive parser function count: 22/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 10503/5000000 bytes
+Lua time usage: 0.030/7 seconds
+Lua virtual size: 5120000/52428800 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  115.947      1 -total
+ 45.77%   53.071     30 Template:Ll
+ 39.59%   45.906      1 Template:Navbar_modding
+ 38.97%   45.181      1 Template:Navbar/sandbox
+ 31.29%   36.275     70 Template:Yesno
+ 16.79%   19.466      1 Template:LangSwitch
+ 14.78%   17.134     18 Template:LangSwitch/core
+ 13.99%   16.224      6 Template:Mbox
+ 11.35%   13.156      1 Template:Navbox_modding
+ 10.83%   12.553      1 Template:Page_version
+-->
+
+<!-- Saved in parser cache with key pzwiki2:pcache:idhash:131863-0!canonical and timestamp 20260205115235 and revision id 1310373. Rendering was triggered because: page-view
+ -->
+</section></div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;oldid=1310373">https://pzwiki.net/w/index.php?title=Lua_(API)&amp;oldid=1310373</a>"</div></div>
+			</div>
+			
+<div class="citizen-page-sidebar">
+		<nav id="citizen-sidebar-lastmod" class="citizen-menu ">
+	<div class="citizen-menu__heading">
+		Last modified
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			<li id="lm-time" class="mw-list-item"><a data-mw="interface" id="citizen-lastmod-relative" href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;diff=" title="This page was last edited on 5 January 2026, at 23:15." data-timestamp="1767654920"><span class="citizen-ui-icon mw-ui-icon-history mw-ui-icon-wikimedia-history"></span><span>1 month ago</span></a></li>
+			
+		</ul>
+		
+	</div></nav>
+
+	<div id="citizen-toc" class="citizen-toc citizen-dropdown">
+		<details class="citizen-dropdown-details">
+			<summary class="citizen-dropdown-summary" title="Contents" aria-details="mw-panel-toc">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-listBullet"></span>
+				<span>Contents</span>
+			</summary>
+		</details>
+		<nav id="mw-panel-toc" class="citizen-toc-card citizen-menu__card" role="navigation" aria-labelledby="mw-panel-toc-label">
+			<div class="citizen-menu__card-backdrop"></div>
+			<div class="citizen-menu__card-content">
+				<a class="citizen-toc-top citizen-toc-link" title="" href="https://pzwiki.net/wiki/Lua_(API)#top" role="button">
+					<div class="citizen-ui-icon mw-ui-icon-first mw-ui-icon-wikimedia-first"></div>
+					<div class="citizen-toc-text">Back to top</div>
+				</a>
+				<div class="citizen-menu__heading">Contents</div>
+				<ul class="citizen-toc-contents" id="mw-panel-toc-list">
+				<li id="toc-How_do_Java_classes_work_in_the_Lua_API" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#How_do_Java_classes_work_in_the_Lua_API" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">1</span>
+					<span class="citizen-toc-heading">How do Java classes work in the Lua API</span>
+				</div>
+				
+			</div>
+		</a>
+		
+			<button aria-controls="toc-How_do_Java_classes_work_in_the_Lua_API-sublist" class="citizen-toc-toggle" aria-expanded="false">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span>
+				<span></span>
+			</button>
+		
+		<ul id="toc-How_do_Java_classes_work_in_the_Lua_API-sublist" class="citizen-toc-list">
+			<li id="toc-Parent_and_subclasses" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Parent_and_subclasses" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.1</span>
+						<span class="citizen-toc-heading">Parent and subclasses</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Parent_and_subclasses-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Nested_classes" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Nested_classes" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.2</span>
+						<span class="citizen-toc-heading">Nested classes</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Nested_classes-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Instance_and_static" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Instance_and_static" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.3</span>
+						<span class="citizen-toc-heading">Instance and static</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Instance_and_static-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Access_Modifiers" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Access_Modifiers" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.4</span>
+						<span class="citizen-toc-heading">Access Modifiers</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Access_Modifiers-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Methods_and_fields" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Methods_and_fields" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.5</span>
+						<span class="citizen-toc-heading">Methods and fields</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Methods_and_fields-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-Exposed_elements" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Exposed_elements" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">2</span>
+					<span class="citizen-toc-heading">Exposed elements</span>
+				</div>
+				
+			</div>
+		</a>
+		
+			<button aria-controls="toc-Exposed_elements-sublist" class="citizen-toc-toggle" aria-expanded="false">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span>
+				<span></span>
+			</button>
+		
+		<ul id="toc-Exposed_elements-sublist" class="citizen-toc-list">
+			<li id="toc-Accessing_fields" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Accessing_fields" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">2.1</span>
+						<span class="citizen-toc-heading">Accessing fields</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Accessing_fields-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Constructor" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Constructor" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">2.2</span>
+						<span class="citizen-toc-heading">Constructor</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Constructor-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Example" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Example" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">2.3</span>
+						<span class="citizen-toc-heading">Example</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Example-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-Lua_objects" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Lua_objects" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">3</span>
+					<span class="citizen-toc-heading">Lua objects</span>
+				</div>
+				
+			</div>
+		</a>
+		
+		<ul id="toc-Lua_objects-sublist" class="citizen-toc-list">
+		</ul>
+	</li>
+	<li id="toc-Where_to_start" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Where_to_start" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">4</span>
+					<span class="citizen-toc-heading">Where to start</span>
+				</div>
+				
+			</div>
+		</a>
+		
+			<button aria-controls="toc-Where_to_start-sublist" class="citizen-toc-toggle" aria-expanded="false">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span>
+				<span></span>
+			</button>
+		
+		<ul id="toc-Where_to_start-sublist" class="citizen-toc-list">
+			<li id="toc-Community_libraries" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Community_libraries" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">4.1</span>
+						<span class="citizen-toc-heading">Community libraries</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Community_libraries-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-Folder_structure" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Folder_structure" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">5</span>
+					<span class="citizen-toc-heading">Folder structure</span>
+				</div>
+				
+			</div>
+		</a>
+		
+			<button aria-controls="toc-Folder_structure-sublist" class="citizen-toc-toggle" aria-expanded="false">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span>
+				<span></span>
+			</button>
+		
+		<ul id="toc-Folder_structure-sublist" class="citizen-toc-list">
+			<li id="toc-Load_order" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Load_order" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">5.1</span>
+						<span class="citizen-toc-heading">Load order</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Load_order-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-See_also" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#See_also" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">6</span>
+					<span class="citizen-toc-heading">See also</span>
+				</div>
+				
+			</div>
+		</a>
+		
+		<ul id="toc-See_also-sublist" class="citizen-toc-list">
+		</ul>
+	</li>
+	<li id="toc-Navigation" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Lua_(API)#Navigation" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">7</span>
+					<span class="citizen-toc-heading">Navigation</span>
+				</div>
+				
+			</div>
+		</a>
+		
+		<ul id="toc-Navigation-sublist" class="citizen-toc-list">
+		</ul>
+	</li>
+</ul>		</div>
+		</nav>
+	</div>
+	</div>
+			<footer class="citizen-page-footer">
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://pzwiki.net/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://pzwiki.net/wiki/Category:Modding_guides" title="Category:Modding guides">Modding guides</a></li><li><a href="https://pzwiki.net/wiki/Category:Modding" title="Category:Modding">Modding</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://pzwiki.net/wiki/Category:En" title="Category:En">English</a></li><li><a href="https://pzwiki.net/wiki/Category:Version_42.11.0" title="Category:Version 42.11.0">Version 42.11.0</a></li></ul></div></div>
+					<div class="page-info">
+		    <section id="footer-info-lastmod" class="page-info__item">
+		        <div class="page-info__label">Last modified</div>
+		        <div class="page-info__text"> This page was last edited on 5 January 2026, at 23:15.</div>
+		    </section>
+		</div>
+</footer>		</div>
+	</main>
+	
+	 
+
+<footer class="mw-footer citizen-footer">
+	<div class="citizen-footer__container">
+		<section class="citizen-footer__content">
+			<div class="citizen-footer__siteinfo">
+				<div id="footer-sitetitle" class="citizen-footer__sitetitle mw-wiki-title">
+					<img class="mw-logo-icon" src="./Lua (API) - PZwiki_files/pzwlogo.png" alt="" aria-hidden="true" loading="lazy" height="48" width="48">
+					<div class="mw-logo-wordmark">PZwiki</div>
+									</div>
+				<p id="footer-desc" class="citizen-footer__desc">PZwiki is the official wiki dedicated to sharing information about <a href="https://pzwiki.net/wiki/Project_Zomboid" title="Project Zomboid">Project Zomboid</a>. It covers all content relating to its gameplay, lore, and development. This is an official site of <a href="https://pzwiki.net/wiki/The_Indie_Stone" title="The Indie Stone">The Indie Stone</a>, and is maintained by volunteers.<br>Want to contribute? Start on the <a href="https://pzwiki.net/wiki/PZwiki:Community_portal" title="PZwiki:Community portal">community portal</a>. For copyright information, please see <a href="https://pzwiki.net/wiki/PZwiki:Copyrights" title="PZwiki:Copyrights">copyrights</a>.</p>
+			</div>
+			<nav id="footer-places">
+	<ul>
+		<li id="footer-places-about"><a href="https://pzwiki.net/wiki/PZwiki:About">About PZwiki</a></li>
+		<li id="footer-places-disclaimers"><a href="https://pzwiki.net/wiki/PZwiki:General_disclaimer">Disclaimers</a></li>
+		<li id="footer-places-tsandcs"><a href="https://projectzomboid.com/blog/support/terms-conditions/">Terms &amp; Conditions</a></li>
+		<li id="footer-places-privacypol"><a href="https://projectzomboid.com/blog/support/privacy-policy/">Privacy Policy</a></li>
+	</ul>
+</nav>
+		</section>
+		<section class="citizen-footer__bottom">
+			<div id="footer-tagline"><div style="display: flex; gap: 0.5em;"><span class="mw-default-size" typeof="mw:File"><a href="https://discord.gg/theindiestone" title="Project Zomboid on Discord" rel="nofollow"><img alt="Project Zomboid on Discord" src="./Lua (API) - PZwiki_files/Logo_Discord_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.reddit.com/r/projectzomboid" title="Project Zomboid on Reddit" rel="nofollow"><img alt="Project Zomboid on Reddit" src="./Lua (API) - PZwiki_files/Logo_Reddit_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.facebook.com/pages/Project-Zomboid/165374740182300" title="Project Zomboid on Facebook" rel="nofollow"><img alt="Project Zomboid on Facebook" src="./Lua (API) - PZwiki_files/Logo_Facebook_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://x.com/theindiestone" title="Project Zomboid on X" rel="nofollow"><img alt="Project Zomboid on X" src="./Lua (API) - PZwiki_files/Logo_X_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.youtube.com/user/theindiestone" title="Project Zomboid on YouTube" rel="nofollow"><img alt="Project Zomboid on YouTube" src="./Lua (API) - PZwiki_files/Logo_YouTube_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.twitch.tv/directory/game/Project%20Zomboid" title="Project Zomboid on Twitch" rel="nofollow"><img alt="Project Zomboid on Twitch" src="./Lua (API) - PZwiki_files/Logo_Twitch_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span></div></div>
+			<nav id="footer-icons" class="noprint">
+	<ul>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="./Lua (API) - PZwiki_files/poweredby_mediawiki.svg" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a></li>
+	</ul>
+</nav>
+		</section>
+	</div>
+</footer>
+</div>
+<div class="citizen-sticky-header-container">
+	<div id="citizen-sticky-header" class="citizen-sticky-header">
+		<div class="citizen-sticky-header-backdrop"></div>
+		<div class="citizen-sticky-header-inner">
+			<div class="citizen-sticky-header-start">
+				<a href="https://pzwiki.net/wiki/Lua_(API)#top" title="Back to top" class="citizen-sticky-header-backtotop cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--size-large cdx-button--weight-quiet" tabindex="-1" aria-hidden="true">
+					<div class="citizen-ui-icon mw-ui-icon-first mw-ui-icon-wikimedia-first"></div>
+					<div class="citizen-sticky-header-page-info">
+						<div class="citizen-sticky-header-page-title"><span class="mw-page-title-main">Lua (API)</span></div>
+						<div class="citizen-sticky-header-page-tagline">From PZwiki</div>
+					</div>
+				</a>
+			</div>
+			<div class="citizen-sticky-header-end" aria-hidden="true">
+					<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="citizen-share-sticky-header" tabindex="-1" data-mw-citizen-click-target="#citizen-share" title="Share this page"><span class="citizen-ui-icon mw-ui-icon-wikimedia-share mw-ui-icon-wikimedia-wikimedia-share"></span><span>Share this page</span>
+					</button>					<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="ca-history-sticky-header" tabindex="-1" data-mw-citizen-click-target="#ca-history &gt; a" title="Past revisions of this page [alt-shift-h]"><span class="citizen-ui-icon mw-ui-icon-wikimedia-history mw-ui-icon-wikimedia-wikimedia-history"></span><span>View history</span>
+					</button>															<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="ca-viewsource-sticky-header" tabindex="-1" data-mw-citizen-click-target="#ca-viewsource &gt; a" title="This page is protected.
+You can view its source [alt-shift-e]"><span class="citizen-ui-icon mw-ui-icon-wikimedia-editLock mw-ui-icon-wikimedia-wikimedia-editLock"></span><span>View source</span>
+					</button>										<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="ca-talk-sticky-header" tabindex="-1" data-mw-citizen-click-target="#ca-talk &gt; a" title="Discussion about the content page (page does not exist) [alt-shift-t]"><span class="citizen-ui-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles"></span><span>Discussion</span>
+					</button>									<div id="citizen-sticky-header-languages" class="citizen-sticky-header-dropdown-container"></div>
+				<div id="citizen-sticky-header-more" class="citizen-sticky-header-dropdown-container"><div id="citizen-page-more-dropdown" class="page-actions-more page-actions__item citizen-dropdown">
+	<details class="citizen-dropdown-details">
+		<summary class="citizen-dropdown-summary cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--size-large cdx-button--icon-only" title="More actions" aria-details="page-actions-more__card" tabindex="-1">
+			<span class="citizen-ui-icon mw-ui-icon-wikimedia-ellipsis"></span>
+			<span>More actions</span>
+		</summary>
+	</details>
+	<aside class="citizen-menu__card">
+		<div class="citizen-menu__card-backdrop"></div>
+		<div class="citizen-menu__card-content">
+					<nav class="citizen-menu mw-portlet mw-portlet-cactions emptyPortlet" title="More options">
+	<div class="citizen-menu__heading">
+		More
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+			<nav class="citizen-menu mw-portlet mw-portlet-tb">
+	<div class="citizen-menu__heading">
+		Tools
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:WhatLinksHere/Lua_(API)" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j"><span class="citizen-ui-icon mw-ui-icon-articleRedirect mw-ui-icon-wikimedia-articleRedirect"></span> <span>What links here</span><kbd class="citizen-keyboard-hint-key">alt ⇧ j</kbd></a></li><li class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RecentChangesLinked/Lua_(API)" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k"><span class="citizen-ui-icon mw-ui-icon-recentChanges mw-ui-icon-wikimedia-recentChanges"></span> <span>Related changes</span><kbd class="citizen-keyboard-hint-key">alt ⇧ k</kbd></a></li><li class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p"><span class="citizen-ui-icon mw-ui-icon-printer mw-ui-icon-wikimedia-printer"></span> <span>Printable version</span><kbd class="citizen-keyboard-hint-key">alt ⇧ p</kbd></a></li><li class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;oldid=1310373" title="Permanent link to this revision of this page"><span class="citizen-ui-icon mw-ui-icon-link mw-ui-icon-wikimedia-link"></span> <span>Permanent link</span></a></li><li class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Lua_(API)&amp;action=info" title="More information about this page"><span class="citizen-ui-icon mw-ui-icon-infoFilled mw-ui-icon-wikimedia-infoFilled"></span> <span>Page information</span></a></li>
+		<li class="mw-list-item mw-list-item-js"><a href="https://pzwiki.net/wiki/Lua_(API)#" title="Expand all collapsible elements on the current page" role="button" aria-expanded="false"><span>Expand all</span></a></li></ul>
+		
+	</div></nav>
+
+		</div>
+	</aside>
+</div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":120,"wgPageParseReport":{"limitreport":{"cputime":"0.139","walltime":"0.194","ppvisitednodes":{"value":4538,"limit":1000000},"postexpandincludesize":{"value":46216,"limit":2097152},"templateargumentsize":{"value":23247,"limit":2097152},"expansiondepth":{"value":23,"limit":100},"expensivefunctioncount":{"value":22,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":10503,"limit":5000000},"timingprofile":["100.00%  115.947      1 -total"," 45.77%   53.071     30 Template:Ll"," 39.59%   45.906      1 Template:Navbar_modding"," 38.97%   45.181      1 Template:Navbar/sandbox"," 31.29%   36.275     70 Template:Yesno"," 16.79%   19.466      1 Template:LangSwitch"," 14.78%   17.134     18 Template:LangSwitch/core"," 13.99%   16.224      6 Template:Mbox"," 11.35%   13.156      1 Template:Navbox_modding"," 10.83%   12.553      1 Template:Page_version"]},"scribunto":{"limitreport-timeusage":{"value":"0.030","limit":"7"},"limitreport-virtmemusage":{"value":5120000,"limit":52428800},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20260205115235","ttl":86400,"transientcontent":false}}});});</script>
+<script>
+        var ct_checkjs_val = '1f4a5c8aa2bf1b94e13929d6e127cb0d',
+            d = new Date(),
+            ctTimeMs = new Date().getTime(),
+            ctMouseEventTimerFlag = true, //Reading interval flag
+            ctMouseData = "[",
+            ctMouseDataCounter = 0;
+        
+        function ctSetCookie(c_name, value) {
+            document.cookie = c_name + "=" + encodeURIComponent(value) + "; path=/; samesite=lax;";
+        }
+        
+        ctSetCookie("ct_ps_timestamp", Math.floor(new Date().getTime()/1000));
+        ctSetCookie("ct_fkp_timestamp", "0");
+        ctSetCookie("ct_pointer_data", "0");
+        ctSetCookie("ct_timezone", "0");
+        ctSetCookie("ct_checkjs", ct_checkjs_val);        
+        setTimeout(function(){
+            ctSetCookie("ct_timezone", d.getTimezoneOffset()/60*(-1));
+        },1000);
+        
+        //Reading interval
+        var ctMouseReadInterval = setInterval(function(){
+                ctMouseEventTimerFlag = true;
+            }, 150);
+            
+        //Writting interval
+        var ctMouseWriteDataInterval = setInterval(function(){
+                var ctMouseDataToSend = ctMouseData.slice(0,-1).concat("]");
+                ctSetCookie("ct_pointer_data", ctMouseDataToSend);
+            }, 1200);
+        
+        //Stop observing function
+        function ctMouseStopData(){
+            if(typeof window.addEventListener == "function")
+                window.removeEventListener("mousemove", ctFunctionMouseMove);
+            else
+                window.detachEvent("onmousemove", ctFunctionMouseMove);
+            clearInterval(ctMouseReadInterval);
+            clearInterval(ctMouseWriteDataInterval);                
+        }
+        
+        //Logging mouse position each 300 ms
+        var ctFunctionMouseMove = function output(event){
+            if(ctMouseEventTimerFlag === true){
+                var mouseDate = new Date();
+                ctMouseData += "[" + Math.round(event.pageY) + "," + Math.round(event.pageX) + "," + Math.round(mouseDate.getTime() - ctTimeMs) + "],";
+                ctMouseDataCounter++;
+                ctMouseEventTimerFlag = false;
+                if(ctMouseDataCounter >= 100)
+                    ctMouseStopData();
+            }
+        };
+        
+        //Stop key listening function
+        function ctKeyStopStopListening(){
+            if(typeof window.addEventListener == "function"){
+                window.removeEventListener("mousedown", ctFunctionFirstKey);
+                window.removeEventListener("keydown", ctFunctionFirstKey);
+            }else{
+                window.detachEvent("mousedown", ctFunctionFirstKey);
+                window.detachEvent("keydown", ctFunctionFirstKey);
+            }
+        }
+        
+        //Writing first key press timestamp
+        var ctFunctionFirstKey = function output(event){
+            var KeyTimestamp = Math.floor(new Date().getTime()/1000);
+            ctSetCookie("ct_fkp_timestamp", KeyTimestamp);
+            ctKeyStopStopListening();
+        };
+
+        if(typeof window.addEventListener == "function"){
+            window.addEventListener("mousemove", ctFunctionMouseMove);
+            window.addEventListener("mousedown", ctFunctionFirstKey);
+            window.addEventListener("keydown", ctFunctionFirstKey);
+        }else{
+            window.attachEvent("onmousemove", ctFunctionMouseMove);
+            window.attachEvent("mousedown", ctFunctionFirstKey);
+            window.attachEvent("keydown", ctFunctionFirstKey);
+        }</script><noscript><p><b>Please enable JavaScript to pass antispam protection!</b><br />Here are the instructions how to enable JavaScript in your web browser <a href="http://www.enable-javascript.com" rel="nofollow" target="_blank">http://www.enable-javascript.com</a>.<br />Antispam by CleanTalk.</p></noscript><!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u = (("https:" == document.location.protocol) ? "https" : "http") + "://"+"matstats.theindiestone.com//";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "6"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+<!-- Matomo Image Tracker -->
+<noscript><img src="https://matstats.theindiestone.com//piwik.php?idsite=6&rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+
+<div id="mw-teleport-target"><div class="citizen-command-palette-overlay" data-v-app=""><!----> <!----></div></div><script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/wiki/*"},{"href_matches":"/wiki/Special"},{"not":{"href_matches":"/.*.php"}},{"not":{"href_matches":"/*\\?*(^|&)*=*"}},{"not":{"selector_matches":"[rel~=nofollow]"}}]},"eagerness":"moderate"}]}</script><protonpass-root-37a1 data-protonpass-role="root" data-protonpass-theme="os"><template shadowrootmode="closed"></template></protonpass-root-37a1></body></html>

@@ -1,0 +1,30 @@
+return {
+    default = {
+        ROOT = {"tests/"},
+        pattern = "test_",
+        helper = "mocks/pz_globals.lua",
+        lpath = "tests/?.lua;tests/?/init.lua",
+        output = "utfTerminal",
+    },
+    unit = {
+        ROOT = {"tests/unit/"},
+        pattern = "test_",
+        helper = "../mocks/pz_globals.lua",
+        lpath = "tests/?.lua;tests/?/init.lua",
+        output = "utfTerminal",
+    },
+    integration = {
+        ROOT = {"tests/integration/"},
+        pattern = "test_",
+        helper = "../mocks/pz_globals.lua",
+        lpath = "tests/?.lua;tests/?/init.lua",
+        output = "utfTerminal",
+    },
+    structural = {
+        ROOT = {"tests/structural/"},
+        pattern = "test_",
+        helper = "../mocks/pz_globals.lua",
+        lpath = "tests/?.lua;tests/?/init.lua",
+        output = "utfTerminal",
+    },
+}

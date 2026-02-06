@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://pzwiki.net/wiki/Mod_optimization -->
+<html class="client-js skin-theme-clientpref-os citizen-feature-autohide-navigation-clientpref-1 citizen-feature-pure-black-clientpref-0 citizen-feature-custom-font-size-clientpref-standard citizen-feature-custom-width-clientpref-standard ve-available citizen-animations-ready" lang="en" dir="ltr" style="--height-sticky-header: 0px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Mod optimization - PZwiki</title>
+<script type="text/javascript" defer="" async="" src="./Mod optimization - PZwiki_files/piwik.js"></script><script>document.documentElement.className="client-js skin-theme-clientpref-os citizen-feature-autohide-navigation-clientpref-1 citizen-feature-pure-black-clientpref-0 citizen-feature-custom-font-size-clientpref-standard citizen-feature-custom-width-clientpref-standard";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"f2a40863a17c221aa80f1399","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Mod_optimization","wgTitle":"Mod optimization","wgCurRevisionId":1310397,"wgRevisionId":1310397,"wgArticleId":131103,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["En","Version 42.10.0","Version 42.0.1","Version 42.0.2","Modding guides"],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mod_optimization","wgRelevantArticleId":131103,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCiteReferencePreviewsActive":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgCheckUserClientHintsHeadersJsApi":["architecture","bitness","brands","fullVersionList","mobile","model","platform","platformVersion"],"wgEditSubmitButtonLabelPublish":false};
+RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","skins.citizen.styles":"ready","skins.citizen.codex.styles":"ready","skins.citizen.icons":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready"};RLPAGEMODULES=["ext.pygments.view","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.citizen.scripts","ext.checkUser.clientHints","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="./Mod optimization - PZwiki_files/load.php">
+<script async="" src="./Mod optimization - PZwiki_files/load(1).php"></script>
+<style>
+.mw-editfont-monospace{font-family:monospace,monospace}.mw-editfont-sans-serif{font-family:sans-serif}.mw-editfont-serif{font-family:serif} .mw-editfont-monospace,.mw-editfont-sans-serif,.mw-editfont-serif{  font-size:13px; -moz-tab-size:4;tab-size:4; }.mw-editfont-monospace.oo-ui-textInputWidget,.mw-editfont-sans-serif.oo-ui-textInputWidget,.mw-editfont-serif.oo-ui-textInputWidget{font-size:inherit}.mw-editfont-monospace.oo-ui-textInputWidget > .oo-ui-inputWidget-input,.mw-editfont-sans-serif.oo-ui-textInputWidget > .oo-ui-inputWidget-input,.mw-editfont-serif.oo-ui-textInputWidget > .oo-ui-inputWidget-input{  font-size:13px}.mw-editfont-monospace.oo-ui-textInputWidget > input.oo-ui-inputWidget-input,.mw-editfont-sans-serif.oo-ui-textInputWidget > input.oo-ui-inputWidget-input,.mw-editfont-serif.oo-ui-textInputWidget > input.oo-ui-inputWidget-input{min-height:32px} .mw-editfont-monospace{font-family:var(--font-family-monospace)}.mw-editfont-sans-serif{font-family:var(--font-family-base)}.mw-editfont-serif{font-family:var(--font-family-serif)}
+.ve-init-mw-progressBarWidget{height:1em;overflow:hidden;margin:0 25%}.ve-init-mw-progressBarWidget-bar{height:1em;width:0} .ve-init-mw-progressBarWidget{background-color:#fff;box-sizing:border-box;height:0.875em;border:1px solid #36c;border-radius:0.875em;box-shadow:0 1px 1px rgba(0,0,0,0.15)}.ve-init-mw-progressBarWidget-bar{background-color:#36c;height:0.875em} .ve-init-mw-progressBarWidget{background-color:var(--color-surface-1);border-color:var(--color-progressive);box-shadow:none}.ve-init-mw-progressBarWidget-bar{background-color:var(--color-progressive)}
+.mw-collapsible-toggle{float:right;-webkit-user-select:none;-moz-user-select:none;user-select:none}.mw-collapsible-toggle-default{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:none;margin:0;padding:0;border:0;font:inherit}.mw-collapsible-toggle-default .mw-collapsible-text{color:var(--color-progressive,#36c);border-radius:2px;text-decoration:none}.mw-collapsible-toggle-default .mw-collapsible-text:visited{color:var(--color-visited,#6a60b0)}.mw-collapsible-toggle-default .mw-collapsible-text:visited:hover{color:var(--color-visited,#6a60b0)}.mw-collapsible-toggle-default .mw-collapsible-text:hover{color:var(--color-progressive--hover,#4b77d6);text-decoration:underline}.mw-collapsible-toggle-default .mw-collapsible-text:active{color:var(--color-progressive--active,#233566);text-decoration:underline}.mw-collapsible-toggle-default .mw-collapsible-text:focus-visible{outline:solid 2px var(--outline-color-progressive--focus,#36c)}@supports not selector(:focus-visible){.mw-collapsible-toggle-default .mw-collapsible-text:focus{outline:solid 2px var(--outline-color-progressive--focus,#36c)}}.mw-collapsible-toggle-default .mw-collapsible-text .cdx-icon:not(.cdx-thumbnail__placeholder__icon--vue):last-child{min-width:12px;min-height:12px;width:1rem;height:1rem;padding-left:4px;vertical-align:middle}.mw-underline-always .mw-collapsible-toggle-default .mw-collapsible-text{text-decoration:underline}.mw-underline-never .mw-collapsible-toggle-default .mw-collapsible-text{text-decoration:none}.mw-collapsible-toggle-default::before{content:'['}.mw-collapsible-toggle-default::after{content:']'}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none}
+@media screen {
+	.toctoggle{-webkit-user-select:none;-moz-user-select:none;user-select:none;font-size:94%}}
+.mw-highlight-copy--bound button{position:absolute;top:-1em;right:-0.9em;box-sizing:border-box;padding:5px 7px;border-radius:2px;background:var(--background-color-base,#fff);color:var(--color-progressive,#36c);border:1px solid var(--border-color-muted,#dadde3)}.mw-highlight-copy--bound button:hover{cursor:pointer;color:var(--color-progressive--hover,#4b77d6);background:var(--background-color-interactive-subtle,#f8f9fa);border-color:var(--border-color-progressive--hover,#4b77d6)}.mw-highlight-copy--bound button:active{color:var(--color-progressive--active,#233566);background:var(--background-color-interactive,#eaecf0);border-color:var(--border-color-progressive--active,#233566)}
+#mw-teleport-target{position:absolute;z-index:450}                         #mw-teleport-target{font-size:var(--font-size-medium);line-height:var(--line-height-medium)}</style><style>
+.ve-init-mw-tempWikitextEditorWidget{border:0;padding:0;color:inherit;line-height:1.5em;width:100%;-moz-tab-size:4;tab-size:4;  }.ve-init-mw-tempWikitextEditorWidget:focus{outline:0;padding:0}.ve-init-mw-tempWikitextEditorWidget::selection{background:rgba(109,169,247,0.5); }</style><style>
+.ve-active .ve-init-mw-desktopArticleTarget-targetContainer #siteNotice,.ve-active .mw-indicators,.ve-active #t-print,.ve-active #t-permalink,.ve-active #p-coll-print_export,.ve-active #t-cite,.ve-active .ve-init-mw-desktopArticleTarget-editableContent,.ve-active .ve-init-mw-tempWikitextEditorWidget{display:none}.ve-deactivating .ve-ui-surface{display:none}.ve-activating{ }.ve-activating .ve-ui-surface{height:0;padding:0 !important; overflow:hidden} .ve-loading .ve-init-mw-desktopArticleTarget-targetContainer > :not(.ve-init-mw-desktopArticleTarget-toolbarPlaceholder):not(.ve-init-mw-desktopArticleTarget),.ve-loading .ve-init-mw-desktopArticleTarget-originalContent,.ve-activated:not(.ve-loading) .ve-init-mw-desktopArticleTarget-uneditableContent{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:0.5}.ve-activated .ve-init-mw-desktopArticleTarget-targetContainer #firstHeading{ -webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;pointer-events:auto;cursor:text}.ve-activated .ve-init-mw-desktopArticleTarget-targetContainer #firstHeading a{ pointer-events:none}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks{cursor:pointer}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks:hover{ background:#e9f2fd}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks a{opacity:1} .ve-init-mw-desktopArticleTarget-loading-overlay{z-index:2;position:absolute;width:100%;top:1em}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{overflow:hidden;transition:height 250ms ease;height:0;padding-bottom:2px; }.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{transform:translateY(-100%);transition:transform 250ms ease}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-open .ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{transform:translateY(0)}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-floating{transition:none}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-floating .ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{position:fixed;top:0;z-index:1;background:var(--background-color-base,#fff)} .oo-ui-element-hidden{display:none !important; } .mw-editsection::before{content:'\200B'}.mw-editsection a{white-space:nowrap} .ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{height:42px;border-bottom:1px solid #c8ccd1;box-shadow:0 1px 1px 0 rgba(0,0,0,0.1)}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-floating,.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-open{height:42px}                       .ve-activated{ }.ve-activated #citizen-page-header-sticky-sentinel{display:none}.ve-activated #ca-ve-edit,.ve-activated #ca-edit,.ve-activated .citizen-toc__buttonCheckbox{display:none}.ve-init-mw-desktopArticleTarget .citizen-page-header{z-index:2}.ve-init-mw-desktopArticleTarget .citizen-page-footer.ve-init-mw-desktopArticleTarget-uneditableContent{opacity:1}.ve-init-mw-desktopArticleTarget .citizen-page-footer.ve-init-mw-desktopArticleTarget-uneditableContent .catlinks{pointer-events:auto}.ve-init-mw-desktopArticleTarget .citizen-page-footer.ve-init-mw-desktopArticleTarget-uneditableContent .page-info{opacity:0.5}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar{border-bottom-color:var(--border-color-base);box-shadow:none}.ve-activated .ve-init-mw-desktopArticleTarget-originalContent #catlinks:hover{background-color:var(--background-color-button-quiet--hover)}</style><style>
+.cdx-button{display:inline-flex;align-items:center;justify-content:center;gap:4px;box-sizing:border-box;min-height:32px;max-width:28rem;margin:0;border-width:1px;border-style:solid;border-radius:2px;padding-right:11px;padding-left:11px;font-family:inherit;font-size:inherit;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:none;transition-property:background-color,color,border-color,box-shadow;transition-duration:.1s}.cdx-button--size-large{min-height:44px;padding-right:15px;padding-left:15px}.cdx-button--icon-only{min-width:32px;padding-right:5px;padding-left:5px}.cdx-button--icon-only.cdx-button--size-large{min-width:44px;padding-right:11px;padding-left:11px}.cdx-button::-moz-focus-inner{border:0;padding:0}.cdx-button .cdx-button__icon,.cdx-button .cdx-icon{vertical-align:middle}.cdx-button .cdx-icon{color:inherit}.cdx-button--fake-button,.cdx-button--fake-button:hover,.cdx-button--fake-button:focus{text-decoration:none}.cdx-button:enabled,.cdx-button.cdx-button--fake-button--enabled{background-color:var(--background-color-interactive-subtle,#f8f9fa);color:var(--color-base,#202122);border-color:var(--border-color-base,#a2a9b1)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled .cdx-button__icon{background-color:var(--color-base,#202122)}}.cdx-button:enabled:hover,.cdx-button.cdx-button--fake-button--enabled:hover{background-color:var(--background-color-base,#fff);color:var(--color-base--hover,#404244);cursor:pointer}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled:hover .cdx-button__icon{background-color:var(--color-base--hover,#404244)}}.cdx-button:enabled:active,.cdx-button.cdx-button--fake-button--enabled:active,.cdx-button:enabled.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--is-active{background-color:var(--background-color-interactive,#eaecf0);color:var(--color-emphasized,#101418);border-color:var(--border-color-interactive,#72777d)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled:active .cdx-button__icon,.cdx-button:enabled.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--is-active .cdx-button__icon{background-color:var(--color-emphasized,#101418)}}.cdx-button:enabled:focus,.cdx-button.cdx-button--fake-button--enabled:focus{outline:1px solid transparent}.cdx-button:enabled:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-progressive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-progressive--focus,#36c)}.cdx-button:enabled.cdx-button--action-progressive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive{color:var(--color-progressive,#36c)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-progressive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive .cdx-button__icon{background-color:var(--color-progressive,#36c)}}.cdx-button:enabled.cdx-button--action-progressive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:hover{color:var(--color-progressive--hover,#4b77d6);border-color:var(--border-color-progressive--hover,#4b77d6)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-progressive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:hover .cdx-button__icon{background-color:var(--color-progressive--hover,#4b77d6)}}.cdx-button:enabled.cdx-button--action-progressive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:active,.cdx-button:enabled.cdx-button--action-progressive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive.cdx-button--is-active{background-color:var(--background-color-progressive-subtle,#f1f4fd);color:var(--color-progressive--active,#233566);border-color:var(--border-color-progressive--active,#233566)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-progressive--active,#233566)}}.cdx-button:enabled.cdx-button--action-destructive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive{color:var(--color-destructive,#d73333)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-destructive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive .cdx-button__icon{background-color:var(--color-destructive,#d73333)}}.cdx-button:enabled.cdx-button--action-destructive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:hover{color:var(--color-destructive--hover,#fc493b);border-color:var(--border-color-destructive--hover,#fc493b)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-destructive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:hover .cdx-button__icon{background-color:var(--color-destructive--hover,#fc493b)}}.cdx-button:enabled.cdx-button--action-destructive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:active,.cdx-button:enabled.cdx-button--action-destructive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive.cdx-button--is-active{background-color:var(--background-color-destructive-subtle,#ffe9e5);color:var(--color-destructive--active,#9f3526);border-color:var(--border-color-destructive--active,#9f3526)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-destructive--active,#9f3526)}}.cdx-button:enabled.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-destructive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-destructive--focus,#36c)}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive{background-color:var(--background-color-progressive,#36c);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-progressive,#36c)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover{background-color:var(--background-color-progressive--hover,#4b77d6);border-color:var(--border-color-progressive--hover,#4b77d6)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:hover .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:active,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active{background-color:var(--background-color-progressive--active,#233566);border-color:var(--border-color-progressive--active,#233566)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-progressive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-progressive--focus,#36c),inset 0 0 0 2px var(--box-shadow-color-inverted,#fff)}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive{background-color:var(--background-color-destructive,#d73333);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-destructive,#d73333)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover{background-color:var(--background-color-destructive--hover,#fc493b);border-color:var(--border-color-destructive--hover,#fc493b)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:hover .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:active,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active{background-color:var(--background-color-destructive--active,#9f3526);border-color:var(--border-color-destructive--active,#9f3526)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted-fixed,#fff)}}.cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-destructive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-destructive--focus,#36c),inset 0 0 0 2px var(--box-shadow-color-inverted,#fff)}.cdx-button:enabled.cdx-button--weight-quiet,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet{background-color:var(--background-color-transparent,transparent);border-color:var(--border-color-transparent,transparent)}.cdx-button:enabled.cdx-button--weight-quiet:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:hover{background-color:var(--background-color-button-quiet--hover,rgba(0,24,73,.027))}.cdx-button:enabled.cdx-button--weight-quiet:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:active,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--is-active{background-color:var(--background-color-button-quiet--active,rgba(0,24,73,.082));color:var(--color-emphasized,#101418);border-color:var(--border-color-interactive,#72777d)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--is-active .cdx-button__icon{background-color:var(--color-emphasized,#101418)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive{color:var(--color-progressive,#36c)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive .cdx-button__icon{background-color:var(--color-progressive,#36c)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover{background-color:var(--background-color-progressive-subtle,#f1f4fd);color:var(--color-progressive--hover,#4b77d6)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:hover .cdx-button__icon{background-color:var(--color-progressive--hover,#4b77d6)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active{background-color:var(--background-color-progressive--active,#233566);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-progressive--active,#233566)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted,#fff)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive{color:var(--color-destructive,#d73333)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive .cdx-button__icon{background-color:var(--color-destructive,#d73333)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover{background-color:var(--background-color-destructive-subtle,#ffe9e5);color:var(--color-destructive--hover,#fc493b)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:hover .cdx-button__icon{background-color:var(--color-destructive--hover,#fc493b)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active{background-color:var(--background-color-destructive--active,#9f3526);color:var(--color-inverted-fixed,#fff);border-color:var(--border-color-destructive--active,#9f3526)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:active .cdx-button__icon,.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon,.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive.cdx-button--is-active .cdx-button__icon{background-color:var(--color-inverted,#fff)}}.cdx-button:enabled.cdx-button--weight-quiet.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active),.cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-destructive:focus:not(:active):not(.cdx-button--is-active){border-color:var(--border-color-destructive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-destructive--focus,#36c)}.cdx-button:disabled,.cdx-button.cdx-button--fake-button--disabled{background-color:var(--background-color-disabled,#c8ccd1);color:var(--color-inverted,#fff);border-color:var(--border-color-transparent,transparent)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:disabled .cdx-button__icon,.cdx-button.cdx-button--fake-button--disabled .cdx-button__icon{background-color:var(--color-inverted,#fff)}}.cdx-button:disabled.cdx-button--weight-quiet,.cdx-button.cdx-button--fake-button--disabled.cdx-button--weight-quiet{background-color:var(--background-color-transparent,transparent);color:var(--color-disabled,#72777d)}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-button:disabled.cdx-button--weight-quiet .cdx-button__icon,.cdx-button.cdx-button--fake-button--disabled.cdx-button--weight-quiet .cdx-button__icon{background-color:var(--color-disabled,#72777d)}}.cdx-icon{color:var(--color-base,#202122);display:inline-flex;align-items:center;justify-content:center;vertical-align:text-bottom}.cdx-icon svg{fill:currentcolor;width:100%;height:100%}.cdx-icon--x-small{min-width:12px;min-height:12px;width:.75rem;height:.75rem}.cdx-icon--small{min-width:16px;min-height:16px;width:1rem;height:1rem}.cdx-icon--medium{min-width:20px;min-height:20px;width:1.25rem;height:1.25rem}.cdx-icon--flipped svg{transform:scaleX(-1)}.cdx-search-result-title{display:inline-block;max-width:100%;font-weight:700}.cdx-search-result-title__match{font-weight:400}.cdx-text-input{position:relative;box-sizing:border-box;min-width:256px;border-radius:2px;overflow:hidden}.cdx-text-input .cdx-text-input__start-icon{position:absolute;top:50%;min-width:20px;min-height:20px;width:1.25rem;height:1.25rem;transition-property:color;transition-duration:.1s;left:9px;transform:translateY(-50%)}.cdx-text-input__icon.cdx-text-input__end-icon{min-width:16px;min-height:16px;width:1rem;height:1rem}@supports not (((-webkit-mask-image:none) or (mask-image:none))){.cdx-text-input__icon.cdx-text-input__end-icon{background-position:center;background-repeat:no-repeat;background-size:max(1rem,16px)}}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-text-input__icon.cdx-text-input__end-icon{-webkit-mask-size:max(1rem,16px);mask-size:max(1rem,16px);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}}.cdx-text-input__clear-icon.cdx-icon,.cdx-text-input .cdx-text-input__end-icon{position:absolute;top:50%;min-width:16px;min-height:16px;width:1rem;height:1rem;transition-property:color;transition-duration:.1s;right:9px;transform:translateY(-50%)}.cdx-text-input__clear-icon.cdx-icon:hover{cursor:pointer}.cdx-text-input__end-icon.cdx-icon+.cdx-text-input__clear-icon.cdx-icon{right:calc(17px + 1rem)}.cdx-text-input__input{display:block;box-sizing:border-box;min-height:32px;width:100%;margin:0;border-width:1px;border-style:solid;border-radius:0;padding:4px 8px;font-family:inherit;font-size:inherit;line-height:1.375}.cdx-text-input__input:enabled{background-color:var(--background-color-base,#fff);color:var(--color-base,#202122);border-color:var(--border-color-base,#a2a9b1);box-shadow:inset 0 0 0 1px var(--box-shadow-color-transparent,transparent);transition-property:background-color,color,border-color,box-shadow;transition-duration:.25s}.cdx-text-input__input:enabled~.cdx-text-input__icon-vue{color:var(--color-placeholder,#72777d)}.cdx-text-input__input:enabled~.cdx-text-input__icon{opacity:var(--opacity-icon-placeholder,.51)}.cdx-text-input__input:enabled:hover{border-color:var(--border-color-interactive,#72777d)}.cdx-text-input__input:enabled:focus~.cdx-text-input__icon-vue,.cdx-text-input__input:enabled.cdx-text-input__input--has-value~.cdx-text-input__icon-vue{color:var(--color-base,#202122)}.cdx-text-input__input:enabled:focus~.cdx-text-input__icon,.cdx-text-input__input:enabled.cdx-text-input__input--has-value~.cdx-text-input__icon{opacity:1}.cdx-text-input__input:enabled:focus{border-color:var(--border-color-progressive--focus,#36c);box-shadow:inset 0 0 0 1px var(--box-shadow-color-progressive--focus,#36c);outline:1px solid transparent}.cdx-text-input__input:enabled:read-only{background-color:var(--background-color-interactive-subtle,#f8f9fa)}.cdx-text-input__input:disabled{background-color:var(--background-color-disabled-subtle,#eaecf0);color:var(--color-disabled,#72777d);-webkit-text-fill-color:var(--color-disabled,#72777d);border-color:var(--border-color-disabled,#c8ccd1)}.cdx-text-input__input:disabled~.cdx-text-input__icon-vue{color:var(--color-disabled,#72777d);pointer-events:none}.cdx-text-input__input:disabled~.cdx-text-input__icon{opacity:var(--opacity-icon-base--disabled,.51)}.cdx-text-input__input::placeholder{color:var(--color-placeholder,#72777d);opacity:1}.cdx-text-input__input::-ms-clear{display:none}.cdx-text-input__input[type=search]{-webkit-appearance:none;-moz-appearance:textfield}.cdx-text-input__input[type=search]::-webkit-search-decoration,.cdx-text-input__input[type=search]::-webkit-search-cancel-button{display:none}.cdx-text-input--has-start-icon .cdx-text-input__input{padding-left:calc(16px + 1.25rem)}.cdx-text-input--has-end-icon .cdx-text-input__input,.cdx-text-input--clearable .cdx-text-input__input{padding-right:calc(16px + 1rem)}.cdx-text-input--has-end-icon.cdx-text-input--clearable .cdx-text-input__input{padding-right:calc(24px + 2rem)}.cdx-text-input--status-error .cdx-text-input__input:enabled{border-color:var(--border-color-error,#9f3526)}.cdx-text-input--status-error .cdx-text-input__input:enabled:hover{border-color:var(--border-color-error--hover,#fc493b)}.cdx-text-input--status-error .cdx-text-input__input:enabled:focus{border-color:var(--border-color-progressive--focus,#36c)}.cdx-thumbnail{display:inline-flex}.cdx-thumbnail__placeholder,.cdx-thumbnail__image{background-position:center;background-repeat:no-repeat;background-size:cover;flex-shrink:0;box-sizing:border-box;min-width:40px;min-height:40px;width:2.5rem;height:2.5rem;border:1px solid var(--border-color-subtle,#c8ccd1);border-radius:2px}.cdx-thumbnail__image{background-color:var(--background-color-base-fixed,#fff);display:inline-block}.cdx-thumbnail__image-enter-active{transition-property:opacity;transition-duration:.1s}.cdx-thumbnail__image-enter-from{opacity:0}.cdx-thumbnail__placeholder{background-color:var(--background-color-interactive-subtle,#f8f9fa);display:inline-flex;align-items:center;justify-content:center}.cdx-thumbnail__placeholder__icon{min-width:20px;min-height:20px;width:1.25rem;height:1.25rem;display:inline-block;vertical-align:text-bottom}@supports not (((-webkit-mask-image:none) or (mask-image:none))){.cdx-thumbnail__placeholder__icon{background-position:center;background-repeat:no-repeat;background-size:max(1.25rem,20px)}}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-thumbnail__placeholder__icon{-webkit-mask-size:max(1.25rem,20px);mask-size:max(1.25rem,20px);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}}@supports not (((-webkit-mask-image:none) or (mask-image:none))){.cdx-thumbnail__placeholder__icon{background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"/><path d="M19 5H1V3h18zm0 12H1v-2h18z"/></svg>');filter:invert(var(--filter-invert-icon,0));opacity:var(--opacity-icon-base,.87)}.cdx-button:not(.cdx-button--weight-quiet):disabled .cdx-thumbnail__placeholder__icon,.cdx-button--weight-primary.cdx-button--action-progressive .cdx-thumbnail__placeholder__icon,.cdx-button--weight-primary.cdx-button--action-destructive .cdx-thumbnail__placeholder__icon{filter:invert(var(--filter-invert-primary-button-icon,1))}}@supports ((-webkit-mask-image:none) or (mask-image:none)){.cdx-thumbnail__placeholder__icon{-webkit-mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"/><path d="M19 5H1V3h18zm0 12H1v-2h18z"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20" fill="%23000000"><path d="M19 3H1v14h18zM3 14l3.5-4.5 2.5 3L12.5 8l4.5 6z"/><path d="M19 5H1V3h18zm0 12H1v-2h18z"/></svg>');background-color:var(--color-placeholder,#72777d)}}.cdx-thumbnail__placeholder__icon--vue.cdx-icon{color:var(--color-placeholder,#72777d)}</style><style>
+.citizen-command-palette{--citizen-command-palette-side-padding:var(--space-md);position:fixed;top:var(--space-xs);right:var(--space-xs);left:var(--space-xs);max-width:56rem;margin-inline:auto;overflow:hidden;border:var(--border-base);border-radius:var(--border-radius-medium);box-shadow:var(--box-shadow-drop-xx-large);background:oklch(var(--color-surface-1-oklch__l) var(--color-surface-1-oklch__c) var(--color-progressive-oklch__h) / var(--backdrop-opacity));font-size:var(--font-size-small);line-height:var(--line-height-small)}@supports not (color:oklch(100% 0 0)){.citizen-command-palette{background:hsl(var(--color-surface-1-hsl__h),var(--color-surface-1-hsl__s),var(--color-surface-1-hsl__l) / var(--backdrop-opacity))}}@supports (backdrop-filter:blur(16px)) or (-webkit-backdrop-filter:blur(16px)){.citizen-command-palette{-webkit-backdrop-filter:var(--backdrop-filter-frosted-glass);backdrop-filter:var(--backdrop-filter-frosted-glass)}}@media (min-width:calc(1120px - 1px)){.citizen-command-palette{top:3rem}}.citizen-command-palette-overlay{position:absolute;top:0;left:0}.citizen-command-palette-backdrop{position:fixed;inset:0;background-color:var(--background-color-backdrop-light)}.citizen-command-palette__results{max-height:calc(100vh - 16rem);overflow-y:auto;border-top:var(--border-subtle)}.citizen-command-palette__no-results{padding:var(--space-md) var(--citizen-command-palette-side-padding);text-align:center}    .citizen-command-palette-empty-state{display:flex;flex-direction:column;gap:var(--space-xs);align-items:center;justify-content:center;padding:var(--space-xxl) var(--citizen-command-palette-side-padding);text-align:center}.citizen-command-palette-empty-state__icon{width:5rem;height:5rem}.citizen-command-palette-empty-state__icon .cdx-icon{width:100%;height:100%}.citizen-command-palette-empty-state__content{display:flex;flex-direction:column}.citizen-command-palette-empty-state__title{font-weight:var(--font-weight-semi-bold);color:var(--color-emphasized)}.citizen-command-palette-empty-state__description{color:var(--color-subtle)}    .citizen-command-palette__footer{display:flex;gap:var(--space-sm);align-items:center;justify-content:space-between;padding:var(--space-sm) var(--citizen-command-palette-side-padding);color:var(--color-subtle);border-top:var(--border-subtle)}.citizen-command-palette__footer-note{color:var(--color-subtle)}                        .citizen-command-palette__search{position:relative; padding:var(--space-sm) calc(var(--citizen-command-palette-side-padding) - 8px);font-size:var(--font-size-medium);line-height:var(--line-height-medium)}.citizen-command-palette__input .cdx-text-input__input{padding-block:0;padding-left:calc(8px + 1.25rem + var(--space-sm));outline:0 !important;background-color:transparent !important;border:0 !important; box-shadow:none !important}.citizen-command-palette__progress-indicator{position:absolute;right:0;bottom:0;left:0}    .citizen-command-palette__footer-hints{display:flex;flex-wrap:wrap;gap:var(--space-sm)}                        .citizen-command-palette-list{padding-block:var(--space-xs)}.citizen-command-palette-list__heading{padding-block:var(--space-xs) var(--space-xxs);padding-inline:var(--citizen-command-palette-side-padding);color:var(--color-subtle);font-family:var(--font-family-overline);font-size:var(--font-size-overline);font-weight:var(--font-weight-overline);line-height:var(--line-height-overline);text-transform:var(--text-transform-overline);letter-spacing:var(--letter-spacing-overline)}.citizen-command-palette-list__listbox{padding:0;margin:0;list-style:none}.citizen-command-palette-list-item{position:relative;outline:0;list-style:none}.citizen-command-palette-list-item--highlighted{cursor:pointer;background-color:var(--background-color-interactive-subtle--hover);--actions-fade-color:var(--background-color-interactive-subtle--hover)}.citizen-command-palette-list-item--active{background-color:var(--background-color-interactive-subtle--active);--actions-fade-color:var(--background-color-interactive-subtle--active)}.citizen-command-palette-list-item__actions{position:absolute;inset-inline-end:var(--citizen-command-palette-side-padding);top:0;display:flex;gap:var(--space-xxs);align-items:center;height:100%;padding-left:var(--space-xl);pointer-events:none;background-image:linear-gradient(to right,transparent 0%,transparent 30%,var(--actions-fade-color,inherit) 70%);opacity:0;transform:translateX(16px);transition-timing-function:var(--transition-timing-function-ease-in);transition-duration:var(--transition-duration-base);transition-property:opacity,transform}.citizen-command-palette-list-item__actions--visible{pointer-events:auto;opacity:1;transform:none;transition-timing-function:var(--transition-timing-function-ease-out)}.citizen-command-palette-list-item__action{border-radius:var(--border-radius-base)}a.citizen-command-palette-list-item__action.cdx-button .cdx-icon{padding:0}                        .citizen-command-palette-list-item__content{display:flex;column-gap:var(--space-sm);align-items:center;padding:var(--space-sm) var(--citizen-command-palette-side-padding);text-decoration:none}button.citizen-command-palette-list-item__content{width:100%;font:inherit;color:inherit;text-align:inherit;cursor:pointer;background:none;border:0}.citizen-command-palette-list-item__content:hover{text-decoration:none}.citizen-command-palette-list-item__text{flex:1;min-width:0;overflow:hidden;line-height:1.125rem}.citizen-command-palette-list-item__text__label{font-weight:var(--font-weight-semi-bold);color:var(--color-emphasized);font-size:var(--font-size-medium);line-height:var(--line-height-medium)}.citizen-command-palette-list-item__text__label .cdx-search-result-title{ display:inline}.citizen-command-palette-list-item__text__description{color:var(--color-subtle)}.citizen-command-palette-list-item__text .cdx-search-result-title{font-weight:var(--font-weight-semi-bold);color:var(--color-emphasized)}.citizen-command-palette-list-item__text .cdx-search-result-title__match{color:var(--color-subtle)}.citizen-command-palette-list-item__text__label,.citizen-command-palette-list-item__text__description{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.citizen-command-palette-list-item__metadata{display:flex;gap:var(--space-xxs);color:var(--color-subtle)}.citizen-command-palette-list-item__metadata__item{display:flex;column-gap:var(--space-xxs);align-items:center;padding:2px var(--space-xs);line-height:var(--line-height-small);background:var(--color-surface-3);border:var(--border-subtle);border-radius:var(--border-radius-base)}.citizen-command-palette-list-item__metadata__item .cdx-icon{color:var(--color-subtle)}</style><style>
+#citizen-preferences__card form{display:grid;grid-template-columns:repeat(var(--pref-columns,2),1fr);gap:var(--space-xxs);padding-inline:var(--space-md)}.citizen-preferences-content{display:flex;flex-direction:column;gap:var(--space-xs);padding-block:var(--space-xs)}.citizen-client-prefs-radio__input{display:none}.citizen-client-prefs-radio__input:checked ~ .citizen-client-prefs-radio__label{border-color:var(--color-progressive)}.citizen-client-prefs-radio__label{display:flex;align-items:center;justify-content:center;height:100%;padding:var(--space-xs) var(--space-md);font-weight:var(--font-weight-medium);cursor:pointer;border:var(--border-width-thick) solid var(--border-color-base);border-radius:var(--border-radius-medium)}.citizen-client-prefs-radio__label:hover{border-color:var(--color-progressive--hover)}.citizen-client-prefs-radio__label:active{border-color:var(--color-progressive--active)}#citizen-client-prefs .citizen-menu__content{padding:0 var(--space-md)}#skin-client-prefs-skin-theme{--pref-columns:3}#skin-client-prefs-skin-theme .citizen-client-prefs-radio__label{background:var(--color-surface-0)}#skin-client-prefs-skin-theme .citizen-client-prefs-radio__label[for='skin-client-pref-skin-theme-value-day']{color:hsl(var(--color-progressive-hsl__h),30%,20%);background:hsl(var(--color-progressive-hsl__h),30%,96%)}#skin-client-prefs-skin-theme .citizen-client-prefs-radio__label[for='skin-client-pref-skin-theme-value-night']{color:hsl(var(--color-progressive-hsl__h),25%,80%);background:hsl(var(--color-progressive-hsl__h),20%,10%)}#skin-client-prefs-citizen-feature-custom-font-size{--pref-columns:2}#skin-client-prefs-citizen-feature-custom-width{--pref-columns:3}#skin-client-prefs-citizen-feature-pure-black{display:none}.skin-theme-clientpref-night #skin-client-prefs-citizen-feature-pure-black{display:block}@media (prefers-color-scheme:dark){.skin-theme-clientpref-os #skin-client-prefs-citizen-feature-pure-black{display:block}}#skin-client-prefs-citizen-feature-pure-black .citizen-client-prefs-radio__label[for='skin-client-pref-citizen-feature-pure-black-value-1']{background-color:#000}#skin-client-prefs-citizen-feature-autohide-navigation{display:none}@media (max-width:calc(1120px - 1px)){#skin-client-prefs-citizen-feature-autohide-navigation{display:block}}#skin-client-prefs-citizen-feature-autohide-navigation form{grid-template-columns:repeat(2,1fr)}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Mod optimization - PZwiki_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.43.6">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0d0e12">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="https://pzwiki.net/w/api.php?action=webapp-manifest">
+<link rel="search" type="application/opensearchdescription+xml" href="https://pzwiki.net/w/rest.php/v1/search" title="PZwiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://pzwiki.net/w/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="PZwiki Atom feed" href="https://pzwiki.net/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<script>window.clientPrefs=()=>{let className=document.documentElement.className;const storage=localStorage.getItem('mwclientpreferences');if(storage){storage.split(',').forEach((pref)=>{className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});document.documentElement.className=className;}};(()=>{window.clientPrefs();})();</script>
+</head>
+<body class="citizen-toc-enabled citizen-sections-enabled mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Mod_optimization rootpage-Mod_optimization skin-citizen action-view skin--responsive citizen-scroll--up">
+<header class="mw-header citizen-header">
+	<div class="citizen-header__logo">
+		<a href="https://pzwiki.net/wiki/Special:MyLanguage/Project_Zomboid_Wiki" class="mw-logo citizen-header__button" title="Visit the main page">
+			<img class="mw-logo-icon" src="./Mod optimization - PZwiki_files/pzwlogo.png" alt="" aria-hidden="true" height="32" width="32">
+			<span class="citizen-ui-icon mw-ui-icon-home mw-ui-icon-wikimedia-home"></span>
+		</a>
+	</div>
+	
+<div class="citizen-search citizen-header__item citizen-dropdown">
+	<details id="citizen-search-details" class="citizen-dropdown-details">
+		<summary class="citizen-dropdown-summary" title="Toggle search [/]" aria-details="citizen-search__card">
+			<span class="citizen-ui-icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+			<span>Toggle search</span>
+		</summary>
+		
+	</details>
+	
+</div>
+
+	<div class="citizen-drawer citizen-header__item citizen-dropdown">
+		<details class="citizen-dropdown-details">
+			<summary class="citizen-dropdown-summary" title="Toggle menu" aria-details="citizen-drawer__card">
+			<span class="citizen-ui-icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+			<span>Toggle menu</span>
+		</summary>	</details>
+		<div id="citizen-drawer__card" class="citizen-drawer__card citizen-menu__card">
+			<div class="citizen-menu__card-backdrop"></div>
+			<div class="citizen-menu__card-content">
+				<header class="citizen-drawer__header">
+					<a href="https://pzwiki.net/wiki/Special:MyLanguage/Project_Zomboid_Wiki" class="mw-logo citizen-drawer__logo" title="Visit the main page">
+					<img class="mw-logo-icon" src="./Mod optimization - PZwiki_files/pzwlogo.png" alt="" aria-hidden="true" height="80" width="80" loading="lazy">
+				</a>
+				<div class="citizen-drawer__siteinfo">
+						<div class="citizen-siteStats">
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--articles" title="articles">
+		<span class="citizen-ui-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span>
+		<span>11.7K</span>
+	</div>
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--images" title="files">
+		<span class="citizen-ui-icon mw-ui-icon-image mw-ui-icon-wikimedia-image"></span>
+		<span>17.5K</span>
+	</div>
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--users" title="users">
+		<span class="citizen-ui-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span>
+		<span>6.3K</span>
+	</div>
+	<div class="citizen-siteStats__item" id="citizen-siteStats__item--edits" title="edits">
+		<span class="citizen-ui-icon mw-ui-icon-edit mw-ui-icon-wikimedia-edit"></span>
+		<span>714.5K</span>
+	</div>
+</div>
+						<div class="mw-logo-wordmark">PZwiki</div>
+									</div>
+				</header>
+					<section id="citizen-main-menu" class="citizen-main-menu citizen-drawer__menu">
+					<nav id="p-project-zomboid-wiki" class="citizen-menu mw-portlet mw-portlet-project-zomboid-wiki">
+	<div class="citizen-menu__heading">
+		Project Zomboid Wiki
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="n-mainpage-description" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project_Zomboid_Wiki" title="Visit the main page [alt-shift-z]" accesskey="z"><span class="citizen-ui-icon mw-ui-icon-home mw-ui-icon-wikimedia-home"></span> <span>Main page</span><kbd class="citizen-keyboard-hint-key">alt ⇧ z</kbd></a></li><li id="n-portal" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Community_portal" title="About the PZwiki, what you can do, where to find things"><span>Community portal</span></a></li><li id="n-tasks" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Tasks" title="View, edit, and help with the current tasks being worked on the wiki"><span>Wiki tasks</span></a></li><li id="n-rules" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Rules" title="Rules to follow when editing the wiki"><span>Wiki rules</span></a></li><li id="n-editing-help" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Help:Contents" title="Help with creating and editing pages on the wiki"><span>Editing help</span></a></li><li id="n-style-guide" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Help:Style_guide" title="Guidelines to keeping the wiki consistent"><span>Style guide</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r"><span class="citizen-ui-icon mw-ui-icon-recentChanges mw-ui-icon-wikimedia-recentChanges"></span> <span>Recent changes</span><kbd class="citizen-keyboard-hint-key">alt ⇧ r</kbd></a></li><li id="n-randompage" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RandomInCategory/en" title="Load a random page [alt-shift-x]" accesskey="x"><span class="citizen-ui-icon mw-ui-icon-die mw-ui-icon-wikimedia-die"></span> <span>Random page</span><kbd class="citizen-keyboard-hint-key">alt ⇧ x</kbd></a></li><li id="n-affiliates" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:MyLanguage/Project:Affiliates" title="Check PZwiki affiliates here"><span>Affiliates</span></a></li><li id="n-vector-opt-out" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Special:Preferences&amp;useskin=vector#mw-prefsection-rendering" rel="nofollow" title="Change your settings to go back to the old look of the skin (legacy Vector)"><span>Switch to old look</span></a></li>
+		</ul>
+		
+	</div></nav>
+
+					<nav id="p-project-zomboid" class="citizen-menu mw-portlet mw-portlet-project-zomboid">
+	<div class="citizen-menu__heading">
+		Project Zomboid
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="n-website" class="mw-list-item"><a href="https://projectzomboid.com/" rel="nofollow" title="The Project Zomboid website"><span>Website</span></a></li><li id="n-forums" class="mw-list-item"><a href="https://theindiestone.com/forums/" rel="nofollow" title="The official community forums"><span>Forums</span></a></li><li id="n-bug-reports" class="mw-list-item"><a href="https://theindiestone.com/forums/index.php?/forum/85-bug-reports/" rel="nofollow" title="Report any bugs you encounter here"><span>Bug reports</span></a></li><li id="n-build-history" class="mw-list-item"><a href="https://projectzomboid.com/blog/news/2017/02/buildstatus/" rel="nofollow" title="View official Status and Build History page"><span>Build history</span></a></li><li id="n-map" class="mw-list-item"><a href="https://map.projectzomboid.com/" rel="nofollow" title="Official Project Zomboid map"><span>Map</span></a></li><li id="n-discord" class="mw-list-item"><a href="https://discord.gg/theindiestone" rel="nofollow" title="Join us on the #pzwiki_editing on the official Discord server"><span>Discord</span></a></li>
+		</ul>
+		
+	</div></nav>
+<nav id="p-Languages" class="citizen-menu mw-portlet mw-portlet-Languages emptyPortlet">
+	<div class="citizen-menu__heading">
+		Languages
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+<nav id="p-navigation" class="citizen-menu mw-portlet mw-portlet-navigation">
+	<div class="citizen-menu__heading">
+		Navigation
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="t-specialpages" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q"><span class="citizen-ui-icon mw-ui-icon-specialPages mw-ui-icon-wikimedia-specialPages"></span> <span>Special pages</span><kbd class="citizen-keyboard-hint-key">alt ⇧ q</kbd></a></li><li id="t-upload" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:Upload" title="Upload files [alt-shift-u]" accesskey="u"><span class="citizen-ui-icon mw-ui-icon-upload mw-ui-icon-wikimedia-upload"></span> <span>Upload file</span><kbd class="citizen-keyboard-hint-key">alt ⇧ u</kbd></a></li>
+		</ul>
+		
+	</div></nav>
+
+				</section>		</div>
+		</div>
+	</div>	<div class="citizen-header__inner">
+		<div class="citizen-header__start"></div>
+		<div class="citizen-header__end">
+			<div class="citizen-preferences citizen-header__item citizen-dropdown">
+				<details id="citizen-preferences-details" class="citizen-dropdown-details">
+					<summary class="citizen-dropdown-summary" title="Toggle preferences menu" aria-details="citizen-preferences__card">
+						<span class="citizen-ui-icon mw-ui-icon-wikimedia-settings"></span>
+						<span>Toggle preferences menu</span>
+					</summary>
+				</details>
+				<div id="citizen-preferences__card" class="citizen-menu__card">
+					<div class="citizen-menu__card-backdrop"></div>
+					<div class="citizen-menu__card-content">
+						<div id="citizen-preferences-content" class="citizen-preferences-content"></div>
+					</div>
+				</div>
+			</div>			<nav id="p-notifications" class="citizen-menu mw-portlet mw-portlet-notifications emptyPortlet">
+	<div class="citizen-menu__heading">
+		notifications
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+			<div class="citizen-userMenu citizen-header__item citizen-dropdown">
+				<details class="citizen-dropdown-details">
+					<summary class="citizen-dropdown-summary" title="Toggle personal menu" aria-details="citizen-userMenu__card">
+						<span class="citizen-ui-icon mw-ui-icon-wikimedia-userAvatar"></span>
+						<span>Toggle personal menu</span>
+					</summary>
+				</details>
+				<div id="citizen-userMenu__card" class="citizen-menu__card">
+					<div class="citizen-menu__card-backdrop"></div>
+					<div class="citizen-menu__card-content">
+						<div class="citizen-userInfo">
+	<div class="citizen-userInfo-title">
+		<div>Not logged in</div>
+		
+	</div>
+	<div class="citizen-userInfo-text">
+		<div>Please log in or create an account to make contributions.</div>
+	</div>
+</div>
+						<nav id="p-user-interface-preferences" class="citizen-menu mw-portlet mw-portlet-user-interface-preferences emptyPortlet">
+	<div class="citizen-menu__heading">
+		user-interface-preferences
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+						<nav id="p-personal" class="citizen-menu mw-portlet mw-portlet-personal" title="User menu">
+	<div class="citizen-menu__heading">
+		Personal tools
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="pt-createaccount" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Special:CreateAccount&amp;returnto=Mod+optimization" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="citizen-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Special:UserLogin&amp;returnto=Mod+optimization" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o"><span class="citizen-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span><kbd class="citizen-keyboard-hint-key">alt ⇧ o</kbd></a></li>
+		</ul>
+		
+	</div></nav>
+
+					</div>
+				</div>
+			</div>		</div>
+	</div>
+</header>
+<div class="citizen-page-container">
+	<div class="citizen-sitenotice-container"><div id="siteNotice"><div id="localNotice" data-nosnippet=""><div class="sitenotice" lang="en" dir="ltr"><div class="sitenotice-card">
+<div class="image-container-left">
+<p><span typeof="mw:File"><a href="https://pzwiki.net/wiki/File:Be_crafty.png" class="mw-file-description"><img src="./Mod optimization - PZwiki_files/64px-Be_crafty.png" decoding="async" width="64" height="69" class="mw-file-element" srcset="/w/images/thumb/b/b3/Be_crafty.png/96px-Be_crafty.png 1.5x, /w/images/thumb/b/b3/Be_crafty.png/128px-Be_crafty.png 2x"></a></span>
+</p>
+</div>
+<div>
+<p><b><a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42</a> unstable <a href="https://pzwiki.net/wiki/Multiplayer" title="Multiplayer">multiplayer</a> is <a href="https://projectzomboid.com/blog/news/2025/12/unstable-42-mp-released/" class="extiw" title="zomboidweb:blog/news/2025/12/unstable-42-mp-released/">out now</a>!</b>
+</p><p>PZwiki pages are getting updated to <a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42</a>. We appreciate your patience during the updates.<br>
+Help us by contributing to the <a href="https://pzwiki.net/wiki/PZwiki:Project_Build_42_Update" title="PZwiki:Project Build 42 Update">Project Build 42 Update</a>.<br>
+The official <a href="https://pzwiki.net/wiki/Project_Zomboid_Map_Project" title="Project Zomboid Map Project">Project Zomboid Map Project</a> has not yet been updated. In the meantime, use <a href="https://pzwiki.net/wiki/B42_Map" title="B42 Map">B42 Map</a>.
+</p>
+</div>
+<div class="image-container-right">
+<p><span typeof="mw:File"><a href="https://pzwiki.net/wiki/File:404SpiffoMascotMap.png" class="mw-file-description"><img src="./Mod optimization - PZwiki_files/64px-404SpiffoMascotMap.png" decoding="async" width="64" height="80" class="mw-file-element" srcset="/w/images/thumb/b/bc/404SpiffoMascotMap.png/96px-404SpiffoMascotMap.png 1.5x, /w/images/thumb/b/bc/404SpiffoMascotMap.png/128px-404SpiffoMascotMap.png 2x"></a></span>
+</p>
+</div>
+</div></div></div></div></div>
+	<main class="mw-body ve-init-mw-desktopArticleTarget-targetContainer" id="content">
+		<header class="mw-body-header citizen-page-header" id="citizen-page-header">
+			<div class="citizen-page-header-inner">
+				
+<div class="citizen-page-heading">
+	<div class="firstHeading-container">
+		<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Mod optimization</span></h1>
+		
+		<div class="mw-indicators">
+		</div>	</div>
+	<div id="siteSub">From PZwiki</div>
+</div>
+				
+<div class="page-actions">
+	<button id="citizen-share" class="citizen-share citizen-button citizen-dropdown-summary" title="Share this page">
+	<span class="citizen-ui-icon mw-ui-icon-wikimedia-share"></span>
+	<span>Share this page</span>
+</button>
+	
+		<nav id="p-views" class="citizen-menu mw-portlet mw-portlet-views">
+	<div class="citizen-menu__heading">
+		Views
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="ca-view" class="selected mw-list-item"><a href="https://pzwiki.net/wiki/Mod_optimization"><span class="citizen-ui-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span> <span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e"><span class="citizen-ui-icon mw-ui-icon-editLock mw-ui-icon-wikimedia-editLock"></span> <span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h"><span class="citizen-ui-icon mw-ui-icon-history mw-ui-icon-wikimedia-history"></span> <span>View history</span></a></li>
+		</ul>
+		
+	</div></nav>
+
+		<nav id="p-associated-pages" class="citizen-menu mw-portlet mw-portlet-associated-pages">
+	<div class="citizen-menu__heading">
+		associated-pages
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="ca-nstab-main" class="selected mw-list-item"><a href="https://pzwiki.net/wiki/Mod_optimization" title="View the content page [alt-shift-c]" accesskey="c"><span class="citizen-ui-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span> <span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Talk:Mod_optimization&amp;action=edit&amp;redlink=1" rel="discussion" class="new" title="Discussion about the content page (page does not exist) [alt-shift-t]" accesskey="t"><span class="citizen-ui-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles"></span> <span>Discussion</span></a></li>
+		</ul>
+		
+	</div></nav>
+
+	<div id="citizen-page-more-dropdown" class="page-actions-more page-actions__item citizen-dropdown">
+	<details class="citizen-dropdown-details">
+		<summary class="citizen-dropdown-summary" title="More actions" aria-details="page-actions-more__card">
+			<span class="citizen-ui-icon mw-ui-icon-wikimedia-ellipsis"></span>
+			<span>More actions</span>
+		</summary>
+	</details>
+	<aside id="page-actions-more__card" class="citizen-menu__card">
+		<div class="citizen-menu__card-backdrop"></div>
+		<div class="citizen-menu__card-content">
+					<nav id="p-cactions" class="citizen-menu mw-portlet mw-portlet-cactions emptyPortlet" title="More options">
+	<div class="citizen-menu__heading">
+		More
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+			<nav id="p-tb" class="citizen-menu mw-portlet mw-portlet-tb">
+	<div class="citizen-menu__heading">
+		Tools
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li id="t-whatlinkshere" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:WhatLinksHere/Mod_optimization" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j"><span class="citizen-ui-icon mw-ui-icon-articleRedirect mw-ui-icon-wikimedia-articleRedirect"></span> <span>What links here</span><kbd class="citizen-keyboard-hint-key">alt ⇧ j</kbd></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RecentChangesLinked/Mod_optimization" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k"><span class="citizen-ui-icon mw-ui-icon-recentChanges mw-ui-icon-wikimedia-recentChanges"></span> <span>Related changes</span><kbd class="citizen-keyboard-hint-key">alt ⇧ k</kbd></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p"><span class="citizen-ui-icon mw-ui-icon-printer mw-ui-icon-wikimedia-printer"></span> <span>Printable version</span><kbd class="citizen-keyboard-hint-key">alt ⇧ p</kbd></a></li><li id="t-permalink" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;oldid=1310397" title="Permanent link to this revision of this page"><span class="citizen-ui-icon mw-ui-icon-link mw-ui-icon-wikimedia-link"></span> <span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;action=info" title="More information about this page"><span class="citizen-ui-icon mw-ui-icon-infoFilled mw-ui-icon-wikimedia-infoFilled"></span> <span>Page information</span></a></li>
+		<li class="mw-list-item mw-list-item-js" id="t-collapsible-toggle-all"><a href="https://pzwiki.net/wiki/Mod_optimization#" title="Expand all collapsible elements on the current page" role="button" aria-expanded="false"><span>Expand all</span></a></li></ul>
+		
+	</div></nav>
+
+		</div>
+	</aside>
+</div>
+</div>
+			</div>
+		</header>
+		<div id="citizen-page-header-sticky-sentinel"></div>
+		<div class="citizen-body-container">
+			<div id="bodyContent" class="citizen-body" aria-labelledby="firstHeading">
+				<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+				
+				
+				<div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><section class="citizen-section" id="citizen-section-0"><div class="langswitch">
+<p><a class="mw-selflink selflink"><span title="Mod optimization (English)">English</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/cs&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/cs (page does not exist)"><span title="Mod optimization/cs (čeština)">čeština</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/de&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/de (page does not exist)"><span title="Mod optimization/de (Deutsch)">Deutsch</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/es&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/es (page does not exist)"><span title="Mod optimization/es (español)">español</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/fr&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/fr (page does not exist)"><span title="Mod optimization/fr (français)">français</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/it&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/it (page does not exist)"><span title="Mod optimization/it (italiano)">italiano</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/ja&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/ja (page does not exist)"><span title="Mod optimization/ja (日本語)">日本語</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/ko&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/ko (page does not exist)"><span title="Mod optimization/ko (한국어)">한국어</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/pl&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/pl (page does not exist)"><span title="Mod optimization/pl (polski)">polski</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/pt&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/pt (page does not exist)"><span title="Mod optimization/pt (português)">português</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/pt-br&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/pt-br (page does not exist)"><span title="Mod optimization/pt-br (português do Brasil)">português do Brasil</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/ru&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/ru (page does not exist)"><span title="Mod optimization/ru (русский)">русский</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/th&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/th (page does not exist)"><span title="Mod optimization/th (ไทย)">ไทย</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/tr&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/tr (page does not exist)"><span title="Mod optimization/tr (Türkçe)">Türkçe</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/uk&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/uk (page does not exist)"><span title="Mod optimization/uk (українська)">українська</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/vi&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/vi (page does not exist)"><span title="Mod optimization/vi (Tiếng Việt)">Tiếng Việt</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/zh-hans&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/zh-hans (page does not exist)"><span title="Mod optimization/zh-hans (中文（简体）)">中文（简体）</span></a>
+• <a href="https://pzwiki.net/w/index.php?title=Mod_optimization/zh-hant&amp;action=edit&amp;redlink=1" class="new" title="Mod optimization/zh-hant (page does not exist)"><span title="Mod optimization/zh-hant (中文（繁體）)">中文（繁體）</span></a>
+</p>
+</div>
+<div class="navbar2">
+<div><a href="https://pzwiki.net/wiki/Modding" title="Modding">Modding</a></div>
+<div>
+<hr>
+<p><a href="https://pzwiki.net/wiki/Game_files" title="Game files">Game files</a> • <a href="https://pzwiki.net/wiki/File_formats" title="File formats">File formats</a> • <a href="https://pzwiki.net/wiki/Mod_structure" title="Mod structure">Mod structure</a> • <a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">Decompiling game code</a> • <a href="https://pzwiki.net/wiki/Startup_parameters" title="Startup parameters">Startup parameters</a> • <a class="mw-selflink selflink">Mod optimization</a> • <a href="https://pzwiki.net/wiki/Procedural_distributions" title="Procedural distributions">Procedural distributions</a> • <a href="https://pzwiki.net/wiki/Scripts" title="Scripts">Scripts</a> • <a href="https://pzwiki.net/wiki/Lua_(API)" title="Lua (API)">Lua (API)</a> • <a href="https://pzwiki.net/wiki/Java" title="Java">Java</a> • <a href="https://pzwiki.net/wiki/Modeling" title="Modeling">Modeling</a> • <a href="https://pzwiki.net/wiki/Rendering" title="Rendering">Rendering</a> • <a href="https://pzwiki.net/wiki/Animation" title="Animation">Animation</a> • <a href="https://pzwiki.net/wiki/Mapping" title="Mapping">Mapping</a> • <a href="https://pzwiki.net/wiki/Translations" title="Translations">Translations</a>
+</p>
+</div>
+</div>
+<div class="mbox" style="background-color: var(--background-message-warn);border: 1px solid #ff8010;">
+  <div style="background-color: #ff8010;"></div>
+  <div><span class="mw-default-size notpageimage" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Page_version" title="Template:Page version"><img src="./Mod optimization - PZwiki_files/Profession_engineer.png" decoding="async" width="64" height="64" class="mw-file-element"></a></span></div>
+  <div>
+    <div style="font-weight: bold; padding-right: 1em;">This page has been updated to an <i>unstable</i> beta version (<a href="https://pzwiki.net/wiki/Build_42.10.0" title="Build 42.10.0">42.10.0</a>).</div>
+    <div class="mw-collapsible mw-collapsed mw-made-collapsible" id="mw-customcollapsible-mbox-version" style="display: none;">There may be additional features that are not in the stable version (<a href="https://pzwiki.net/wiki/Build_41.78.16" title="Build 41.78.16">41.78.16</a>).</div>
+  <div class="toggle mw-customtoggle-mbox-version mw-customtoggle" title="Show/Hide" aria-expanded="true" tabindex="0"></div><div class="mw-collapsible mw-collapsed mw-made-collapsible" id="mw-customcollapsible-mbox-version" style="font-size: 80%; font-style: italic; display: none;">Help get this page updated to the current unstable version (<a href="https://pzwiki.net/wiki/Build_42.13.2" title="Build 42.13.2">42.13.2</a>). <span class="plainlinks"><a rel="nofollow" class="external text" href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;veaction=edit">Edit</a> (<a rel="nofollow" class="external text" href="https://pzwiki.net/w/index.php?title=Special:CreateAccount&amp;returnto=Mod_optimization">Create account</a>)</span></div>
+  </div>
+</div>
+<p><b>Mod optimization</b> is a very important part of mod making which is often ignored by too many people. When mods start to stack in a save, you will happen to drag all the problems of each mods and as such can create important performance impact when very simple tips and tricks can be utilized to improve performances. The following guide will explain in detail some of these tips and tricks to reduce the performance impact of your mod to a minimum and develop good habits.
+</p>
+<meta property="mw:PageProp/toc">
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span id="Lua_.28API.29"></span><span class="mw-headline" id="Lua_(API)">Lua (API)</span></h2><section class="citizen-section" id="citizen-section-1">
+<h3><span id="Don.27t_need_it.3F_Don.27t_run_it"></span><span class="mw-headline" id="Don&#39;t_need_it?_Don&#39;t_run_it">Don't need it? Don't run it</span></h3>
+<p>The first and main way you can and should optimize your code is with a simple rule: if you don't need to run it, don't do it. It might seem obvious at first and yet it is often a common mistake.
+</p><p>In your code, you will most likely use checks to verify if a code should run, for example run your code only if the player moves, as an intended feature. However it's possible to use the same principle to stop code from running when it doesn't need to run even if it technically doesn't matter in term of gameplay for your mod. It will however matter internally to have less code running.
+</p>
+<h4><span class="mw-headline" id="Examples">Examples</span></h4>
+<p>Optimizing code that runs a lot, like for zombies for example, matters especially a lot. Let's take for example a simple mod with the goal of setting every zombies as skeletons using <code>IsoZombie.setSkeleton</code>.
+<b>Source:</b> <code>ProjectZomboid\zombie\characters\<span style="color: #3434ff;">IsoZombie.class</span></code>
+</p>
+<p><i><small><b>Retrieved</b>: <a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42.0.1</a> </small></i></p><div class="mw-highlight mw-highlight-lang-java mw-content-ltr mw-highlight-lines" dir="ltr"><pre><span></span><span class="linenos" data-line="4789"></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setSkeleton</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-line="4790"></span><span class="w">   </span><span class="k">this</span><span class="p">.</span><span class="na">isSkeleton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var1</span><span class="p">;</span>
+<span class="linenos" data-line="4791"></span><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-line="4792"></span><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">getHumanVisual</span><span class="p">().</span><span class="na">setHairModel</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+<span class="linenos" data-line="4793"></span><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">getHumanVisual</span><span class="p">().</span><span class="na">setBeardModel</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+<span class="linenos" data-line="4794"></span><span class="w">      </span><span class="n">ModelManager</span><span class="p">.</span><span class="na">instance</span><span class="p">.</span><span class="na">Reset</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="linenos" data-line="4795"></span><span class="w">   </span><span class="p">}</span>
+<span class="linenos" data-line="4796"></span><span class="p">}</span>
+</pre></div>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- Iterate through every zombies and set their visual as skeletons</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnZombieUpdate</span><span class="p">(</span><span class="nv">zombie</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">zombie</span><span class="p">:</span><span class="nf">setSkeleton</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnZombieUpdate</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnZombieUpdate</span><span class="p">)</span>
+</pre></div>
+<p>This code will run for every zombies, every ticks which can become extremely costly because the <code>setSkeleton</code> function calls a lot of stuff, thus running a lot more code than we really need because once the zombie is made as a skeleton, it doesn't need to be set again. To greatly reduce the performance impact of this code, we can add a simple check and ignore the zombie if it's already a skeleton:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- Iterate through every zombies and set their visual as skeletons only if they aren't skeletons</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnZombieUpdate</span><span class="p">(</span><span class="nv">zombie</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">zombie</span><span class="p">:</span><span class="nf">isSkeleton</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">        </span><span class="nv">zombie</span><span class="p">:</span><span class="nf">setSkeleton</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnZombieUpdate</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnZombieUpdate</span><span class="p">)</span>
+</pre></div>
+<p>This equals to a single function call per zombie every ticks, and ignores multiple function calls if the zombie is already a skeleton, greatly reducing the amount of code ran per ticks.
+</p><p>If you want to go further in the optimization, there are cases where doing such a check is possible and yet is actually worse for performances. Take the example of keeping the hit time of a zombie to a fixed value.
+<b>Source:</b> <code>ProjectZomboid\zombie\characters\<span style="color: #3434ff;">IsoZombie.class</span></code>
+</p>
+<p><i><small><b>Retrieved</b>: <a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42.0.1</a> </small></i></p><div class="mw-highlight mw-highlight-lang-java mw-content-ltr mw-highlight-lines" dir="ltr"><pre><span></span><span class="linenos" data-line="4798"></span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHitTime</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-line="4799"></span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">hitTime</span><span class="p">;</span>
+<span class="linenos" data-line="4800"></span><span class="p">}</span>
+<span class="linenos" data-line="4801"></span>
+<span class="linenos" data-line="4802"></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHitTime</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">var1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-line="4803"></span><span class="w">   </span><span class="k">this</span><span class="p">.</span><span class="na">hitTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var1</span><span class="p">;</span>
+<span class="linenos" data-line="4804"></span><span class="p">}</span>
+</pre></div>
+<p>If we apply the trick presented before, we obtain the code below:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- Iterate through every zombies and set their hit time to the desired value</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">desiredHitTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnZombieUpdate</span><span class="p">(</span><span class="nv">zombie</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- verify current zombie hit time is the desired value</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">zombie</span><span class="p">:</span><span class="nf">getHitTime</span><span class="p">()</span><span class="w"> </span><span class="err">!</span><span class="o">=</span><span class="w"> </span><span class="nv">desiredHitTime</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">        </span><span class="c1">-- set the value</span>
+<span class="w">        </span><span class="nv">zombie</span><span class="p">:</span><span class="nf">setHitTime</span><span class="p">(</span><span class="nv">desiredHitTime</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnZombieUpdate</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnZombieUpdate</span><span class="p">)</span>
+</pre></div>
+<p>The code ran will do a single java function call and comparison operation. But we do one less code operation with the code below:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- Iterate through every zombies and set their hit time to the desired value</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">desiredHitTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnZombieUpdate</span><span class="p">(</span><span class="nv">zombie</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- set the value</span>
+<span class="w">    </span><span class="nv">zombie</span><span class="p">:</span><span class="nf">setHitTime</span><span class="p">(</span><span class="nv">desiredHitTime</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnZombieUpdate</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnZombieUpdate</span><span class="p">)</span>
+</pre></div>
+<p>In this last example, we have a single java function call and nothing more. These exceptions require the <a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">decompilation of the game code</a> to know what you are using and optimize your code. Doing checks anyway is however usually fine to do.
+</p>
+<h3><span id="Local.2C_not_global"></span><span class="mw-headline" id="Local,_not_global">Local, not global</span></h3>
+<p>Accessing a global is more costly than having a variable be local and poses other problems (see <a href="https://pzwiki.net/wiki/Lua_(language)#Local_and_global" title="Lua (language)">Local and global variables</a>). This can simply be achieved by never using global variables. This principle is the direct reason why caching should be used, as described in a later part.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- bad</span>
+<span class="nv">myVariable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello World!"</span>
+
+<span class="c1">-- better</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">myVariable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello World!"</span>
+</pre></div>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- bad</span>
+<span class="nv">MyFunctions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="nv">MyFunctions</span><span class="p">.</span><span class="py">SayHelloWorld</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- better</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">MyFunctions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="nv">MyFunctions</span><span class="p">.</span><span class="py">SayHelloWorld</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+<p>There are however cases of vanilla global variables which you need to access, or sometimes you really need to have your variable global. In these rare cases, you can directly cache the global variable into a local variable:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- File1.lua</span>
+<span class="nv">MyGlobalVariable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello World!"</span>
+
+<span class="c1">-- File2.lua</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">MyGlobalVariable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">MyGlobalVariable</span><span class="w"> </span><span class="c1">-- store locally the global variable</span>
+</pre></div>
+<p><b>Source:</b> <code>ProjectZomboid\media\lua\server\Items\<span style="color: #3434ff;">ISDynamicRadio.lua</span></code>
+</p>
+<p><i><small><b>Retrieved</b>: <a href="https://pzwiki.net/wiki/Build_42" title="Build 42">Build 42.0.2</a> </small></i></p><div class="mw-highlight mw-highlight-lang-lua mw-content-ltr mw-highlight-lines" dir="ltr"><pre><span></span><span class="linenos" data-line="1"></span><span class="nv">ProceduralDistributions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+</pre></div>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- Making a vanilla global as local</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">ProceduralDistributions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ProceduralDistributions</span>
+</pre></div>
+<h3><span class="mw-headline" id="Caching">Caching</span></h3>
+<p>The best way to optimize code is to not run the code. This can be applied with a very easy method of optimizing, and also cleaning up your code at the same time, which is called caching. Caching involves storing a value or object to be used later instead of retrieving it every time we need it.
+</p>
+<h4><span class="mw-headline" id="Simple_caching_within_a_function">Simple caching within a function</span></h4>
+<p>Below is a small code snipet which will access the item in the hands of the player, and if it is a gun it changes the ammo count to the maximum.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnPlayerUpdate</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- check if player has a weapon</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nf">instanceof</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">(),</span><span class="s2">"HandWeapon"</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">        </span><span class="c1">-- verify it's a gun</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">():</span><span class="nf">isRanged</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">            </span><span class="c1">-- verify it has the max amount of bullets</span>
+<span class="w">            </span><span class="kr">if</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">():</span><span class="nf">getCurrentAmmoCount</span><span class="p">()</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">():</span><span class="nf">getMaxAmmo</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">                </span><span class="c1">-- set the bullet count to max</span>
+<span class="w">                </span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">():</span><span class="nf">setCurrentAmmoCount</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">():</span><span class="nf">getMaxAmmo</span><span class="p">())</span>
+<span class="w">            </span><span class="kr">end</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnPlayerUpdate</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnPlayerUpdate</span><span class="p">)</span>
+</pre></div>
+<p>We can make this code easier to read, organize it better as well as optimize it by using caching.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnPlayerUpdate</span><span class="p">(</span><span class="nv">player</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- check if player has a gun</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">weapon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">player</span><span class="p">:</span><span class="nf">getPrimaryHandItem</span><span class="p">()</span><span class="w"> </span><span class="c1">-- caching the item in primary hand</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">weapon</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nf">instanceof</span><span class="p">(</span><span class="nv">weapon</span><span class="p">,</span><span class="s2">"HandWeapon"</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">weapon</span><span class="p">:</span><span class="nf">isRanged</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">        </span><span class="c1">-- verify it has the max amount of bullets</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">maxBulletsCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">weapon</span><span class="p">:</span><span class="nf">getMaxAmmo</span><span class="p">()</span><span class="w"> </span><span class="c1">-- caching the max ammo count possible in the gun</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">weapon</span><span class="p">:</span><span class="nf">getCurrentAmmoCount</span><span class="p">()</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nv">maxBulletsCount</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">            </span><span class="c1">-- set the bullet count to max</span>
+<span class="w">            </span><span class="nv">weapon</span><span class="p">:</span><span class="nf">setCurrentAmmoCount</span><span class="p">(</span><span class="nv">maxBulletsCount</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnPlayerUpdate</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnPlayerUpdate</span><span class="p">)</span>
+</pre></div>
+<p>Using caching we end up not having to call multiple times various functions as we do only 6 java calls instead of 13 in the first one, basically halving the function calls.
+</p>
+<h4><span class="mw-headline" id="Caching_within_the_core_file">Caching within the core file</span></h4>
+<p>Very often some of the core objects don't change and you end up using the same object over different function calls. You can store the objects, values etc in the core of the file instead of calling it inside the function everytime. This gives a performance boost and allows you to use the same object in different functions too.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- bad</span>
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnTick</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">zombieList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getCell</span><span class="p">():</span><span class="nf">getZombieList</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">zombieList</span><span class="p">:</span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">"zombies currently loaded"</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="c1">-- better</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">zombieList</span>
+<span class="c1">-- Event fired when the cell loads</span>
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnPostMapLoad</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">cell</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">zombieList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cell</span><span class="p">:</span><span class="nf">getZombieList</span><span class="p">()</span>
+<span class="kr">end</span><span class="p">)</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnTick</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">zombieList</span><span class="p">:</span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">"zombies currently loaded"</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">)</span>
+</pre></div>
+<p>The zombie list will always be the same object in a save, meaning you can store it on a save loading and never have to retrieve it ever again.
+</p>
+<h3><span id="The_less_function_calls.2C_the_better"></span><span class="mw-headline" id="The_less_function_calls,_the_better">The less function calls, the better</span></h3>
+<p>Again here, we base this rule on the first and main rule to not run something if you don't need to but we go in detail on why exactly functions should be used as little as possible.
+</p><p>Doing a function call in Kahlua tends to be a costly operation due to function overhead. This sadly means we have to sacrifice code readability and structuration for bigger functions to greatly improve performances. This is particularly impactful in cases where functions are called a lot, such as when running code for every zombie every ticks to continue on one of the previous examples.
+</p><p>In this way, try to use the <code>math</code> module as little as possible, and use directly the code they run, without the need to call a function.
+</p><p>In continuation on this, Java functions are a costly operation to be called from the Lua and as such should be used as little as possible but of course they are the core of modding and you can't mod without them. As such, if you find alternatives which are Lua sided, it might have a point to compare the performance impact.
+</p>
+<h4><span class="mw-headline" id="math_equivalents"><code>math</code> equivalents</span></h4>
+<p>Here are some of the <code>math</code> lua library code to use instead of the functions.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- math.max</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">maxvalue</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">maxvalue</span>
+
+<span class="c1">-- math.min</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">minvalue</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">minvalue</span>
+
+<span class="c1">-- <a class="code-link" href="https://math.min/max">math.min/max</a> combo</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">minvalue</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="nv">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">maxvalue</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">maxvalue</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">minvalue</span>
+
+<span class="c1">-- math.pow</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nv">exponent</span>
+
+<span class="c1">-- math.sqrt</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mf">0.5</span>
+
+<span class="c1">-- math.floor</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="c1">-- math.abs</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">-</span><span class="nv">value</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">value</span>
+</pre></div>
+<p>You can find many more example of these and it is way better to use these than the actual functions.
+</p>
+<h3><span class="mw-headline" id="Prints_are_the_devil">Prints are the devil</span></h3>
+<p>If you ever get performance problems with a mod, it is actually very easy to bet on the potential problem: prints. These are used by most modders to show in the console values and actions happening in a code and are only useful for development of the mod. But this operation is extremely costly to run and will be the source of many many lags in mods. Too often do you see modders leaving these in thinking they don't matter when they are the source of most performance issues in way too many mods.
+</p><p>Debug mode activated or not, the performance impact is the same. Some modders add a check for debug mode to need to be activated to print in the console but here we remember the first rule: do not run it if you don't need. Adding such checks will introduce useless code running for no reason, even if it stops prints from happening.
+</p><p>Prints are useless for almost everyone, users will not need it nor case about it and those who do rarely ever know what they mean. Prints are personal to the modder and shouldn't be left in uploaded code. Leaving it can also cause problems for other modders who try to develop patches for the mod that has prints as they get their console bloated with informations they do not need, hidding their own prints for their development.
+</p><p>Even if the prints are not done often like every in-game hours, the problem is that if every modders have prints every in-game hours, you get a massive amount of prints being called at the same time, causing lag every in-game hours. This bases itself on the principle of load balancing which is explained in the part below.
+</p>
+<h3><span class="mw-headline" id="Tables">Tables</span></h3>
+<p><a href="https://pzwiki.net/wiki/Lua#Tables" class="mw-redirect" title="Lua">Lua tables</a> can be key tables or array tables, even if technically they are only key tables.
+</p>
+<h4><span class="mw-headline" id="Array_tables">Array tables</span></h4>
+<p>Array tables only accept integer keys (starting from 1) and the right way to create a proper array in <a href="https://pzwiki.net/wiki/Lua_(API)" title="Lua (API)">Lua (API)</a> is with <code>table.newarray()</code> in place of <code>{}</code>.
+</p><p>Proper array tables are still tables and will not break code like checking the type to be table.
+</p><p>Trying to access an invalid or non-existant key will throw an error instead of returning <code>nil</code> and as such some functions which take an array table in entry might break due to the use of proper arrays. If you end up having to change a proper array to a table, you are better off using tables directly.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- bad</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">myArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"entry1"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry2"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry3"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry4"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="c1">-- print second entry</span>
+
+<span class="c1">-- better</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">myArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">table</span><span class="p">.</span><span class="nf">newarray</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">"entry1"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry2"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry3"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry4"</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="c1">-- print second entry</span>
+
+<span class="c1">-- alternative</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">myArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"entry1"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry2"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry3"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"entry4"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nv">myArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">table</span><span class="p">.</span><span class="nf">newarray</span><span class="p">(</span><span class="nv">myArray</span><span class="p">)</span><span class="w"> </span><span class="c1">-- transform fake array into proper array</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="c1">-- print second entry</span>
+</pre></div>
+<div class="mbox" style="background-color: var(--background-message-warn);">
+  <div style="background-color: #ffcc33;"></div>
+  <div><span class="mw-default-size" typeof="mw:File"><a href="https://pzwiki.net/wiki/Template:Note" title="Template:Note"><img src="./Mod optimization - PZwiki_files/LightBulbYellow.png" decoding="async" width="32" height="32" class="mw-file-element"></a></span></div>
+  <div>
+    <div>Proper array tables can't be saved, meaning you can't use them in <a href="https://pzwiki.net/wiki/Mod_data" title="Mod data">mod data</a> or send them in network commands.</div>
+  </div>
+</div>
+<h4><span class="mw-headline" id="pairs_and_ipairs"><code>pairs</code> and <code>ipairs</code></span></h4>
+<p><code>pairs</code> and <code>ipairs</code> are Lua functions which are used to iterate through elements in a table (see <a href="https://pzwiki.net/wiki/Lua#Looping_through_tables" class="mw-redirect" title="Lua">Looping through tables</a>). However these are slow and it is better to use alternatives when available.
+</p>
+<h5><span class="mw-headline" id="Alternatives_to_ipairs">Alternatives to <code>ipairs</code></span></h5>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"Hello"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"World"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"!"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">-- slower:</span>
+<span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- MUCH faster:</span>
+<span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="nv">t</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">t</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+<h5><span class="mw-headline" id="Alternatives_to_pairs">Alternatives to <code>pairs</code></span></h5>
+<p>Sadly the alternative way of iterating through a key table is not very pratical and as such should be used only when performance is critical. The method involves the use a table alongside a proper array.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- bad</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"key1"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"key2"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"World"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"key3"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"!"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="nv">v</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">lookup</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- better</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"key1"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"key2"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"World"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"key3"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"!"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">table</span><span class="p">.</span><span class="nf">newarray</span><span class="p">(</span><span class="s2">"key1"</span><span class="p">,</span><span class="s2">"key2"</span><span class="p">,</span><span class="s2">"key3"</span><span class="p">)</span>
+
+<span class="c1">-- iterating through the entries</span>
+<span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="nv">keys</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">keys</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">lookup</span><span class="p">[</span><span class="nv">k</span><span class="p">]</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+<h3><span class="mw-headline" id="Generating_randomness">Generating randomness</span></h3>
+<dl><dd><i>Main article: <a href="https://pzwiki.net/wiki/Random" title="Random">Random</a></i></dd></dl>
+<p>The usual way to generate a random number is by using <a href="https://pzwiki.net/w/index.php?title=ZombRand&amp;action=edit&amp;redlink=1" class="new" title="ZombRand (page does not exist)">ZombRand</a> but it generates a high quality randomness which is not necessary at all. Thankfully there is an alternative <a href="https://pzwiki.net/wiki/Random" title="Random">Random</a> which is less costly:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- cache newrandom</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">myRandom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">newrandom</span><span class="p">()</span>
+
+<span class="c1">-- generate a random number</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">myRandom</span><span class="p">:</span><span class="nf">random</span><span class="p">(</span><span class="nv">min</span><span class="p">,</span><span class="nv">max</span><span class="p">)</span>
+</pre></div>
+<h3><span class="mw-headline" id="Load_balancing">Load balancing</span></h3>
+<p>A way to increase performances is to reduce how much code you run every ticks. If we continue on the example of running code for every zombies every ticks, if you have 5000 zombies loaded for the client, <code>OnZombieUpdate</code> will run 5000 times you function every ticks (in reality zombies that are not visible are not updated as often as visible ones, but still enough to matter). This can be very costly depending on what type of code you're running, even after following all the previous tips and tricks on optimization. As such you could run N zombies every ticks instead.
+</p><p>Queuing actions and spreading them to be ran on multiple ticks can improve greatly performances. As such you could instead of doing a function call, add the call with its parameters in a list which every N ticks will run the first operation in the list. This can be adapted in many ways, to make sure not too many operations are stacking one after the other for example, or run after different time deltas.
+</p><p>This system can be applied for a code which triggers thunder at a specific time in different places, by spreading them on different ticks and not create a lag spike.
+</p>
+<h4><span class="mw-headline" id="Example">Example</span></h4>
+<p>The code below updates one zombie per tick, making it very efficient with the default of possibly not doing the updates fast enough depending on what you are doing. You can use other methods to iterate through N zombies per ticks.
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">--- Snipet by Albion</span>
+
+<span class="c1">-- cache the zombie list in a local variable when lauching a save</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">zombieList</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnGameStart</span><span class="p">()</span>
+<span class="w">    </span><span class="nv">zombieList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getPlayer</span><span class="p">():</span><span class="nf">getCell</span><span class="p">():</span><span class="nf">getZombieList</span><span class="p">()</span>
+<span class="kr">end</span>
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnGameStart</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnGameStart</span><span class="p">)</span>
+
+<span class="c1">-- cycle 1 zombie/tick.</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">zeroTick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">OnTick</span><span class="p">(</span><span class="nv">tick</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- next zombie</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">zombieIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">tick</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">zeroTick</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">zombieList</span><span class="p">:</span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">zombieIndex</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">zombie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">zombieList</span><span class="p">:</span><span class="nf">get</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">-- run code for this zombie</span>
+<span class="w">    </span><span class="kr">else</span>
+<span class="w">        </span><span class="nv">zeroTick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">tick</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="nv">Events</span><span class="p">.</span><span class="py">OnTick</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nv">OnTick</span><span class="p">)</span>
+</pre></div>
+<h3><span class="mw-headline" id="Benchmarking">Benchmarking</span></h3>
+<p>The best way to determine what is faster to use for your code is simply benchmark it which involves counting how fast the code runs. This can be applied to small code snipets or directly to major parts of your code to see which part takes the longest to run.
+</p><p>To determine the time delta between two operations, you can use the functions <code>GameTime.getServerTime</code> which outputs the time in <b>nanoseconds</b>:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- initialize getTime method</span>
+<span class="nv">GameTime</span><span class="p">.</span><span class="nf">setServerTimeShift</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">-- necessary to be able to use the following function</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">getTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">GameTime</span><span class="p">.</span><span class="py">getServerTime</span><span class="w"> </span><span class="c1">-- cache the function to save some overhead</span>
+
+<span class="c1">-- get the current time</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">currentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getTime</span><span class="p">()</span>
+
+<span class="c1">-- calculate the time delta since the last getTime</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">timeDelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">currentTime</span>
+
+<span class="c1">-- alternative with worse precision to getting the current time</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">currentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">os.time</span><span class="p">()</span>
+</pre></div>
+<h4><span class="mw-headline" id="Example_2">Example</span></h4>
+<p>Here's an example of what benchmarking functions look like to benchmark code snipets or functions:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- initialize getTime method</span>
+<span class="nv">GameTime</span><span class="p">.</span><span class="nf">setServerTimeShift</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">-- necessary to be able to use the following function</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">getTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">GameTime</span><span class="p">.</span><span class="py">getServerTime</span><span class="w"> </span><span class="c1">-- cache the function to save some overhead</span>
+
+<span class="c1">-- initialize variables</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">totalTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c1">---Run the function and calculate the time it took</span>
+<span class="c1">---@param fct function</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span><span class="nv">fct</span><span class="p">,...)</span><span class="w"> </span><span class="c1">-- "..." is used for optional variables, these will be used in your fct</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getTime</span><span class="p">()</span><span class="w"> </span><span class="c1">-- get start time</span>
+<span class="w">    </span><span class="nf">fct</span><span class="p">(...)</span><span class="w"> </span><span class="c1">-- run your function</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">deltaTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">start</span><span class="w"> </span><span class="c1">-- get time delta to run function</span>
+
+<span class="w">    </span><span class="nv">totalTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">totalTime</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">deltaTime</span>
+<span class="w">    </span><span class="nv">calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">calls</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="kr">end</span>
+
+<span class="c1">---Print the benchmarking results in the console</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">printBenchmark</span><span class="p">()</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">calls</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Average time taken: "</span><span class="p">,</span><span class="w"> </span><span class="nv">totalTime</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">calls</span><span class="p">)</span>
+<span class="w">        </span><span class="nf">resetBenchmark</span><span class="p">()</span>
+<span class="w">    </span><span class="kr">else</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">"Need to benchmark at least once"</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">---Reset the benchmark</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">resetBenchmark</span><span class="p">()</span>
+<span class="w">    </span><span class="nv">totalTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="nv">calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="kr">end</span>
+</pre></div>
+<p>An example usage of such functions:
+</p>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">-- creating an example function</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">myFunction</span><span class="p">(</span><span class="nv">v</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">variable</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">v</span>
+<span class="kr">end</span>
+
+<span class="c1">-- run the benchmark 100 times for an average time</span>
+<span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="nf">benchmark</span><span class="p">(</span><span class="nv">myFunction</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nf">printBenchmark</span><span class="p">()</span>
+</pre></div>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="Modeling_and_texturing">Modeling and texturing</span></h2><section class="citizen-section" id="citizen-section-2">
+<p>Due to the nature of game being isometric with a view which will tend to be far from objects, it is advised to take into in your modeling and texturing the fact most of the time the player will not have a camera close enough to the player to see details. And even in the cases where the camera is close to the model, it's usually not enough to see proper details on your textures and models.
+</p>
+<h3><span class="mw-headline" id="Polycount">Polycount</span></h3>
+<p>The best way to optimize your models is to keep the <a rel="nofollow" class="external text" href="http://wiki.polycount.com/wiki/Polygon_Count">polycount</a> as low as possible, especially in the cases where it's not needed. For example, you will not have any use for a detailed earring since it will be way too small to see any kind of detail on it.
+</p><p>A great way to add detail to a model is to utilize the texture. You can use drawing techniques to create the illusion of topography for the player. Take this example from <a rel="nofollow" class="external text" href="https://steamcommunity.com/id/palsj">PALSJ</a> adding detail on the model via texturing instead of making a detailed model:
+</p>
+<figure class="mw-halign-center" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:Optimization_lowPoly.png" class="mw-file-description"><img src="./Mod optimization - PZwiki_files/600px-Optimization_lowPoly.png" decoding="async" width="600" height="397" class="mw-file-element" srcset="/w/images/thumb/a/aa/Optimization_lowPoly.png/900px-Optimization_lowPoly.png 1.5x, /w/images/a/aa/Optimization_lowPoly.png 2x"></a><figcaption></figcaption></figure>
+<h3><span class="mw-headline" id="Texture_size_limit">Texture size limit</span></h3>
+<p>These rules apply to texturing too, because while you could have 4K textures, you really do not have a need for it for every game assets. See the example below from <a rel="nofollow" class="external text" href="https://forum.game-guru.com/thread/222504">a guide to texture optimization</a>, in Project Zomboid the camera will be zoomed so far back most of the times that it will be impossible to notice the texture size and it's probably best to keep it below 256x256.
+</p>
+<figure class="mw-halign-center" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:Optimization_reducing_texture_size.jpg" class="mw-file-description"><img src="./Mod optimization - PZwiki_files/600px-Optimization_reducing_texture_size.jpg" decoding="async" width="600" height="355" class="mw-file-element" srcset="/w/images/thumb/7/78/Optimization_reducing_texture_size.jpg/900px-Optimization_reducing_texture_size.jpg 1.5x, /w/images/thumb/7/78/Optimization_reducing_texture_size.jpg/1200px-Optimization_reducing_texture_size.jpg 2x"></a><figcaption></figcaption></figure>
+<p>The reality is that it's practically impossible to see the detail and there's even cases where too much detail will make your texture look worse. Take the example made by <a rel="nofollow" class="external text" href="https://steamcommunity.com/id/LazySpongie">spongie</a> showcasing how the amount of detail can make a texture confusing to look at due to the amount of detail and how reducing the detail for Project Zomboid can improve the visual clarity of it.
+</p>
+<figure class="mw-halign-center" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:Optimization_hairTexture.png" class="mw-file-description"><img src="./Mod optimization - PZwiki_files/600px-Optimization_hairTexture.png" decoding="async" width="600" height="244" class="mw-file-element" srcset="/w/images/thumb/8/89/Optimization_hairTexture.png/900px-Optimization_hairTexture.png 1.5x, /w/images/thumb/8/89/Optimization_hairTexture.png/1200px-Optimization_hairTexture.png 2x"></a><figcaption></figcaption></figure>
+<p>You can take the <a rel="nofollow" class="external text" href="https://discord.com/channels/136501320340209664/869327724504842330/993893080694530128">official suggestion from The Indie Stone</a> about texture size for Project Zomboid:
+</p>
+<blockquote>
+<p>Small request from Spiffo-on-high for those who make models for PZ mods.
+</p><p>Oversized textures for weapons/clothing/vehicles etc within mods are currently becoming more of an issue with mod users - sometimes causing memory leaks and performance issues when mods stack up.
+</p><p>Please try to avoid using model textures that are larger than the ones used in Vanilla PZ for equivalent items.
+    Generally speaking vehicles are 512x512.
+    Body and clothing textures are 256x256.
+    Weapons are generally 128x128 - but vary due to  the variation in sizes.
+    Hats are 128x128.
+</p><p>Also in the same ballpark: using tricounts higher than vanilla can also have negative effects on performance too.
+</p><p>We will endeavour to help this situation along code-side, but in the meantime if people could try to keep within these limits we would be super-grateful.
+</p>
+</blockquote>
+<h3><span class="mw-headline" id="UV_mapping">UV mapping</span></h3>
+<p>The best way to do UV mapping is to fit as much texture and have as little of free space on the UV map as possible. This will reduce file size and can also help you in texturing on the model. Take this example from <a rel="nofollow" class="external text" href="https://steamcommunity.com/profiles/76561198046849708">Nik</a> on how you should optimize your UV map:
+</p>
+<figure class="mw-halign-center" typeof="mw:File"><a href="https://pzwiki.net/wiki/File:Optimization_UVmapping.png" class="mw-file-description"><img src="./Mod optimization - PZwiki_files/600px-Optimization_UVmapping.png" decoding="async" width="600" height="369" class="mw-file-element" srcset="/w/images/thumb/b/b1/Optimization_UVmapping.png/900px-Optimization_UVmapping.png 1.5x, /w/images/thumb/b/b1/Optimization_UVmapping.png/1200px-Optimization_UVmapping.png 2x"></a><figcaption></figcaption></figure>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="See_also">See also</span></h2><section class="citizen-section" id="citizen-section-3">
+<p>You can refer to these for more detail on performances impacts. Some of the points in these are explained in the guide:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/Optimisation.md">Lua optimization guide</a> by Albion</li></ul>
+</section><h2 class="citizen-section-heading"><span class="citizen-section-indicator citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span><span class="mw-headline" id="Navigation">Navigation</span></h2><section class="citizen-section" id="citizen-section-4">
+<div class="navbox theme-blue" style="clear: both;">
+  <div class="mw-customtoggle-navbox-modding mw-customtoggle" title="Show / Hide" aria-expanded="true" tabindex="0"><a href="https://pzwiki.net/wiki/Category:Modding" title="Category:Modding">Modding</a></div>
+  <div class="mw-collapsible mw-collapsed mw-made-collapsible" id="mw-customcollapsible-navbox-modding" style="display: none;">
+    <div class="navbox-section">
+      <div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding#Communities" title="Modding">Modding</a> community
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Discord" title="Discord">The Indie Stone Discord</a> • <a href="https://pzwiki.net/wiki/Modding_projects" title="Modding projects">Modding projects</a> • <a href="https://pzwiki.net/wiki/Unofficial_Mapping_Discord" class="mw-redirect" title="Unofficial Mapping Discord">Unofficial PZ Mapping Discord</a> • <a href="https://pzwiki.net/wiki/Unofficial_Modding_Discord" class="mw-redirect" title="Unofficial Modding Discord">PZ Modding Community</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding#Modding_guides" title="Modding">Modding</a> guides
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Common_modding_issues" title="Common modding issues">Common modding issues</a> • <a href="https://pzwiki.net/wiki/Creating_a_clothing_mod" title="Creating a clothing mod">Creating a clothing mod</a> • <a href="https://pzwiki.net/wiki/Creating_a_flier_mod" title="Creating a flier mod">Creating a flier mod</a> • <a href="https://pzwiki.net/wiki/Creating_a_hair_mod" title="Creating a hair mod">Creating a hair mod</a> • <a href="https://pzwiki.net/wiki/Creating_a_trait_mod" title="Creating a trait mod">Creating a trait mod</a> • <a href="https://pzwiki.net/wiki/Creating_custom_animations" title="Creating custom animations">Creating custom animations</a> • <a href="https://pzwiki.net/wiki/Creating_custom_voices" title="Creating custom voices">Creating custom voices</a> • <a href="https://pzwiki.net/wiki/Creating_dynamic_radio_channels" title="Creating dynamic radio channels">Creating dynamic radio channels</a> • <a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">Decompiling game code</a> • <a href="https://pzwiki.net/wiki/File_formats" title="File formats">File formats</a> • <a href="https://pzwiki.net/wiki/Game_files" title="Game files">Game files</a> • <a href="https://pzwiki.net/wiki/Getting_started_with_modding" title="Getting started with modding">Getting started with modding</a> • <a href="https://pzwiki.net/wiki/Java" title="Java">Java</a> • <a href="https://pzwiki.net/wiki/Lua_(language)" title="Lua (language)">Lua</a> • <a class="mw-selflink selflink">Mod optimization</a> • <a href="https://pzwiki.net/wiki/Mod_structure" title="Mod structure">Mod structure</a> • <a href="https://pzwiki.net/wiki/Modeling" title="Modeling">Modeling</a> • <a href="https://pzwiki.net/wiki/Mods" title="Mods">Mods</a> • <a href="https://pzwiki.net/wiki/Rendering" title="Rendering">Rendering</a> • <a href="https://pzwiki.net/wiki/Resolving_problems_with_mods" title="Resolving problems with mods">Resolving problems with mods</a> • <a href="https://pzwiki.net/wiki/Testing_mods_in_multiplayer" title="Testing mods in multiplayer">Testing mods in multiplayer</a> • <a href="https://pzwiki.net/wiki/Uploading_mods" title="Uploading mods">Uploading mods</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding" title="Modding">Modding</a> resources
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/App_ID" title="App ID">App ID</a> • <a href="https://pzwiki.net/wiki/Animation" title="Animation">Animation</a> • <a href="https://pzwiki.net/wiki/BBCode" title="BBCode">BBCode</a> • <a href="https://pzwiki.net/wiki/Food_types" title="Food types">Food types</a> • <a href="https://pzwiki.net/wiki/Item_tag" title="Item tag">Item tag</a> • <a href="https://pzwiki.net/wiki/Mod.info" title="Mod.info">mod.info</a> • <a href="https://pzwiki.net/wiki/Networking" title="Networking">Networking</a> • <a href="https://pzwiki.net/wiki/Startup_parameters" title="Startup parameters">Startup parameters</a> • <a href="https://pzwiki.net/wiki/Translations" title="Translations">Translations</a> • <a href="https://pzwiki.net/wiki/Workshop.txt" title="Workshop.txt">workshop.txt</a> • <a href="https://pzwiki.net/wiki/Workshop_ID" title="Workshop ID">Workshop ID</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Scripts" title="Scripts">Scripts</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/CraftRecipe" title="CraftRecipe">craftRecipe</a> • <a href="https://pzwiki.net/wiki/Evolvedrecipe_(scripts)" title="Evolvedrecipe (scripts)">Evolvedrecipe</a> • <a href="https://pzwiki.net/wiki/Fixing_(scripts)" title="Fixing (scripts)">Fixing</a> • <a href="https://pzwiki.net/wiki/Fluid_(scripts)" title="Fluid (scripts)">Fluid</a> • <a href="https://pzwiki.net/wiki/Item_(scripts)" title="Item (scripts)">Item</a> • <a href="https://pzwiki.net/wiki/Model_(scripts)" title="Model (scripts)">Model</a> • <a href="https://pzwiki.net/wiki/Multistagebuild_(scripts)" title="Multistagebuild (scripts)">Multistagebuild</a> • <a href="https://pzwiki.net/wiki/Recipe_(scripts)" title="Recipe (scripts)">Recipe</a> • <a href="https://pzwiki.net/wiki/Sandbox_options" title="Sandbox options">Sandbox options</a> • <a href="https://pzwiki.net/wiki/Sound_(scripts)" title="Sound (scripts)">Sound</a> • <a href="https://pzwiki.net/wiki/TimedAction_(scripts)" title="TimedAction (scripts)">TimedAction</a> • <a href="https://pzwiki.net/wiki/Vehicle_(scripts)" title="Vehicle (scripts)">Vehicle</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Lua_(API)" title="Lua (API)">Lua (API)</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Decompiling_game_code" title="Decompiling game code">Decompiling game code</a> • <a href="https://pzwiki.net/wiki/Game_time" title="Game time">Game time</a> • <a href="https://pzwiki.net/wiki/Java_object" title="Java object">Java object</a> • <a href="https://pzwiki.net/wiki/JavaDocs" title="JavaDocs">JavaDocs</a> • <a href="https://pzwiki.net/wiki/Keyboard" title="Keyboard">Keyboard</a> • <a href="https://pzwiki.net/wiki/LuaDocs" title="LuaDocs">LuaDocs</a> • <a href="https://pzwiki.net/wiki/Lua_event" title="Lua event">Lua event</a> • <a href="https://pzwiki.net/wiki/Lua_object" title="Lua object">Lua object</a> • <a href="https://pzwiki.net/wiki/Mod_data" title="Mod data">Mod data</a> • <a href="https://pzwiki.net/wiki/PersistentOutfitID" title="PersistentOutfitID">PersistentOutfitID</a> • <a href="https://pzwiki.net/wiki/Procedural_distributions" title="Procedural distributions">Procedural distributions</a> • <a href="https://pzwiki.net/wiki/Remote_debugging" title="Remote debugging">Remote debugging</a> • <a href="https://pzwiki.net/wiki/Umbrella_(modding)" title="Umbrella (modding)">Umbrella</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Mapping" title="Mapping">Mapping</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Adding_new_tiles" title="Adding new tiles">Adding new tiles</a> • <a href="https://pzwiki.net/wiki/BuildingEd" title="BuildingEd">BuildingEd</a> • <a href="https://pzwiki.net/wiki/Map.info" title="Map.info">map.info</a> • <a href="https://pzwiki.net/wiki/Room_definitions_and_item_spawns" title="Room definitions and item spawns">Room definitions and item spawns</a> • <a href="https://pzwiki.net/wiki/Tile_properties" title="Tile properties">Tile properties</a> • <a href="https://pzwiki.net/wiki/Tiledefs_used_by_mods" title="Tiledefs used by mods">Tiledefs used by mods</a> • <a href="https://pzwiki.net/wiki/TileZed" title="TileZed">TileZed</a> • <a href="https://pzwiki.net/wiki/Vehicle_zones" title="Vehicle zones">Vehicle zones</a> • <a href="https://pzwiki.net/wiki/WorldEd" title="WorldEd">WorldEd</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Animation" title="Animation">Animation</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/AnimNodes" class="mw-redirect" title="AnimNodes">AnimNode</a> • <a href="https://pzwiki.net/wiki/Dislaik_rig" title="Dislaik rig">Dislaik rig</a> • <a href="https://pzwiki.net/wiki/Mystery_rig" title="Mystery rig">Mystery rig</a> • <a href="https://pzwiki.net/wiki/Paddlefruit_rig" title="Paddlefruit rig">Paddlefruit rig</a> • <a href="https://pzwiki.net/wiki/Throttlekitty_rig" title="Throttlekitty rig">Throttlekitty rig</a> • <a href="https://pzwiki.net/wiki/PerformingAction" title="PerformingAction">PerformingAction</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding" title="Modding">Modding</a> tools
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Animation_Viewer" title="Animation Viewer">Animation Viewer</a> • <a href="https://pzwiki.net/wiki/Attachment_Editor" title="Attachment Editor">Attachment Editor</a> • <a href="https://pzwiki.net/wiki/BuildingEd" title="BuildingEd">BuildingEd</a> • <a href="https://pzwiki.net/wiki/CartoZed" title="CartoZed">CartoZed</a> • <a href="https://pzwiki.net/wiki/Imgui" title="Imgui">Imgui</a> • <a href="https://pzwiki.net/wiki/IntelliJ_IDEA" title="IntelliJ IDEA">IntelliJ IDEA</a> • <a href="https://pzwiki.net/wiki/ItemZed" title="ItemZed">ItemZed</a><sup style="font-weight: bold; color: red">Outdated</sup> • <a href="https://pzwiki.net/wiki/LootZed" title="LootZed">LootZed</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Modding_Tools" title="Project Zomboid Modding Tools">Project Zomboid Modding Tools</a> • <a href="https://pzwiki.net/wiki/Remote_debugging" title="Remote debugging">Remote debugging</a> • <a href="https://pzwiki.net/wiki/TileZed" title="TileZed">TileZed</a> • <a href="https://pzwiki.net/wiki/TranslationZed" title="TranslationZed">TranslationZed</a><sup style="font-weight: bold; color: red">Outdated</sup> • <a href="https://pzwiki.net/wiki/Visual_Studio_Code" title="Visual Studio Code">Visual Studio Code</a> • <a href="https://pzwiki.net/wiki/WordZed" title="WordZed">WordZed</a>
+</p>
+  </div>
+</div><div class="navbox-item">
+  <div>
+<p><a href="https://pzwiki.net/wiki/Modding_projects" title="Modding projects">Modding projects</a>
+</p>
+  </div>
+  <div>
+<p><a href="https://pzwiki.net/wiki/Azakaela%27s_Modding_Tools" title="Azakaela&#39;s Modding Tools">Azakaela's Modding Tools</a> • <a href="https://pzwiki.net/wiki/B42_Map" title="B42 Map">B42 Map</a> • <a href="https://pzwiki.net/wiki/Background_Framework" title="Background Framework">Background Framework</a> • <a href="https://pzwiki.net/wiki/Beautiful_Java" title="Beautiful Java">Beautiful Java</a> • <a href="https://pzwiki.net/wiki/BeeArr_tools" title="BeeArr tools">BeeArr tools</a> • <a href="https://pzwiki.net/wiki/Community_Modding_Projects" title="Community Modding Projects">Community Modding Projects</a> • <a href="https://pzwiki.net/wiki/DebugMenu" title="DebugMenu">DebugMenu</a> • <a href="https://pzwiki.net/wiki/Dislaik_rig" title="Dislaik rig">Dislaik rig</a> • <a href="https://pzwiki.net/wiki/Doggy%27s_Library" title="Doggy&#39;s Library">Doggy's Library</a> • <a href="https://pzwiki.net/wiki/DOME" title="DOME">DOME</a> • <a href="https://pzwiki.net/wiki/Easy_Distributions_API" title="Easy Distributions API">Easy Distributions API</a> • <a href="https://pzwiki.net/wiki/Elyon_Lib" title="Elyon Lib">Elyon Lib</a> • <a href="https://pzwiki.net/wiki/Events_Plus_API" title="Events Plus API">Events Plus API</a> • <a href="https://pzwiki.net/wiki/FrameworkZ" title="FrameworkZ">FrameworkZ</a> • <a href="https://pzwiki.net/wiki/JB_ASSUtils" title="JB ASSUtils">JB ASSUtils</a> • <a href="https://pzwiki.net/wiki/JB_Max_Capacity_Override" title="JB Max Capacity Override">JB Max Capacity Override</a> • <a href="https://pzwiki.net/wiki/KATTAJ1_Clothes_Core" title="KATTAJ1 Clothes Core">KATTAJ1 Clothes Core</a> • <a href="https://pzwiki.net/wiki/Leaf" title="Leaf">Leaf</a> • <a href="https://pzwiki.net/wiki/Location_Identifier_Framework" title="Location Identifier Framework">Location Identifier Framework</a> • <a href="https://pzwiki.net/wiki/LuaDocs" title="LuaDocs">LuaDocs</a> • <a href="https://pzwiki.net/wiki/Magazine_API" title="Magazine API">Magazine API</a> • <a href="https://pzwiki.net/wiki/Map_Mover" title="Map Mover">Map Mover</a> • <a href="https://pzwiki.net/wiki/Mod_Update_and_Alert_System" title="Mod Update and Alert System">Mod Update and Alert System</a> • <a href="https://pzwiki.net/wiki/Modix" title="Modix">Modix</a> • <a href="https://pzwiki.net/wiki/Moodle_Framework" title="Moodle Framework">Moodle Framework</a> • <a href="https://pzwiki.net/wiki/Moodles_in_lua" title="Moodles in lua">Moodles in lua</a> • <a href="https://pzwiki.net/wiki/Mystery_rig" title="Mystery rig">Mystery rig</a> • <a href="https://pzwiki.net/wiki/Paddlefruit_rig" title="Paddlefruit rig">Paddlefruit rig</a> • <a href="https://pzwiki.net/wiki/Pq_tools" title="Pq tools">pq tools</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Community_Modding_template" title="Project Zomboid Community Modding template">Project Zomboid Community Modding template</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Loot_Analyzer" title="Project Zomboid Loot Analyzer">Project Zomboid Loot Analyzer</a> • <a href="https://pzwiki.net/wiki/Project_Zomboid_Script_Support" title="Project Zomboid Script Support">Project Zomboid Script Support</a> • <a href="https://pzwiki.net/wiki/Pythoid" title="Pythoid">Pythoid</a> • <a href="https://pzwiki.net/wiki/PZ_AI_agent" title="PZ AI agent">PZ AI agent</a> • <a href="https://pzwiki.net/wiki/PZEventDoc" title="PZEventDoc">PZEventDoc</a> • <a href="https://pzwiki.net/wiki/PZEventStubs" title="PZEventStubs">PZEventStubs</a> • <a href="https://pzwiki.net/wiki/Pzmap2dzi" title="Pzmap2dzi">pzmap2dzi</a> • <a href="https://pzwiki.net/wiki/PZTools" title="PZTools">PZTools</a> • <a href="https://pzwiki.net/wiki/Real_Life_Map" title="Real Life Map">Real Life Map</a> • <a href="https://pzwiki.net/wiki/Starlit_Library" title="Starlit Library">Starlit Library</a> • <a href="https://pzwiki.net/wiki/Steam_Uploader" title="Steam Uploader">Steam Uploader</a> • <a href="https://pzwiki.net/wiki/TchernoLib" title="TchernoLib">TchernoLib</a> • <a href="https://pzwiki.net/wiki/Throttlekitty_rig" title="Throttlekitty rig">Throttlekitty rig</a> • <a href="https://pzwiki.net/wiki/Umbrella_(modding)" title="Umbrella (modding)">Umbrella</a> • <a href="https://pzwiki.net/wiki/Unofficial_JavaDocs_(Build_41)" title="Unofficial JavaDocs (Build 41)">Unofficial JavaDocs (Build 41)</a> • <a href="https://pzwiki.net/wiki/Unofficial_JavaDocs_(Build_42)" title="Unofficial JavaDocs (Build 42)">Unofficial JavaDocs (Build 42)</a> • <a href="https://pzwiki.net/wiki/Unofficial_Mapping_Tools" title="Unofficial Mapping Tools">Unofficial Mapping Tools</a> • <a href="https://pzwiki.net/wiki/Vanilla_Map_Export" title="Vanilla Map Export">Vanilla Map Export</a> • <a href="https://pzwiki.net/wiki/Wiki_That!" title="Wiki That!">Wiki That!</a> • <a href="https://pzwiki.net/wiki/Wiki_Tools" title="Wiki Tools">Wiki Tools</a> • <a href="https://pzwiki.net/wiki/Zed_Script" title="Zed Script">Zed Script</a> • <a href="https://pzwiki.net/wiki/Zombie_Layer_Replacer" title="Zombie Layer Replacer">Zombie Layer Replacer</a> • <a href="https://pzwiki.net/wiki/Zomboid_Decompiler" title="Zomboid Decompiler">Zomboid Decompiler</a> • <a href="https://pzwiki.net/wiki/ZomboidAssetConverter" title="ZomboidAssetConverter">ZomboidAssetConverter</a> • <a href="https://pzwiki.net/wiki/Zomdroid" title="Zomdroid">Zomdroid</a> • <a href="https://pzwiki.net/wiki/ZBundler" title="ZBundler">ZBundler</a>
+</p>
+  </div>
+</div></div>
+    </div>
+  </div>
+  <div class="toggle mw-customtoggle-navbox-modding mw-customtoggle" title="Show / Hide" aria-expanded="true" tabindex="0"></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20260205141303
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.159 seconds
+Real time usage: 0.212 seconds
+Preprocessor visited node count: 5378/1000000
+Post‐expand include size: 47068/2097152 bytes
+Template argument size: 32799/2097152 bytes
+Highest expansion depth: 19/100
+Expensive parser function count: 23/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 46083/5000000 bytes
+Lua time usage: 0.030/7 seconds
+Lua virtual size: 5111808/52428800 bytes
+Lua estimated memory usage: 0 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  119.704      1 -total
+ 47.60%   56.978     35 Template:Ll
+ 42.08%   50.368    101 Template:Yesno
+ 36.87%   44.130      1 Template:Navbar_modding
+ 36.27%   43.411      1 Template:Navbar/sandbox
+ 19.39%   23.211     23 Template:CodeSnip
+ 16.29%   19.505      1 Template:LangSwitch
+ 14.27%   17.079     18 Template:LangSwitch/core
+ 10.70%   12.811      1 Template:Navbox_modding
+ 10.58%   12.664      1 Template:Page_version
+-->
+
+<!-- Saved in parser cache with key pzwiki2:pcache:idhash:131103-0!canonical and timestamp 20260205141303 and revision id 1310397. Rendering was triggered because: page-view
+ -->
+</section></div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;oldid=1310397">https://pzwiki.net/w/index.php?title=Mod_optimization&amp;oldid=1310397</a>"</div></div>
+			</div>
+			
+<div class="citizen-page-sidebar">
+		<nav id="citizen-sidebar-lastmod" class="citizen-menu ">
+	<div class="citizen-menu__heading">
+		Last modified
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			<li id="lm-time" class="mw-list-item"><a data-mw="interface" id="citizen-lastmod-relative" href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;diff=" title="This page was last edited on 5 January 2026, at 23:15." data-timestamp="1767654957"><span class="citizen-ui-icon mw-ui-icon-history mw-ui-icon-wikimedia-history"></span><span>1 month ago</span></a></li>
+			
+		</ul>
+		
+	</div></nav>
+
+	<div id="citizen-toc" class="citizen-toc citizen-dropdown">
+		<details class="citizen-dropdown-details">
+			<summary class="citizen-dropdown-summary" title="Contents" aria-details="mw-panel-toc">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-listBullet"></span>
+				<span>Contents</span>
+			</summary>
+		</details>
+		<nav id="mw-panel-toc" class="citizen-toc-card citizen-menu__card" role="navigation" aria-labelledby="mw-panel-toc-label">
+			<div class="citizen-menu__card-backdrop"></div>
+			<div class="citizen-menu__card-content">
+				<a class="citizen-toc-top citizen-toc-link" title="" href="https://pzwiki.net/wiki/Mod_optimization#top" role="button">
+					<div class="citizen-ui-icon mw-ui-icon-first mw-ui-icon-wikimedia-first"></div>
+					<div class="citizen-toc-text">Back to top</div>
+				</a>
+				<div class="citizen-menu__heading">Contents</div>
+				<ul class="citizen-toc-contents" id="mw-panel-toc-list">
+				<li id="toc-Lua_(API)" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Lua_(API)" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">1</span>
+					<span class="citizen-toc-heading">Lua (API)</span>
+				</div>
+				
+			</div>
+		</a>
+		
+			<button aria-controls="toc-Lua_(API)-sublist" class="citizen-toc-toggle" aria-expanded="false">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span>
+				<span></span>
+			</button>
+		
+		<ul id="toc-Lua_(API)-sublist" class="citizen-toc-list">
+			<li id="toc-Don&#39;t_need_it?_Don&#39;t_run_it" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Don&#39;t_need_it?_Don&#39;t_run_it" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.1</span>
+						<span class="citizen-toc-heading">Don't need it? Don't run it</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Don&#39;t_need_it?_Don&#39;t_run_it-sublist" class="citizen-toc-list">
+				<li id="toc-Examples" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Examples" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.1.1</span>
+						<span class="citizen-toc-heading">Examples</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Examples-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Local,_not_global" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Local,_not_global" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.2</span>
+						<span class="citizen-toc-heading">Local, not global</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Local,_not_global-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Caching" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Caching" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.3</span>
+						<span class="citizen-toc-heading">Caching</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Caching-sublist" class="citizen-toc-list">
+				<li id="toc-Simple_caching_within_a_function" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Simple_caching_within_a_function" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.3.1</span>
+						<span class="citizen-toc-heading">Simple caching within a function</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Simple_caching_within_a_function-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Caching_within_the_core_file" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Caching_within_the_core_file" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.3.2</span>
+						<span class="citizen-toc-heading">Caching within the core file</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Caching_within_the_core_file-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-The_less_function_calls,_the_better" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#The_less_function_calls,_the_better" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.4</span>
+						<span class="citizen-toc-heading">The less function calls, the better</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-The_less_function_calls,_the_better-sublist" class="citizen-toc-list">
+				<li id="toc-math_equivalents" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#math_equivalents" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.4.1</span>
+						<span class="citizen-toc-heading">math equivalents</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-math_equivalents-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Prints_are_the_devil" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Prints_are_the_devil" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.5</span>
+						<span class="citizen-toc-heading">Prints are the devil</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Prints_are_the_devil-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Tables" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Tables" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.6</span>
+						<span class="citizen-toc-heading">Tables</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Tables-sublist" class="citizen-toc-list">
+				<li id="toc-Array_tables" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Array_tables" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.6.1</span>
+						<span class="citizen-toc-heading">Array tables</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Array_tables-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-pairs_and_ipairs" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#pairs_and_ipairs" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.6.2</span>
+						<span class="citizen-toc-heading">pairs and ipairs</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-pairs_and_ipairs-sublist" class="citizen-toc-list">
+				<li id="toc-Alternatives_to_ipairs" class="citizen-toc-list-item citizen-toc-level-4">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Alternatives_to_ipairs" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.6.2.1</span>
+						<span class="citizen-toc-heading">Alternatives to ipairs</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Alternatives_to_ipairs-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Alternatives_to_pairs" class="citizen-toc-list-item citizen-toc-level-4">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Alternatives_to_pairs" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.6.2.2</span>
+						<span class="citizen-toc-heading">Alternatives to pairs</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Alternatives_to_pairs-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Generating_randomness" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Generating_randomness" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.7</span>
+						<span class="citizen-toc-heading">Generating randomness</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Generating_randomness-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Load_balancing" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Load_balancing" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.8</span>
+						<span class="citizen-toc-heading">Load balancing</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Load_balancing-sublist" class="citizen-toc-list">
+				<li id="toc-Example" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Example" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.8.1</span>
+						<span class="citizen-toc-heading">Example</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Example-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Benchmarking" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Benchmarking" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.9</span>
+						<span class="citizen-toc-heading">Benchmarking</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Benchmarking-sublist" class="citizen-toc-list">
+				<li id="toc-Example_2" class="citizen-toc-list-item citizen-toc-level-3">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Example_2" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">1.9.1</span>
+						<span class="citizen-toc-heading">Example</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Example_2-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-Modeling_and_texturing" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Modeling_and_texturing" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">2</span>
+					<span class="citizen-toc-heading">Modeling and texturing</span>
+				</div>
+				
+			</div>
+		</a>
+		
+			<button aria-controls="toc-Modeling_and_texturing-sublist" class="citizen-toc-toggle" aria-expanded="false">
+				<span class="citizen-ui-icon mw-ui-icon-wikimedia-collapse"></span>
+				<span></span>
+			</button>
+		
+		<ul id="toc-Modeling_and_texturing-sublist" class="citizen-toc-list">
+			<li id="toc-Polycount" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Polycount" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">2.1</span>
+						<span class="citizen-toc-heading">Polycount</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Polycount-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Texture_size_limit" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Texture_size_limit" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">2.2</span>
+						<span class="citizen-toc-heading">Texture size limit</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-Texture_size_limit-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+		<li id="toc-UV_mapping" class="citizen-toc-list-item citizen-toc-level-2">
+			<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#UV_mapping" role="button">
+				<div class="citizen-toc-indicator"></div>
+				<div class="citizen-toc-content">
+					<div class="citizen-toc-text">
+						<span class="citizen-toc-numb">2.3</span>
+						<span class="citizen-toc-heading">UV mapping</span>
+					</div>
+					
+				</div>
+			</a>
+			
+			<ul id="toc-UV_mapping-sublist" class="citizen-toc-list">
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-See_also" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#See_also" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">3</span>
+					<span class="citizen-toc-heading">See also</span>
+				</div>
+				
+			</div>
+		</a>
+		
+		<ul id="toc-See_also-sublist" class="citizen-toc-list">
+		</ul>
+	</li>
+	<li id="toc-Navigation" class="citizen-toc-list-item citizen-toc-level-1">
+		<a class="citizen-toc-link" href="https://pzwiki.net/wiki/Mod_optimization#Navigation" role="button">
+			<div class="citizen-toc-indicator"></div>
+			<div class="citizen-toc-content">
+				<div class="citizen-toc-text">
+					<span class="citizen-toc-numb">4</span>
+					<span class="citizen-toc-heading">Navigation</span>
+				</div>
+				
+			</div>
+		</a>
+		
+		<ul id="toc-Navigation-sublist" class="citizen-toc-list">
+		</ul>
+	</li>
+</ul>		</div>
+		</nav>
+	</div>
+	</div>
+			<footer class="citizen-page-footer">
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://pzwiki.net/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://pzwiki.net/wiki/Category:Modding_guides" title="Category:Modding guides">Modding guides</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://pzwiki.net/wiki/Category:En" title="Category:En">English</a></li><li><a href="https://pzwiki.net/wiki/Category:Version_42.10.0" title="Category:Version 42.10.0">Version 42.10.0</a></li><li><a href="https://pzwiki.net/wiki/Category:Version_42.0.1" title="Category:Version 42.0.1">Version 42.0.1</a></li><li><a href="https://pzwiki.net/wiki/Category:Version_42.0.2" title="Category:Version 42.0.2">Version 42.0.2</a></li></ul></div></div>
+					<div class="page-info">
+		    <section id="footer-info-lastmod" class="page-info__item">
+		        <div class="page-info__label">Last modified</div>
+		        <div class="page-info__text"> This page was last edited on 5 January 2026, at 23:15.</div>
+		    </section>
+		</div>
+</footer>		</div>
+	</main>
+	
+	 
+
+<footer class="mw-footer citizen-footer">
+	<div class="citizen-footer__container">
+		<section class="citizen-footer__content">
+			<div class="citizen-footer__siteinfo">
+				<div id="footer-sitetitle" class="citizen-footer__sitetitle mw-wiki-title">
+					<img class="mw-logo-icon" src="./Mod optimization - PZwiki_files/pzwlogo.png" alt="" aria-hidden="true" loading="lazy" height="48" width="48">
+					<div class="mw-logo-wordmark">PZwiki</div>
+									</div>
+				<p id="footer-desc" class="citizen-footer__desc">PZwiki is the official wiki dedicated to sharing information about <a href="https://pzwiki.net/wiki/Project_Zomboid" title="Project Zomboid">Project Zomboid</a>. It covers all content relating to its gameplay, lore, and development. This is an official site of <a href="https://pzwiki.net/wiki/The_Indie_Stone" title="The Indie Stone">The Indie Stone</a>, and is maintained by volunteers.<br>Want to contribute? Start on the <a href="https://pzwiki.net/wiki/PZwiki:Community_portal" title="PZwiki:Community portal">community portal</a>. For copyright information, please see <a href="https://pzwiki.net/wiki/PZwiki:Copyrights" title="PZwiki:Copyrights">copyrights</a>.</p>
+			</div>
+			<nav id="footer-places">
+	<ul>
+		<li id="footer-places-about"><a href="https://pzwiki.net/wiki/PZwiki:About">About PZwiki</a></li>
+		<li id="footer-places-disclaimers"><a href="https://pzwiki.net/wiki/PZwiki:General_disclaimer">Disclaimers</a></li>
+		<li id="footer-places-tsandcs"><a href="https://projectzomboid.com/blog/support/terms-conditions/">Terms &amp; Conditions</a></li>
+		<li id="footer-places-privacypol"><a href="https://projectzomboid.com/blog/support/privacy-policy/">Privacy Policy</a></li>
+	</ul>
+</nav>
+		</section>
+		<section class="citizen-footer__bottom">
+			<div id="footer-tagline"><div style="display: flex; gap: 0.5em;"><span class="mw-default-size" typeof="mw:File"><a href="https://discord.gg/theindiestone" title="Project Zomboid on Discord" rel="nofollow"><img alt="Project Zomboid on Discord" src="./Mod optimization - PZwiki_files/Logo_Discord_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.reddit.com/r/projectzomboid" title="Project Zomboid on Reddit" rel="nofollow"><img alt="Project Zomboid on Reddit" src="./Mod optimization - PZwiki_files/Logo_Reddit_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.facebook.com/pages/Project-Zomboid/165374740182300" title="Project Zomboid on Facebook" rel="nofollow"><img alt="Project Zomboid on Facebook" src="./Mod optimization - PZwiki_files/Logo_Facebook_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://x.com/theindiestone" title="Project Zomboid on X" rel="nofollow"><img alt="Project Zomboid on X" src="./Mod optimization - PZwiki_files/Logo_X_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.youtube.com/user/theindiestone" title="Project Zomboid on YouTube" rel="nofollow"><img alt="Project Zomboid on YouTube" src="./Mod optimization - PZwiki_files/Logo_YouTube_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span><span class="mw-default-size" typeof="mw:File"><a href="https://www.twitch.tv/directory/game/Project%20Zomboid" title="Project Zomboid on Twitch" rel="nofollow"><img alt="Project Zomboid on Twitch" src="./Mod optimization - PZwiki_files/Logo_Twitch_25px.png" decoding="async" width="25" height="25" class="mw-file-element"></a></span></div></div>
+			<nav id="footer-icons" class="noprint">
+	<ul>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="./Mod optimization - PZwiki_files/poweredby_mediawiki.svg" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a></li>
+	</ul>
+</nav>
+		</section>
+	</div>
+</footer>
+</div>
+<div class="citizen-sticky-header-container">
+	<div id="citizen-sticky-header" class="citizen-sticky-header">
+		<div class="citizen-sticky-header-backdrop"></div>
+		<div class="citizen-sticky-header-inner">
+			<div class="citizen-sticky-header-start">
+				<a href="https://pzwiki.net/wiki/Mod_optimization#top" title="Back to top" class="citizen-sticky-header-backtotop cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--size-large cdx-button--weight-quiet" tabindex="-1" aria-hidden="true">
+					<div class="citizen-ui-icon mw-ui-icon-first mw-ui-icon-wikimedia-first"></div>
+					<div class="citizen-sticky-header-page-info">
+						<div class="citizen-sticky-header-page-title"><span class="mw-page-title-main">Mod optimization</span></div>
+						<div class="citizen-sticky-header-page-tagline">From PZwiki</div>
+					</div>
+				</a>
+			</div>
+			<div class="citizen-sticky-header-end" aria-hidden="true">
+					<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="citizen-share-sticky-header" tabindex="-1" data-mw-citizen-click-target="#citizen-share" title="Share this page"><span class="citizen-ui-icon mw-ui-icon-wikimedia-share mw-ui-icon-wikimedia-wikimedia-share"></span><span>Share this page</span>
+					</button>					<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="ca-history-sticky-header" tabindex="-1" data-mw-citizen-click-target="#ca-history &gt; a" title="Past revisions of this page [alt-shift-h]"><span class="citizen-ui-icon mw-ui-icon-wikimedia-history mw-ui-icon-wikimedia-wikimedia-history"></span><span>View history</span>
+					</button>															<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="ca-viewsource-sticky-header" tabindex="-1" data-mw-citizen-click-target="#ca-viewsource &gt; a" title="This page is protected.
+You can view its source [alt-shift-e]"><span class="citizen-ui-icon mw-ui-icon-wikimedia-editLock mw-ui-icon-wikimedia-wikimedia-editLock"></span><span>View source</span>
+					</button>										<button class="cdx-button cdx-button--weight-quiet cdx-button--action-default cdx-button--size-large cdx-button--icon-only citizen-sticky-header-fake-button" id="ca-talk-sticky-header" tabindex="-1" data-mw-citizen-click-target="#ca-talk &gt; a" title="Discussion about the content page (page does not exist) [alt-shift-t]"><span class="citizen-ui-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles"></span><span>Discussion</span>
+					</button>									<div id="citizen-sticky-header-languages" class="citizen-sticky-header-dropdown-container"></div>
+				<div id="citizen-sticky-header-more" class="citizen-sticky-header-dropdown-container"><div id="citizen-page-more-dropdown" class="page-actions-more page-actions__item citizen-dropdown">
+	<details class="citizen-dropdown-details">
+		<summary class="citizen-dropdown-summary cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--size-large cdx-button--icon-only" title="More actions" aria-details="page-actions-more__card" tabindex="-1">
+			<span class="citizen-ui-icon mw-ui-icon-wikimedia-ellipsis"></span>
+			<span>More actions</span>
+		</summary>
+	</details>
+	<aside class="citizen-menu__card">
+		<div class="citizen-menu__card-backdrop"></div>
+		<div class="citizen-menu__card-content">
+					<nav class="citizen-menu mw-portlet mw-portlet-cactions emptyPortlet" title="More options">
+	<div class="citizen-menu__heading">
+		More
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			
+		</ul>
+		
+	</div></nav>
+
+			<nav class="citizen-menu mw-portlet mw-portlet-tb">
+	<div class="citizen-menu__heading">
+		Tools
+	</div>
+	<div class="citizen-menu__content">
+		
+		<ul class="citizen-menu__content-list">
+			
+			<li class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:WhatLinksHere/Mod_optimization" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j"><span class="citizen-ui-icon mw-ui-icon-articleRedirect mw-ui-icon-wikimedia-articleRedirect"></span> <span>What links here</span><kbd class="citizen-keyboard-hint-key">alt ⇧ j</kbd></a></li><li class="mw-list-item"><a href="https://pzwiki.net/wiki/Special:RecentChangesLinked/Mod_optimization" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k"><span class="citizen-ui-icon mw-ui-icon-recentChanges mw-ui-icon-wikimedia-recentChanges"></span> <span>Related changes</span><kbd class="citizen-keyboard-hint-key">alt ⇧ k</kbd></a></li><li class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p"><span class="citizen-ui-icon mw-ui-icon-printer mw-ui-icon-wikimedia-printer"></span> <span>Printable version</span><kbd class="citizen-keyboard-hint-key">alt ⇧ p</kbd></a></li><li class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;oldid=1310397" title="Permanent link to this revision of this page"><span class="citizen-ui-icon mw-ui-icon-link mw-ui-icon-wikimedia-link"></span> <span>Permanent link</span></a></li><li class="mw-list-item"><a href="https://pzwiki.net/w/index.php?title=Mod_optimization&amp;action=info" title="More information about this page"><span class="citizen-ui-icon mw-ui-icon-infoFilled mw-ui-icon-wikimedia-infoFilled"></span> <span>Page information</span></a></li>
+		<li class="mw-list-item mw-list-item-js"><a href="https://pzwiki.net/wiki/Mod_optimization#" title="Expand all collapsible elements on the current page" role="button" aria-expanded="false"><span>Expand all</span></a></li></ul>
+		
+	</div></nav>
+
+		</div>
+	</aside>
+</div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":133,"wgPageParseReport":{"limitreport":{"cputime":"0.159","walltime":"0.212","ppvisitednodes":{"value":5378,"limit":1000000},"postexpandincludesize":{"value":47068,"limit":2097152},"templateargumentsize":{"value":32799,"limit":2097152},"expansiondepth":{"value":19,"limit":100},"expensivefunctioncount":{"value":23,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":46083,"limit":5000000},"timingprofile":["100.00%  119.704      1 -total"," 47.60%   56.978     35 Template:Ll"," 42.08%   50.368    101 Template:Yesno"," 36.87%   44.130      1 Template:Navbar_modding"," 36.27%   43.411      1 Template:Navbar/sandbox"," 19.39%   23.211     23 Template:CodeSnip"," 16.29%   19.505      1 Template:LangSwitch"," 14.27%   17.079     18 Template:LangSwitch/core"," 10.70%   12.811      1 Template:Navbox_modding"," 10.58%   12.664      1 Template:Page_version"]},"scribunto":{"limitreport-timeusage":{"value":"0.030","limit":"7"},"limitreport-virtmemusage":{"value":5111808,"limit":52428800},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20260205141303","ttl":86400,"transientcontent":false}}});});</script>
+<script>
+        var ct_checkjs_val = '1f4a5c8aa2bf1b94e13929d6e127cb0d',
+            d = new Date(),
+            ctTimeMs = new Date().getTime(),
+            ctMouseEventTimerFlag = true, //Reading interval flag
+            ctMouseData = "[",
+            ctMouseDataCounter = 0;
+        
+        function ctSetCookie(c_name, value) {
+            document.cookie = c_name + "=" + encodeURIComponent(value) + "; path=/; samesite=lax;";
+        }
+        
+        ctSetCookie("ct_ps_timestamp", Math.floor(new Date().getTime()/1000));
+        ctSetCookie("ct_fkp_timestamp", "0");
+        ctSetCookie("ct_pointer_data", "0");
+        ctSetCookie("ct_timezone", "0");
+        ctSetCookie("ct_checkjs", ct_checkjs_val);        
+        setTimeout(function(){
+            ctSetCookie("ct_timezone", d.getTimezoneOffset()/60*(-1));
+        },1000);
+        
+        //Reading interval
+        var ctMouseReadInterval = setInterval(function(){
+                ctMouseEventTimerFlag = true;
+            }, 150);
+            
+        //Writting interval
+        var ctMouseWriteDataInterval = setInterval(function(){
+                var ctMouseDataToSend = ctMouseData.slice(0,-1).concat("]");
+                ctSetCookie("ct_pointer_data", ctMouseDataToSend);
+            }, 1200);
+        
+        //Stop observing function
+        function ctMouseStopData(){
+            if(typeof window.addEventListener == "function")
+                window.removeEventListener("mousemove", ctFunctionMouseMove);
+            else
+                window.detachEvent("onmousemove", ctFunctionMouseMove);
+            clearInterval(ctMouseReadInterval);
+            clearInterval(ctMouseWriteDataInterval);                
+        }
+        
+        //Logging mouse position each 300 ms
+        var ctFunctionMouseMove = function output(event){
+            if(ctMouseEventTimerFlag === true){
+                var mouseDate = new Date();
+                ctMouseData += "[" + Math.round(event.pageY) + "," + Math.round(event.pageX) + "," + Math.round(mouseDate.getTime() - ctTimeMs) + "],";
+                ctMouseDataCounter++;
+                ctMouseEventTimerFlag = false;
+                if(ctMouseDataCounter >= 100)
+                    ctMouseStopData();
+            }
+        };
+        
+        //Stop key listening function
+        function ctKeyStopStopListening(){
+            if(typeof window.addEventListener == "function"){
+                window.removeEventListener("mousedown", ctFunctionFirstKey);
+                window.removeEventListener("keydown", ctFunctionFirstKey);
+            }else{
+                window.detachEvent("mousedown", ctFunctionFirstKey);
+                window.detachEvent("keydown", ctFunctionFirstKey);
+            }
+        }
+        
+        //Writing first key press timestamp
+        var ctFunctionFirstKey = function output(event){
+            var KeyTimestamp = Math.floor(new Date().getTime()/1000);
+            ctSetCookie("ct_fkp_timestamp", KeyTimestamp);
+            ctKeyStopStopListening();
+        };
+
+        if(typeof window.addEventListener == "function"){
+            window.addEventListener("mousemove", ctFunctionMouseMove);
+            window.addEventListener("mousedown", ctFunctionFirstKey);
+            window.addEventListener("keydown", ctFunctionFirstKey);
+        }else{
+            window.attachEvent("onmousemove", ctFunctionMouseMove);
+            window.attachEvent("mousedown", ctFunctionFirstKey);
+            window.attachEvent("keydown", ctFunctionFirstKey);
+        }</script><noscript><p><b>Please enable JavaScript to pass antispam protection!</b><br />Here are the instructions how to enable JavaScript in your web browser <a href="http://www.enable-javascript.com" rel="nofollow" target="_blank">http://www.enable-javascript.com</a>.<br />Antispam by CleanTalk.</p></noscript><!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u = (("https:" == document.location.protocol) ? "https" : "http") + "://"+"matstats.theindiestone.com//";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "6"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+<!-- Matomo Image Tracker -->
+<noscript><img src="https://matstats.theindiestone.com//piwik.php?idsite=6&rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c961310da9ca139',t:'MTc3MDMzMjk1Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./Mod optimization - PZwiki_files/saved_resource.html"></iframe>
+<div id="mw-teleport-target"><div class="citizen-command-palette-overlay" data-v-app=""><!----> <!----></div></div><script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/wiki/*"},{"href_matches":"/wiki/Special"},{"not":{"href_matches":"/.*.php"}},{"not":{"href_matches":"/*\\?*(^|&)*=*"}},{"not":{"selector_matches":"[rel~=nofollow]"}}]},"eagerness":"moderate"}]}</script><protonpass-root-5676 data-protonpass-role="root" data-protonpass-theme="os"><template shadowrootmode="closed"></template></protonpass-root-5676></body></html>

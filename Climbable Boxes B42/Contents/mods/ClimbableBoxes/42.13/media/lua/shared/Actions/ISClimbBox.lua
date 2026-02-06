@@ -208,15 +208,34 @@ function ISClimbBox:computeOutcome()
     end
 end
 
--- Teleport player to target square
+-- Teleport player on top of the box (Z+1 from box's level)
 function ISClimbBox:teleportPlayer()
+    local x = self.targetSquare:getX()
+    local y = self.targetSquare:getY()
+    local z = self.targetSquare:getZ()
+
+    -- Ensure there's a walkable surface at Z+1 above the box
+    local cell = self.character:getCell()
+    local squareAbove = cell:getGridSquare(x, y, z + 1)
+
+    if squareAbove then
+        if not squareAbove:TreatAsSolidFloor() then
+            -- Set solid floor flag so the player can stand on this square
+            squareAbove:setSolidFloor(true)
+            self.createdPlatform = true
+            print("[ISClimbBox] Set solid floor flag at (" .. x .. "," .. y .. "," .. (z + 1) .. ")")
+        end
+    else
+        print("[ISClimbBox] WARNING: No grid square exists at Z+" .. (z + 1))
+    end
+
     MovePlayer.Teleport(
         self.character,
-        self.targetSquare:getX() + 0.5,
-        self.targetSquare:getY() + 0.5,
-        self.targetSquare:getZ()
+        x + 0.5,
+        y + 0.5,
+        z + 1
     )
-    print("[ISClimbBox] Player teleported to box square")
+    print("[ISClimbBox] Player teleported on top of box (Z+" .. (z + 1) .. ")")
 end
 
 -- Consume endurance, scaled by sandbox multiplier

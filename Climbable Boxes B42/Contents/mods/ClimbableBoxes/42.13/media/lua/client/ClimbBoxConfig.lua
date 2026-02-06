@@ -1,6 +1,7 @@
 ClimbBox = ClimbBox or {}
 ClimbBox.defaultKey = Keyboard.KEY_G  -- Fallback default key
 ClimbBox.Verbose = true  -- Enable debug output
+ClimbBox.wasKeyDown = false  -- For edge detection (key-down only, not key-held)
 
 print("[ClimbBox] Loading keybind config...")
 print("[ClimbBox] ModOptions available: " .. tostring(ModOptions ~= nil))
@@ -24,24 +25,27 @@ else
     print("[ClimbBox] ModOptions not available (PZAPI not installed), using fallback keybind")
 end
 
--- Get key state with fallback to direct keyboard check
+-- Get key state with edge detection (only returns true on key-DOWN, not key-HELD)
 function ClimbBox.getKey()
+    local isDown = false
+
     -- Try ModOptions keybind first
     if ClimbBox.keyBind then
-        local pressed = ClimbBox.keyBind:isPressed()
-        if pressed and ClimbBox.Verbose then
-            print("[ClimbBox] Key detected via ModOptions keybind")
-        end
-        return pressed
+        isDown = ClimbBox.keyBind:isPressed()
+    elseif isClient() or not isServer() then
+        -- Fallback: direct keyboard check using PZ's isKeyDown
+        isDown = isKeyDown(ClimbBox.defaultKey)
     end
 
-    -- Fallback: direct keyboard check using PZ's isKeyDown
-    if isClient() or not isServer() then
-        local pressed = isKeyDown(ClimbBox.defaultKey)
-        if pressed and ClimbBox.Verbose then
-            print("[ClimbBox] Key detected via fallback isKeyDown()")
+    -- Edge detection: only trigger on rising edge (not-pressed -> pressed)
+    if isDown and not ClimbBox.wasKeyDown then
+        ClimbBox.wasKeyDown = true
+        if ClimbBox.Verbose then
+            print("[ClimbBox] Key pressed (edge detected)")
         end
-        return pressed
+        return true
+    elseif not isDown then
+        ClimbBox.wasKeyDown = false
     end
 
     return false

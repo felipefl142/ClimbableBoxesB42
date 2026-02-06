@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A Project Zomboid Build 42.13 mod that lets players climb onto boxes and crates. Players can climb via keybind (default: G) or right-click context menu. The player is teleported to the box's grid square at the same Z-level. Full multiplayer support. Depends on TchernoLib.
+A Project Zomboid Build 42.13 mod that lets players climb onto boxes and crates. Players can climb via keybind (default: G) or right-click context menu. The player is teleported to Z+1 above the box, with a solid floor flag set on the target square so they can stand on top. Full multiplayer support. Depends on TchernoLib.
 
 ## Directory Structure
 
@@ -28,8 +28,9 @@ Climbable Boxes B42/Contents/mods/ClimbableBoxes/
 ## Key Architecture
 
 - **Box detection**: Property-based using `IsMoveAble` flag + `ContainerType` property (not sprite name lists)
-- **Target**: Adjacent square at same Z-level (unlike Climb mod which targets Z+1)
-- **Animation state machine**: ClimbBoxStart (with events at 30%/90%) -> Success/Struggle/Fail -> End
+- **Target**: Adjacent square at Z+1 (on top of the box). Uses `setSolidFloor(true)` on the Z+1 square before teleporting so the player has a walkable surface
+- **Key input**: Edge detection (rising-edge only) prevents key-held spam — `wasKeyDown` flag tracks state
+- **Animation state machine**: Timer-based (tick counter with `maxTime=-1`), `animEvent()` as backup. States: start(45t) -> outcome(+40t) -> ending(+30t) -> complete
 - **Animations**: Reuses `Bob_ClimbFence_*` base game animations
 - **MP sync**: `sendClientCommand`/`OnClientCommand` pattern for endurance
 
@@ -46,6 +47,8 @@ These are critical — B42.13 changed many APIs from B42:
 | Square flags | `square:has(IsoFlagType.X)` |
 | Player direction | `character:getDir()` returns IsoDirections (N/NE/E/SE/S/SW/W/NW) |
 | Animation events | XML `<name>` must match Lua event handler checks |
+| Grid square floors | `square:addFloor(spriteName)`, `square:setSolidFloor(bool)`, `square:TreatAsSolidFloor()` |
+| Key input | `isKeyDown(key)` returns true every frame while held — use edge detection |
 
 ## Critical Bug Fixes & Lessons Learned
 
@@ -169,6 +172,38 @@ elseif dir == IsoDirections.E then
 - ClimbBoxStruggle.xml: event "ClimbBoxStruggle" at 95%
 - ClimbBoxFail.xml: event "ClimbBoxFail" at 95%
 - ClimbBoxEnd.xml: event "ClimbBoxEnd" at 95%
+
+### Teleport Z-Level Fix (2026-02-06)
+
+**Problem:** Player teleported "inside" the box (same Z-level), then with Z+1 fix the player briefly appeared above but fell back down through the empty square.
+
+**Root Cause:** PZ Z-levels are full floors. Z+1 above an outdoor box has no floor surface, so the player falls back to Z=0. The Climb mod's Z+1 works because walls connect actual building floors.
+
+**Solution:** Before teleporting, set `setSolidFloor(true)` on the Z+1 grid square:
+
+```lua
+local squareAbove = cell:getGridSquare(x, y, z + 1)
+if squareAbove and not squareAbove:TreatAsSolidFloor() then
+    squareAbove:setSolidFloor(true)
+end
+```
+
+**Key IsoGridSquare Floor APIs:**
+- `addFloor(spriteName)` — Creates a visible floor object (returns IsoObject)
+- `setSolidFloor(bool)` — Sets walkable flag without adding visible geometry
+- `TreatAsSolidFloor()` — Checks if square is considered walkable
+- `isSolidFloor()` / `setSolidFloorCached(bool)` — Cached solid floor state
+
+**Known limitation:** The solid floor flag persists after player leaves. Cleanup logic needed.
+
+### Key Spam Fix (2026-02-06)
+
+**Problem:** `isKeyDown()` returns true every frame while the key is held, causing the climb action to trigger repeatedly every tick (~13ms).
+
+**Solution:** Added rising-edge detection in `ClimbBoxConfig.lua`:
+- `wasKeyDown` boolean tracks previous frame's key state
+- `getKey()` only returns true on the transition from not-pressed to pressed
+- While key is held, subsequent frames return false
 
 ### Box Detection via Context Menu vs Keybind
 
